@@ -32,6 +32,26 @@
         v-model="user.confirmPassword"
         required
       />
+      <input
+        type="radio"
+        id="roleUser"
+        class="form-control"
+        name="set_role"
+        value="user"
+        v-model="user.role"
+        required
+      />
+      <label for="roleUser">Brew-Lover</label>
+      <input
+        type="radio"
+        id="roleBrewer"
+        class="form-control"
+        name="set_role"
+        value="brewer"
+        v-model="user.role"
+        required
+      />
+      <label for="roleBrewer">Brewer</label>
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
@@ -51,7 +71,7 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
-        role: 'user',
+        role: '',
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
