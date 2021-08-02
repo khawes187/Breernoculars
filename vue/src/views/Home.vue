@@ -1,10 +1,12 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
-    <p>User Name: {{currentUser.username}}</p>
-    <p>User Id: {{currentUser.userId}}</p>
-    <p>Role: {{currentUser.role}}</p>
+    <header>
+      <h1>Working Title</h1>
+    </header>
+    <div class="breweries">
+      <router-link v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.name">{{brewery.name}}</router-link>
+      <button v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.name" onclick="var displayBrewery = brewery.name">{{brewery.name}}</button>
+    </div>
   </div>
 </template>
 
@@ -18,3 +20,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+header {
+  grid-area: header;
+}
+
+div.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+    ". header ."
+  ;
+  height: 100vh;
+  grid-gap: 10px;
+}
+</style>

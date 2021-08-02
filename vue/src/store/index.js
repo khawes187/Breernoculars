@@ -19,7 +19,23 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    breweries: [
+    {
+      name: 'Terrestrial Brewing Company',
+      address: '7524 Father Frascati, Cleveland, OH 44102',
+      phone: '(216) 465-9999',
+      hours: 'Hours: Monday, 4-11 | Tuesday, 4-11 | Wednesday, 4-11 | Thursday, 4-11 | Friday, 4-11 | Saturday, 4-11 | Sunday, 4-11',
+      description: 'Chic brewery & taproom with plenty of patio seating offering adventurous house beers.'
+    },
+    {
+      name: 'Terrestrial Brewing Company',
+      address: '7524 Father Frascati, Cleveland, OH 44102',
+      phone: '(216) 465-9999',
+      hours: 'Hours: Monday, 4-11 | Tuesday, 4-11 | Wednesday, 4-11 | Thursday, 4-11 | Friday, 4-11 | Saturday, 4-11 | Sunday, 4-11',
+      description: 'Chic brewery & taproom with plenty of patio seating offering adventurous house beers.'
+    }
+  ]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

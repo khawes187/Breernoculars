@@ -8,3 +8,19 @@
     <router-view />
   </div>
 </template>
+
+<style scoped>
+div#app {
+  grid-area: app;
+}
+
+div#nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+    ". . app"
+  ;
+  grid-gap: 10px;
+  text-align: right;
+}
+</style>
