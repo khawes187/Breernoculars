@@ -4,7 +4,6 @@
       <h1>Working Title</h1>
     </header>
     <div class="breweries">
-      <router-link v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.name">{{brewery.name}}</router-link>
       <button v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.name" onclick="var displayBrewery = brewery.name">{{brewery.name}}</button>
     </div>
   </div>

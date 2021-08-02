@@ -15,7 +15,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <label for="password" class="sr-always">Password</label>
       <input
         type="password"
         id="password"
@@ -110,4 +110,26 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+#register {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: flex-end;
+}
+
+#sr-only {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sr-always {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
