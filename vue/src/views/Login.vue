@@ -1,5 +1,5 @@
 <template>
-<body>
+<body class="body">
   <img src="../images/image.png" width="100%" height="100%" alt="Beer next to hops">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
@@ -89,7 +89,9 @@ export default {
 img {
   opacity: 0.9;
 }
-
+.body{
+  background-color: black;
+}
 #login {
   display:flex;
   justify-content: center;
