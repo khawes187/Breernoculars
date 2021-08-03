@@ -8,6 +8,10 @@ export default {
 
   getBrewery(breweryId) {
       return http.get(`/boards/${breweryId}`);
-  }
+  },
+
+  getBreweries() {
+    return axios.get('/breweries');
+  },
 
 }
