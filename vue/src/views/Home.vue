@@ -1,19 +1,23 @@
 <template>
+
   <div class="home">
     <header>
       <h1>Working Title</h1>
     </header>
-    <div class="loading" v-if="isLoading = true">
-      <img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
+  
+    <div class="loading" v-if="isLoading">
+      <img class="lazy" src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
     </div>
       <!-- The code above this is working with the "= true" how do we get it to work without it? -->
     <div class="breweries">
       <button v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.name" onclick="var displayBrewery = brewery.name">{{brewery.name}}</button>
     </div>
   </div>
+  
 </template>
 
 <script>
+import authService from '../services/AuthService'
 export default {
   name: "home",
   computed: {
@@ -27,7 +31,10 @@ export default {
     }
   },
   created() {
+    authService.getbreweries().then(response => {
+    this.breweries = response.data;
     this.isLoading = false;
+    })    
   }
 };
 </script>
@@ -54,11 +61,13 @@ div.breweries{
   background-image: "../images/beer-2439237_960_720.webp";
 }
 div.loading {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  top: 50%;
-  bottom: 50%;
-  grid-area: loading;
+  flex: 3;
+  
+}
+img.lazy {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  z-index: 100;
 }
 </style>
