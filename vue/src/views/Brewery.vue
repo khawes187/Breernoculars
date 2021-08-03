@@ -1,6 +1,7 @@
 <template>
 <body>
     <h1>Brewery Name</h1> <!-- Do we want to just make this a link to the bewery? -->
+    
     <h2>Brewery Information</h2>
     <ul class="breweryInfo">
         <li>Date Established</li>
