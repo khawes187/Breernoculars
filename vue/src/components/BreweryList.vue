@@ -6,14 +6,14 @@
         <img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
       </div>
       <div
-        class="board"
-        v-for="board in boards"
-        v-bind:key="board.id"
-        v-bind:style="{ 'background-color': board.backgroundColor }"
+        class="brewery"
+        v-for="brewery in breweries"
+        v-bind:key="brewery.id"
+        v-bind:style="{ 'background-color': brewery.backgroundColor }"
         v-else
       >
-        <router-link v-bind:to="{ name: 'Board', params: { id: board.id } }">
-          {{ board.title }}
+        <router-link v-bind:to="{ name: 'Brewery', params: { id: brewery.id } }">
+          {{ brewery.title }}
         </router-link>
       </div>
     </div>
