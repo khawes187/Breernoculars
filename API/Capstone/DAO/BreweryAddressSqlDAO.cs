@@ -49,12 +49,12 @@ namespace Capstone.DAO
         private BreweryAddress GetBreweryAddressFromReader(SqlDataReader reader)
         {
             BreweryAddress breweryAddress = new BreweryAddress();
-            breweryAddress.AddressId = Convert.ToInt32(reader["breweryId"]);
-            breweryAddress.StreetAddress = Convert.ToString(reader["breweryName"]);
-            breweryAddress.City = Convert.ToString(reader["addressId"]);
-            breweryAddress.StateOrTerritory = Convert.ToString(reader["phoneNumber"]);
-            breweryAddress.Country = Convert.ToString(reader["website"]);
-            breweryAddress.PostalCode = Convert.ToString(reader["history"]);
+            breweryAddress.AddressId = Convert.ToInt32(reader["addressId"]);
+            breweryAddress.StreetAddress = Convert.ToString(reader["streetAddress"]);
+            breweryAddress.City = Convert.ToString(reader["city"]);
+            breweryAddress.StateOrTerritory = Convert.ToString(reader["stateOrTerritory"]);
+            breweryAddress.Country = Convert.ToString(reader["country"]);
+            breweryAddress.PostalCode = Convert.ToString(reader["postalCode"]);
 
             return breweryAddress;
         }
