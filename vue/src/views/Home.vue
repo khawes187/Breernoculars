@@ -9,7 +9,7 @@
       <img class="lazy" src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
     </div>
     <div>
-      <breweriesList />
+      <breweryList />
     </div>  
       <!-- The code above this is working with the "= true" how do we get it to work without it? -->
     <!--<div class="breweries">

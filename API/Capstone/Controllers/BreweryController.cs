@@ -21,7 +21,7 @@ namespace Capstone.Controllers
             BreweryAddressDAO = _breweryAddressDAO;
             BreweryDAO = _breweryDAO;
         }
-    
+
         [HttpGet]
         public ActionResult<List<Brewery>> SendBreweries()
         {
@@ -35,13 +35,19 @@ namespace Capstone.Controllers
 
                 finalList.Add(brewery);
             }
-
             return finalList;
-        
         }
-    
-    
-    
-    
+
+        //[HttpGet]
+        //public List<Brewery> GetBreweries()
+        //{
+        //    List<Brewery> blist = BreweryDAO.GetBreweries();
+
+        //    return blist;            
+        //}
+
+
+
+
     }
 }
