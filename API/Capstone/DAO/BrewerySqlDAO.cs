@@ -29,7 +29,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, (SELECT addressId FROM BreweryAddress WHERE BreweryAddress.addressId = Brewery.breweryAddressId), phoneNumber, website, dateEstablished, history FROM Brewery", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddressId, phoneNumber, website, dateEstablished, history FROM Brewery", conn);
          
                     SqlDataReader reader = cmd.ExecuteReader();
 
