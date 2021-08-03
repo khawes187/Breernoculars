@@ -83,6 +83,11 @@ export default {
 </script>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap');
+
 #login {
   display: flex;
   justify-content: center;
@@ -93,10 +98,33 @@ export default {
   align-items: flex-end;
 }
 
+h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 84px;
+}
+
 .sr-only {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+input {
+  font-family: 'Open Sans', sans-serif;
+  resize: horizontal;
+  width: 500px;
+  height: 25px;
+  text-align: center;
+}
+
+input:active {
+  width: auto;
+}
+
+input:focus {
+  min-width: 200px
 }
 
 .return-button {
