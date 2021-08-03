@@ -20,6 +20,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    
     breweries: [
     {
       name: 'Terrestrial Brewing Company',
