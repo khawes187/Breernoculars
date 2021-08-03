@@ -109,7 +109,7 @@ namespace Capstone.DAO
             Brewery brewery = new Brewery();
             brewery.BreweryId = Convert.ToInt32(reader["breweryId"]);
             brewery.BreweryName = Convert.ToString(reader["breweryName"]);
-            brewery.BreweryAddressId = Convert.ToString(reader["breweryAddressId"]);
+            brewery.BreweryAddressId = Convert.ToInt32(reader["breweryAddressId"]);
             brewery.PhoneNumber = Convert.ToString(reader["phoneNumber"]);
             brewery.Website = Convert.ToString(reader["website"]);
             brewery.DateEstablished = Convert.ToString(reader["dateEstablished"]);

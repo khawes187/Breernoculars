@@ -66,7 +66,7 @@ namespace Capstone.DAO
 
                     if (reader.Read())
                     {
-                        returnBeer = GetBeerFromReader(reader);\
+                        returnBeer = GetBeerFromReader(reader);
                         return returnBeer;
                     }
                 }
@@ -115,7 +115,6 @@ namespace Capstone.DAO
 
                 cmd.ExecuteNonQuery();
             }
-
         }
 
         private Beer GetBeerFromReader(SqlDataReader reader)

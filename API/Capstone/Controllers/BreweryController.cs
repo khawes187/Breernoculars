@@ -21,29 +21,35 @@ namespace Capstone.Controllers
             BreweryAddressDAO = _breweryAddressDAO;
             BreweryDAO = _breweryDAO;
         }
-    
+
+        //[HttpGet]
+        //public ActionResult<List<Brewery>> SendBreweries()
+        //{
+        //    List<Brewery> rawList = BreweryDAO.GetBreweries();
+        //    List<Brewery> finalList = new List<Brewery>();
+
+
+        //    foreach (Brewery brewery in rawList)
+        //    {
+        //        BreweryAddress address = BreweryAddressDAO.GetAddress(brewery.BreweryAddressId);
+
+        //        brewery.BreweryAddressId = Convert.ToString(address);
+
+        //        finalList.Add(brewery);
+        //    }
+        //    return finalList;
+        //}
+
         [HttpGet]
-        public ActionResult<List<Brewery>> SendBreweries()
+        public List<Brewery> GetBreweries()
         {
-            List<Brewery> rawList = BreweryDAO.GetBreweries();
-            List<Brewery> finalList = new List<Brewery>();
+            List<Brewery> blist = BreweryDAO.GetBreweries();
 
-
-            foreach (Brewery brewery in rawList)
-            {
-                BreweryAddress address = BreweryAddressDAO.GetAddress(brewery.BreweryAddressId);
-
-                brewery.BreweryAddressId = Convert.ToString(address);
-
-                finalList.Add(brewery);
-            }
-
-            return finalList;
-        
+            return blist;            
         }
-    
-    
-    
-    
+
+
+
+
     }
 }
