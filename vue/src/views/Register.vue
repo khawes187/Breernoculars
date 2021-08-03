@@ -1,4 +1,6 @@
 <template>
+<body>
+  <img src="../images/register.jpg" width="100%" height="100%" alt="Beer pouring from a tap">
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -15,7 +17,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-always">Password</label>
+      <label for="password" class="sr-only">Password</label>
       <input
         type="password"
         id="password"
@@ -52,12 +54,13 @@
         required
       />
       <label for="roleBrewer">Brewer</label>
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <router-link :to="{ name: 'login' }" tag="button">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
     </form>
   </div>
+</body>
 </template>
 
 <script>
@@ -111,6 +114,11 @@ export default {
 </script>
 
 <style scoped>
+
+img {
+  opacity: 0.9;
+}
+
 #register {
   display: flex;
   justify-content: center;
@@ -118,18 +126,45 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  align-items: flex-end;
 }
 
-#sr-only {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 84px;
 }
 
-#sr-always {
+.sr-only {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
   display: flex;
   justify-content: center;
+  align-items:stretch;
+}
+
+input {
+  font-family: 'Open Sans', sans-serif;
+  resize: horizontal;
+  width: 465px;
+  height: 25px;
+  text-align: center;
   align-items: center;
+  justify-content: center;
+}
+
+input:active {
+  width: auto;
+}
+
+input:focus {
+  min-width: 200px
+}
+
+button {
+  padding: 8px 32px;
+  font-family: 'Open Sans', sans-serif;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: block;  
 }
 </style>

@@ -33,16 +33,10 @@
         v-model="user.password"
         required
       />
-      <!--
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      -->
+      
+      <router-link :to="{ name: 'register' }" tag="button">Need an account?</router-link>
+      
       <button type="submit">Sign in</button>
-   
-    <a href="register">
-        <button class="return-button">
-          Need an account?
-        </button>
-      </a>
       </form>
   </div>
 </body>
@@ -144,6 +138,8 @@ input:focus {
 }
 
 button {
+  padding: 8px 32px;
+  font-family: 'Open Sans', sans-serif;
   justify-content: center;
   align-items: center;
   text-align: center;
