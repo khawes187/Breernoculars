@@ -27,7 +27,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT addressId, streetAddress, city, stateOrTerritoy, county, postalCode FROM BreweryAddress WHERE addressId = @addressId", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT addressId, streetAddress, city, stateOrTerritory, country, postalCode FROM BreweryAddress WHERE addressId = @addressId", conn);
                     cmd.Parameters.AddWithValue("@addressId", addressId);
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -53,7 +53,7 @@ namespace Capstone.DAO
             breweryAddress.StreetAddress = Convert.ToString(reader["breweryName"]);
             breweryAddress.City = Convert.ToString(reader["addressId"]);
             breweryAddress.StateOrTerritory = Convert.ToString(reader["phoneNumber"]);
-            breweryAddress.County = Convert.ToString(reader["website"]);
+            breweryAddress.Country = Convert.ToString(reader["website"]);
             breweryAddress.PostalCode = Convert.ToString(reader["history"]);
 
             return breweryAddress;
