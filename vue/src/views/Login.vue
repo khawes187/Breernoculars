@@ -1,4 +1,6 @@
 <template>
+<body>
+  <img src="../images/image.png" width="100%" height="100%" alt="Beer next to hops">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
@@ -35,13 +37,15 @@
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
       -->
       <button type="submit">Sign in</button>
-    </form>
+   
     <a href="register">
         <button class="return-button">
           Need an account?
         </button>
       </a>
+      </form>
   </div>
+</body>
 </template>
 
 <script>
@@ -83,20 +87,54 @@ export default {
 </script>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap');
+
+img {
+  opacity: 0.9;
+}
+
 #login {
-  display: flex;
+  display:flex;
   justify-content: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  align-items: flex-end;
+  
 }
 
-.sr-only {
+h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 84px;
+}
+
+.sr-only { /* Labels for username and password input boxes */
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
   display: flex;
   justify-content: center;
+  align-items:stretch;
+}
+
+input {
+  font-family: 'Open Sans', sans-serif;
+  resize: horizontal;
+  width: 465px;
+  height: 25px;
+  text-align: center;
   align-items: center;
+  justify-content: center;
+}
+
+input:active {
+  width: auto;
+}
+
+input:focus {
+  min-width: 200px
 }
 
 .return-button {
@@ -106,8 +144,9 @@ export default {
 }
 
 button {
-  display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  display: block;  
 }
 </style>

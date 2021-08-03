@@ -62,6 +62,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/brewery",
+      name: "breweries",
+      component: Brewery,
+      meta: {
+        requiresAuth: false
+      }
+    },
   ]
 })
 

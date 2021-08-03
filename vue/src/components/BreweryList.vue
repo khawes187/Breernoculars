@@ -21,9 +21,10 @@
 </template>
 
 <script>
-import breweriesService from '../services/BreweryService';
+import BreweryService from '../services/BreweryService';
 
 export default {
+  name:'brewery-list',
   data() {
     return {
       breweries: [],
@@ -31,10 +32,15 @@ export default {
     };
   },
   created() {
-    breweriesService.getBrewery().then(response => {
-      this.boards = response.data;
-      this.isLoading = false;
-    });
+    this.retrieveBreweries();
+  },
+  methods: {
+    retrieveBreweries() {
+      BreweryService.getBreweries().then(response => {
+        this.$store.commit("SET_BREWERIES", response.data);
+        this.isLoading = false;
+      });
+    },
   }
 };
 </script>

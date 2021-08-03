@@ -9,8 +9,6 @@ export default {
   register(user) {
     return axios.post('/register', user)
   },
-  getBreweries() {
-    return axios.get('/breweries');
-  },
-
+  
+  
 }
