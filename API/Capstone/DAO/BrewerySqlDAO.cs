@@ -48,6 +48,62 @@ namespace Capstone.DAO
             return returnBreweries;
         }
 
+        public void AddBrewery(Brewery brewery)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Brewery (breweryName, breweryAddressId, phoneNumber, website, " +
+                        "dateEstablished, history) VALUES(@beerName, @beerType, @abv, @beerDescription, @beerBreweryId, @seasonal)", conn);
+                    cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
+                    cmd.Parameters.AddWithValue("@breweryAddressId", brewery.BreweryAddressId);
+                    cmd.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@website", brewery.Website);
+                    cmd.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
+                    cmd.Parameters.AddWithValue("@history", brewery.History);
+                    
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
+        }
+
+        public void UpdateBrewery(Brewery brewery)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("UPDATE dbo.Brewery SET breweryName = @breweryName, breweryAddressId = " +
+                        "@breweryAddressId, phoneNumber = @phoneNumber, website = @website, dateEstablished = @dateEstablished, " +
+                        "history = @history)", conn);
+                    cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
+                    cmd.Parameters.AddWithValue("@breweryAddressId", brewery.BreweryAddressId);
+                    cmd.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@website", brewery.Website);
+                    cmd.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
+                    cmd.Parameters.AddWithValue("@history", brewery.History);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
+        }
+
         private Brewery GetBreweryFromReader(SqlDataReader reader)
         {
             Brewery brewery = new Brewery();
