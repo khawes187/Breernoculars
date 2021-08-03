@@ -89,9 +89,7 @@ export default {
 img {
   opacity: 0.9;
 }
-.body{
-  background-color: black;
-}
+
 #login {
   display:flex;
   justify-content: center;
