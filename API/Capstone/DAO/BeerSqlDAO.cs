@@ -66,7 +66,7 @@ namespace Capstone.DAO
 
                     if (reader.Read())
                     {
-                        returnBeer = GetBeerFromReader(reader);\
+                        returnBeer = GetBeerFromReader(reader);
                         return returnBeer;
                     }
                 }

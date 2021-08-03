@@ -31,9 +31,7 @@ namespace Capstone.Controllers
 
             foreach (Brewery brewery in rawList)
             {
-                BreweryAddress address = BreweryAddressDAO.GetAddress(brewery.BreweryAddressId);
-
-                brewery.BreweryAddressId = Convert.ToString(address);
+                BreweryAddress address = BreweryAddressDAO.GetAddress(brewery.BreweryAddressId);             
 
                 finalList.Add(brewery);
             }
