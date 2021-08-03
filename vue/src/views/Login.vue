@@ -1,4 +1,6 @@
 <template>
+<body>
+  <img src="../images/image.png" width="100%" height="100%" alt="Beer next to hops">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
@@ -43,6 +45,7 @@
       </a>
       </form>
   </div>
+</body>
 </template>
 
 <script>
@@ -89,6 +92,10 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap');
 
+img {
+  opacity: 0.9;
+}
+
 #login {
   display:flex;
   justify-content: center;
@@ -115,7 +122,7 @@ h1 {
 input {
   font-family: 'Open Sans', sans-serif;
   resize: horizontal;
-  width: 500px;
+  width: 465px;
   height: 25px;
   text-align: center;
   align-items: center;
