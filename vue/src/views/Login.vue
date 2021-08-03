@@ -37,12 +37,13 @@
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
       -->
       <button type="submit">Sign in</button>
-    </form>
+   
     <a href="register">
         <button class="return-button">
           Need an account?
         </button>
       </a>
+      </form>
   </div>
 </body>
 </template>
@@ -96,13 +97,13 @@ img {
 }
 
 #login {
-  display: flex;
+  display:flex;
   justify-content: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  align-items: flex-end;
+  
 }
 
 h1 {
@@ -110,12 +111,12 @@ h1 {
   font-size: 84px;
 }
 
-.sr-only {
+.sr-only { /* Labels for username and password input boxes */
   font-family: 'Open Sans', sans-serif;
   font-size: 36px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items:stretch;
 }
 
 input {
@@ -124,6 +125,8 @@ input {
   width: 465px;
   height: 25px;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 input:active {
@@ -141,8 +144,9 @@ input:focus {
 }
 
 button {
-  display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  display: block;  
 }
 </style>
