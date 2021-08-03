@@ -48,6 +48,36 @@ namespace Capstone.DAO
             return returnBeers;
         }
 
+        public Beer GetBeer(int beerId)
+        {
+            Beer returnBeer = new Beer();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT beerName, beerType, abv, beerDescription, seasonal " +
+                        "FROM dbo.Beer WHERE beerId = @beerId", conn);
+                    cmd.Parameters.AddWithValue("@beerId", beerId);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        returnBeer = GetBeerFromReader(reader);\
+                        return returnBeer;
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            return returnBeer;
+        }
+
         public void AddBeer(Beer beer)
         {
             try
@@ -72,6 +102,19 @@ namespace Capstone.DAO
             {
                 throw;
             }
+        }
+
+        public void DeleteBeer(int beerId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("DELETE FROM dbo.Beer WHERE beerId = @beerId)", conn);
+                cmd.Parameters.AddWithValue("@beerId", beerId);
+
+                cmd.ExecuteNonQuery();
+            }
 
         }
 
@@ -85,8 +128,8 @@ namespace Capstone.DAO
             beer.BeerDescription = Convert.ToString(reader["beerDescription"]);
             beer.BeerBreweryId = Convert.ToInt32(reader["beerBreweryId"]);
             beer.Seasonal = Convert.ToString(reader["seasonal"]);
-                
-            return beer;  
+
+            return beer;
         }
 
     }
