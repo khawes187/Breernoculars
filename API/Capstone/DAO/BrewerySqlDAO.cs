@@ -84,17 +84,21 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("UPDATE dbo.Brewery SET breweryName = @breweryName, breweryAddressId = " +
-                        "@breweryAddressId, phoneNumber = @phoneNumber, website = @website, dateEstablished = @dateEstablished, " +
-                        "history = @history)", conn);
-                    cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
-                    cmd.Parameters.AddWithValue("@breweryAddressId", brewery.BreweryAddressId);
-                    cmd.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
-                    cmd.Parameters.AddWithValue("@website", brewery.Website);
-                    cmd.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
-                    cmd.Parameters.AddWithValue("@history", brewery.History);
+                    //SqlCommand cmd = new SqlCommand("SELECT addressId FROM dbo.BreweryAddress JOIN dbo.Brewery ON breweryAddressId " +
+                    //    "= addressId WHERE Brewery.breweryId = @breweryId");
+                    //// GET addressId to use for brewery
 
-                    cmd.ExecuteNonQuery();
+                    SqlCommand cmd2 = new SqlCommand("UPDATE dbo.Brewery SET breweryName = @breweryName," +
+                        " phoneNumber = @phoneNumber, website = @website, dateEstablished = @dateEstablished, " +
+                        "history = @history)", conn);
+                    cmd2.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
+                    //cmd.Parameters.AddWithValue("@breweryAddressId", brewery.BreweryAddressId); no need to update ID
+                    cmd2.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
+                    cmd2.Parameters.AddWithValue("@website", brewery.Website);
+                    cmd2.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
+                    cmd2.Parameters.AddWithValue("@history", brewery.History);
+
+                    cmd2.ExecuteNonQuery();
                 }
             }
             catch (SqlException)
