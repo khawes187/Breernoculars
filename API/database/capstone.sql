@@ -22,6 +22,7 @@ CREATE TABLE users (
 	salt varchar(200) NOT NULL,
 	user_role varchar(50) NOT NULL
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
+
 )
 
 --populate default data
@@ -71,9 +72,14 @@ Create Table Beer
 
 Create Table UserBrewery 
 (
-	userId int not null,
-	breweryId int not null,
+	 
+	/*ADD CONSTRAINT chk_role CHECK (user_role = 'brewer'),*/
 
+	userBrewery int Identity(100, 1) not null,
+	userId int not null,
+	breweryId int not null
+
+	constraint pk_userBrewery primary key (userBrewery),
 	constraint fk_userId foreign key (userId) references users(user_id),
 	constraint fk_breweryId foreign key (breweryId) references Brewery(breweryId)
 );
