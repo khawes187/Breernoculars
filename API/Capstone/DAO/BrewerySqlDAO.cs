@@ -29,7 +29,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT breweryId, BreweryName, (SELECT addressId FROM BreweryAddress WHERE BreweryAddress.addressId = Brewery.addressId), phoneNumber, website, history, (SELECT beerId FROM Beer WHERE Beer.beerId = Brewery.beerId) FROM Brewery", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, (SELECT addressId FROM BreweryAddress WHERE BreweryAddress.addressId = Brewery.breweryAddressId), phoneNumber, website, dateEstablished, history FROM Brewery", conn);
          
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -53,11 +53,11 @@ namespace Capstone.DAO
             Brewery brewery = new Brewery();
             brewery.BreweryId = Convert.ToInt32(reader["breweryId"]);
             brewery.BreweryName = Convert.ToString(reader["breweryName"]);
-            brewery.AddressId = Convert.ToInt32(reader["addressId"]);
+            brewery.BreweryAddressId = Convert.ToInt32(reader["breweryAddressId"]);
             brewery.PhoneNumber = Convert.ToString(reader["phoneNumber"]);
             brewery.Website = Convert.ToString(reader["website"]);
+            brewery.DateEstablished = Convert.ToString(reader["dateEstablished"]);
             brewery.History = Convert.ToString(reader["history"]);
-            brewery.BeerListId = Convert.ToInt32(reader["beerListId"]);
 
             return brewery;
         }

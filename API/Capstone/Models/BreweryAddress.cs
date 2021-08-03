@@ -8,7 +8,7 @@ namespace Capstone.Models
         public string StreetAddress { get; set; }
         public string City { get; set; }
         public string StateOrTerritory { get; set; }
-        public string County { get; set; }
+        public string Country { get; set; }
         public string PostalCode { get; set; }
     }
 }
