@@ -11,7 +11,7 @@
       <img class="lazy" src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
     </div>
     <div>
-      <breweryList />
+      <brewery-list />
     </div>  
     <!--<div class="breweries">
       <button v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.name" onclick="var displayBrewery = brewery.name">{{brewery.name}}</button>
@@ -21,9 +21,9 @@
 </template>
 
 <script>
-/* import breweryList from '@/components/BreweryList' */
+import BreweryList from '@/components/BreweryList';
 export default {
-  /* components: {breweryList}, */
+  components: {BreweryList},
   name: "home",
   computed: {
     currentUser() {
