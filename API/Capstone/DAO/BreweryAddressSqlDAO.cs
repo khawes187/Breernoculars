@@ -17,7 +17,7 @@ namespace Capstone.DAO
             connectionString = dbConnectionString;
         }
 
-        public BreweryAddress GetAddress(int addressId)
+        public BreweryAddress GetAddress(string addressId)
         {
             BreweryAddress returnBreweryAddress = new BreweryAddress();
 
