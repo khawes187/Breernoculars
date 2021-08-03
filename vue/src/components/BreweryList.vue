@@ -8,13 +8,17 @@
       <div
         class="brewery"
         v-for="brewery in breweries"
-        v-bind:key="brewery.id"
-        v-bind:style="{ 'background-color': brewery.backgroundColor }"
-        v-else
-      >
-        <router-link v-bind:to="{ name: 'Brewery', params: { id: brewery.id } }">
+        v-bind:key="brewery.breweryId"   
+        v-else>
+        <h3>{{brewery.breweryName}}</h3>
+        <p>{{brewery.breweryAddressId}}</p>
+        <p>{{brewery.phoneNumber}}</p>
+        <p>{{brewery.website}}</p>
+        <p>{{brewery.history}}</p>
+        <p>{{brewery.dateEstablished}}</p>
+        <!--<router-link v-bind:to="{ name: 'Brewery', params: { id: brewery.id } }">
           {{ brewery.title }}
-        </router-link>
+        </router-link>-->
       </div>
     </div>
   </div>

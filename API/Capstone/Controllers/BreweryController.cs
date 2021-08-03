@@ -26,27 +26,9 @@ namespace Capstone.Controllers
         public ActionResult<List<Brewery>> SendBreweries()
         {
             List<Brewery> rawList = BreweryDAO.GetBreweries();
-            List<Brewery> finalList = new List<Brewery>();
+            return rawList;
 
-
-            foreach (Brewery brewery in rawList)
-            {
-                BreweryAddress address = BreweryAddressDAO.GetAddress(brewery.BreweryAddressId);             
-
-                finalList.Add(brewery);
-            }
-            return finalList;
         }
-
-        //[HttpGet]
-        //public List<Brewery> GetBreweries()
-        //{
-        //    List<Brewery> blist = BreweryDAO.GetBreweries();
-
-        //    return blist;            
-        //}
-
-
 
 
     }
