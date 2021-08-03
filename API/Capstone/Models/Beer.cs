@@ -7,9 +7,9 @@ namespace Capstone.Models
         public int BeerId { get; set; }
         public string BeerName { get; set; }
         public string BeerType { get; set; }
-        public int ABV { get; set; }
+        public decimal ABV { get; set; }
         public string BeerDescription { get; set; }
-        public string BeerBreweryId { get; set; }
+        public int BeerBreweryId { get; set; }
         public string Seasonal { get; set; }
 
     }
