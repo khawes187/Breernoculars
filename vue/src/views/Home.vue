@@ -1,28 +1,29 @@
-<template>
-
-  <div class="home">
+<template class="template">
+<body>
+   <div class="home">
     <header>
       <h1>Working Title</h1>
     </header>
-  
+    
+    <img class="background" src="../images/beer-2439237_960_720.webp" width="100%" height="100%" alt="homepage image">
+
     <div class="loading" v-if="isLoading">
       <img class="lazy" src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
     </div>
     <div>
-      <breweryList />
+      <brewery-list />
     </div>  
-      <!-- The code above this is working with the "= true" how do we get it to work without it? -->
     <!--<div class="breweries">
       <button v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.name" onclick="var displayBrewery = brewery.name">{{brewery.name}}</button>
     </div>-->
   </div>
-  
+  </body>
 </template>
 
 <script>
-import breweryList from '@/components/BreweryList'
+import BreweryList from '@/components/BreweryList';
 export default {
-  components: {breweryList},
+  components: {BreweryList},
   name: "home",
   computed: {
     currentUser() {
@@ -34,26 +35,39 @@ export default {
       isLoading: true
     }
   },
+  created(){
+    this.isLoading = false;
+  }
 
 };
 </script>
 
 <style scoped>
+.template{
+  background-color: black;
+}
 header {
   grid-area: header;
-}
+  text-align: center;
 
+}
+h1 {
+  color: white;
+}
+.background {
+  grid-area: backgroundPic;
+}
 div.home {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: auto auto auto;
   grid-template-areas: 
-    ". header ."
+    "header header header"
+    "backgroundPic backgroundPic backgroundPic"
     "loading loading loading"
   ;
   height: 100vh;
   grid-gap: 10px;
-  background-image: "../images/beer-2439237_960_720.webp";
-  /* Background-image does not work */
+  background-color: black;
   
 }
 div.breweries{
