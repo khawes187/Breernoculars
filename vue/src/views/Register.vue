@@ -1,13 +1,13 @@
 <template>
 <body>
-  <img src="../images/register.jpg" width="100%" height="100%" alt="Beer pouring from a tap">
+  <img class="backgroundimage" src="../images/register.jpg" width="100%" height="100%" alt="Beer pouring from a tap">
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="sr-only">Username</label>
+      <label for="username" class="sr-only-un">Username</label>
       <input
         type="text"
         id="username"
@@ -17,7 +17,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <label for="password" class="sr-only-pw">Password</label>
       <input
         type="password"
         id="password"
@@ -43,7 +43,7 @@
         v-model="user.role"
         required
       />
-      <label for="roleUser">Brew-Lover</label>
+      <label class="brewlover" for="roleUser">Brew-Lover</label>
       <input
         type="radio"
         id="roleBrewer"
@@ -53,7 +53,7 @@
         v-model="user.role"
         required
       />
-      <label for="roleBrewer">Brewer</label>
+      <label class="brewer" for="roleBrewer">Brewer</label>
       <router-link :to="{ name: 'login' }" tag="button">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
@@ -114,34 +114,69 @@ export default {
 </script>
 
 <style scoped>
+.backgroundimage {
+  min-height: 100%;
+  min-width: 1024px;
 
-img {
-  opacity: 0.9;
+  width:100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.6;
 }
-
 #register {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  /* justify-content: center; */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  grid-template-columns: auto auto;
+  grid-template-areas: 
+    "createAccount createAccount"
+    "loginName loginName"
+    "usernameInput usernameInput"
+    "loginPass passwordInput"
+    "brewLover brewer"
+    "button button";
 }
-
+ 
 h1 {
   font-family: 'Lobster', cursive;
   font-size: 84px;
+  grid-area: createAccount;
 }
 
-.sr-only {
+label.sr-only-un {
   font-family: 'Open Sans', sans-serif;
   font-size: 36px;
   display: flex;
   justify-content: center;
   align-items:stretch;
+  grid-area: loginName
+}
+label.sr-only-pw {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  align-items:stretch;
+  grid-area: loginPass
 }
 
-input {
+input#username.form-control {
+  font-family: 'Open Sans', sans-serif;
+  resize: horizontal;
+  width: 465px;
+  height: 25px;
+  text-align: center;
+  /* align-items: center;
+  justify-content: center; */
+  grid-area:usernameInput
+}
+
+input#password.form-control {
   font-family: 'Open Sans', sans-serif;
   resize: horizontal;
   width: 465px;
@@ -149,22 +184,32 @@ input {
   text-align: center;
   align-items: center;
   justify-content: center;
+  grid-area: passwordInput;
 }
 
-input:active {
-  width: auto;
+label.brewlover{
+  grid-area: brewLover;
 }
-
-input:focus {
-  min-width: 200px
+label.brewer{
+  grid-area: brewer;
 }
-
-button {
+/* button {
   padding: 8px 32px;
   font-family: 'Open Sans', sans-serif;
   justify-content: center;
   align-items: center;
   text-align: center;
   display: block;  
+  grid-area: button;
+} */
+
+/* input:active {
+  width: auto;
 }
+
+input:focus {
+  min-width: 200px
+} */
+
+
 </style>

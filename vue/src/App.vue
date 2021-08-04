@@ -55,7 +55,7 @@ div#nav {
 button.add{
   background-color: #4CAF50; 
   color: black;
-  padding: 15px 15px;
+  padding: 5px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -65,7 +65,7 @@ button.add{
 button.delete{
   background-color: #f44336;
   color: black;
-  padding: 15px 15px;
+  padding: 5px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

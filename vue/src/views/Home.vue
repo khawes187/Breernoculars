@@ -5,7 +5,7 @@
       <h1>Working Title</h1>
     </header>
     
-    <img class="background" src="../images/beer-2439237_960_720.webp" width="100%" height="100%" alt="homepage image">
+    <img class="backgroundimage" src="../images/beer-2439237_960_720.webp" width="100%" height="100%" alt="homepage image">
 
     <div class="loading" v-if="isLoading">
       <img class="lazy" src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
@@ -54,8 +54,19 @@ header {
 h1 {
   color: white;
 }
-.background {
+/* .background {
   grid-area: backgroundPic;
+} */
+.backgroundimage {
+  min-height: 100%;
+  min-width: 1024px;
+
+  width:100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.6;
 }
 div.home {
   display: grid;
