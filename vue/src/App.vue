@@ -10,17 +10,17 @@
       <button class="delete">Delete a Beer</button>
     </div>
   
-    <div id="brewerButtons" > <!-- needs linked to role//should this be a router-link? or v-if?-->
+    <!-- <div id="brewerButtons" >  needs linked to role//should this be a router-link? or v-if?
       <button class="add">Add beer to brewery</button>
       <div class="divider"/>
       <button class="delete">Delete beer from brewery</button>
     </div>
     
-    <div id="adminButtons"> <!-- needs linked to role//should this be a router-link? or v-if?-->
+    <div id="adminButtons">  needs linked to role//should this be a router-link? or v-if?
       <button class="add">Add a Brewer</button>
       <div class="divider"/>
       <button class="delete">Delete a Brewer</button>
-    </div>
+    </div> --> 
     <div id="loginOrOut">
       <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
