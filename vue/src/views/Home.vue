@@ -67,7 +67,6 @@ h1 {
 .backgroundimage {
   min-height: 100%;
   min-width: 1024px;
-
   width:100%;
   height: auto;
   position: fixed;
