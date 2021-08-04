@@ -10,7 +10,7 @@
     <div class="loading" v-if="isLoading">
       <img class="lazy" src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
     </div>
-    <div>
+    <div class="breweryList">
       <brewery-list />
     </div>  
     <!--<div class="breweries">
@@ -43,9 +43,9 @@ export default {
 </script>
 
 <style scoped>
-.template{
+/* .template{
   background-color: black;
-}
+} */
 header {
   grid-area: header;
   text-align: center;
@@ -66,24 +66,26 @@ h1 {
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0.6;
+  opacity: 0.4;
 }
-div.home {
+ div.home {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-areas: 
     "header header header"
-    "backgroundPic backgroundPic backgroundPic"
     "loading loading loading"
   ;
   height: 100vh;
   grid-gap: 10px;
-  background-color: black;
-  
-}
+ }
+ .breweryList{
+   background-color: blanchedalmond;
+ }
+  /*
+
 div.breweries{
   background-image: "../images/beer-2439237_960_720.webp";
-}
+}*/
 div.loading {
   flex: 3;
   
