@@ -22,7 +22,6 @@ CREATE TABLE users (
 	salt varchar(200) NOT NULL,
 	user_role varchar(50) NOT NULL
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
-
 )
 
 --populate default data
@@ -82,6 +81,20 @@ Create Table UserBrewery
 	constraint fk_breweryId foreign key (breweryId) references Brewery(breweryId)
 );
 
+Create Table UserReviews
+(
+	reviewBeerId int Identity (1, 1) not null,
+	userId int not null,
+	beerId int not null,
+	rating decimal not null,
+	reviewBody varchar (6000),
+
+	constraint pk_reviewBeerId primary key (reviewBeerId),
+	constraint fk_userIdRate foreign key (userId) references users(user_id),
+	constraint fk_beerIdRate foreign key (beerId) references Beer(beerId),
+	constraint chk_rating check (rating>=0.0 and rating<=5.0)
+);
+
 INSERT INTO dbo.BreweryAddress 
 (streetAddress, city, stateOrTerritory, country, postalCode)
 VALUES
@@ -124,3 +137,4 @@ DROP TABLE dbo.Beer
 DROP TABLE dbo.UserBrewery
 
 */
+
