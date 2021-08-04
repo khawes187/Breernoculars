@@ -75,6 +75,7 @@ h1 {
   grid-template-areas: 
     "header header header"
     "loading loading loading"
+    ". breweryList ."
   ;
   height: 100vh;
   grid-gap: 10px;
