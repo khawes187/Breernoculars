@@ -7,7 +7,7 @@
       </div> -->
       <div
         class="brewery"
-        v-for="brewery in breweries"
+        v-for="brewery in this.$store.state.breweries"
         v-bind:key="brewery.breweryId">   
         <h3>{{brewery.breweryName}}</h3>
         <p>{{brewery.breweryAddressId}}</p>
@@ -30,7 +30,7 @@ export default {
   name:'brewery-list',
   data() {
     return {
-      // breweries: [],
+      breweries: [],
      // isLoading: true
     };
   },
