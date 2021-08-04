@@ -1,6 +1,6 @@
 <template>
 <body class="body">
-  <img src="../images/image.png" width="100%" height="100%" alt="Beer next to hops">
+  <img class="backgroundimage" src="../images/image.png" width="100%" height="100%" alt="Beer next to hops">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
@@ -86,8 +86,19 @@ export default {
 
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap');
 
-img {
+/* img {
   opacity: 0.9;
+} */
+.backgroundimage {
+  min-height: 100%;
+  min-width: 1024px;
+
+  width:100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.6;
 }
 
 #login {
