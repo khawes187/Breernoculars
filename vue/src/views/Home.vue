@@ -80,6 +80,7 @@ h1 {
  }
  .breweryList{
    background-color: blanchedalmond;
+   grid-area: breweryList;
  }
   /*
 
@@ -95,5 +96,15 @@ img.lazy {
   top: 100px;
   left: 240px;
   z-index: 100;
+}
+
+@media screen and (max-width: 450px) {
+  .template {
+    grid-template-areas: 
+      "header"
+      "breweryList"
+  ;
+      grid-template-columns: auto;
+  }
 }
 </style>

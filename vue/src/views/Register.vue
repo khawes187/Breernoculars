@@ -211,5 +211,20 @@ input:focus {
   min-width: 200px
 } */
 
+@media screen and (max-width: 450px) {
+  .template {
+    grid-template-areas: 
+      "createAccount"
+      "loginName"
+      "usernameInput"
+      "loginPass"
+      "passwordInput"
+      "brewlover"
+      "brewer"
+      "button"
+  ;
+      grid-template-columns: auto;
+  }
+}
 
 </style>
