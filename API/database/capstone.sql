@@ -138,3 +138,4 @@ DROP TABLE dbo.UserBrewery
 
 */
 
+SELECT breweryName, phoneNumber, (SELECT streetAddress, city, stateOrTerritory, country, postalCode FROM dbo.BreweryAddress WHERE Brewery.breweryAddressId = BreweryAddress.addressId), dateEstablished, history FROM Brewery JOIN BreweryAddress ON Brewery.breweryAddressId = BreweryAddress.addressId WHERE breweryId = 1001

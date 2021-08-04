@@ -29,7 +29,8 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddressId, phoneNumber, website, dateEstablished, history FROM Brewery", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddressId, phoneNumber, " +
+                        "website, dateEstablished, history FROM Brewery", conn);
          
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -44,15 +45,45 @@ namespace Capstone.DAO
             {
                 throw;
             }
-
             return returnBreweries;
+        }
+
+        public Brewery GetBreweryByBreweryId(int breweryId)
+        {
+            Brewery tempBrewery = new Brewery();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT brewery.breweryName, brewery.phoneNumber, brewery.dateEstablished, " +
+                        "brewery.history FROM Brewery WHERE breweryId = @breweryId", conn);
+                    cmd.Parameters.AddWithValue("@userId", breweryId);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        tempBrewery = GetBreweryFromReader(reader);
+
+                        return tempBrewery;
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            return null;
         }
 
         public void AddBrewery(Brewery brewery)
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString)) // need to change breweryAddressId
                 {
                     conn.Open();
 
@@ -76,8 +107,8 @@ namespace Capstone.DAO
 
         }
 
-        public void UpdateBrewery(Brewery brewery)
-        {
+        public void UpdateBrewery(Brewery brewery) // WHEN BREWER UPDATES A BREWERY, HAVE FIELDS IN VUE POPULATE WITH ORIGINAL VALUES
+        {                                          // SO THAT THINGS THAT DON'T NEED TO BE OVERWRITTEN AREN'T CHANGED?
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -105,7 +136,6 @@ namespace Capstone.DAO
             {
                 throw;
             }
-
         }
 
         private Brewery GetBreweryFromReader(SqlDataReader reader)
