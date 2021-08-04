@@ -99,6 +99,7 @@ export default {
   top: 0;
   left: 0;
   opacity: 0.6;
+  z-index: -1;
 }
 
 #login {

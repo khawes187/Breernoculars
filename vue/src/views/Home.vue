@@ -67,7 +67,8 @@ h1 {
   top: 0;
   left: 0;
   opacity: 0.4;
-}
+  z-index: -1;
+  }
  div.home {
   display: grid;
   grid-template-columns: auto auto auto;
