@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+const http = axios.create({
+  baseURL: "http://localhost:3000"
+});
 
 export default {
 
@@ -8,6 +11,7 @@ export default {
   },
 
   getBreweries() {
+    //return http.get('/brewery');
     return axios.get('/brewery');
   },
 
