@@ -10,9 +10,8 @@
         v-for="brewery in this.$store.state.breweries"
         v-bind:key="brewery.breweryId">   
         <h3>{{brewery.breweryName}}</h3>
-        <p>Brewery Id: {{brewery.breweryAddressId}}</p>
         <p>{{brewery.phoneNumber}}</p>
-        <p>{{brewery.website}}</p>
+        <a href=#v-bind:brewery.website>{{brewery.breweryName}} Website</a>
         <p>{{brewery.history}}</p>
         <p>Date established: {{brewery.dateEstablished}}</p>
         <!--<router-link v-bind:to="{ name: 'Brewery', params: { id: brewery.id } }">

@@ -43,16 +43,23 @@ export default {
 </script>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap');
+
 /* .template{
   background-color: black;
 } */
 header {
+  font-family: 'Lobster', cursive;
   grid-area: header;
   text-align: center;
 
 }
 h1 {
-  color: white;
+  color: goldenrod;
+  font-size: 84px;
 }
 /* .background {
   grid-area: backgroundPic;
@@ -66,7 +73,7 @@ h1 {
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0.4;
+  opacity: 0.8;
   z-index: -1;
   }
  div.home {
@@ -82,7 +89,11 @@ h1 {
  }
  .breweryList{
    background-color: blanchedalmond;
+   opacity: 0.5;
    grid-area: breweryList;
+   font-family: 'Open Sans', sans-serif;
+   padding: 0px 25px 25px 25px;
+   border-radius: 25px;
  }
   /*
 
