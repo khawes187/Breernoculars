@@ -116,6 +116,14 @@ VALUES
 ('Space Chimp Wit OG', 'Wheat Beer - Witbier', 5.0, 'Our original gangester, Space Chimp Wit, brewed with bitter orange and coriander.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Terrestrial Brewing Company' AND brewery.phoneNumber = '(216) 465-9999'), 'no'),
 ('Evenstar', 'American IPA', 7.4, 'A West Coast Style IPA brewed with Simcoe, Nugget, Centennial and Citra hops. Dry and resinous with a fruity and bitter finish.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Terrestrial Brewing Company' AND brewery.phoneNumber = '(216) 465-9999'), 'no')
 
+INSERT INTO dbo.UserReviews
+(userId, beerId, rating, reviewBody)
+VALUES
+(1, 1000, 4.2, 'Habituale is a solid kolsch. It pours a chill hazed pale straw with a decent head of white foam that settles to a thick fine beaded ring and a thin dusty layer with light lacing. Nose of cracker, light breaded malts, and honey sweet malts with a touch of pear and grape notes. Flavors follow the nose with honey touched malts with breaded malts and a touch of dry cracker with some pear crispness amongst a touch of herbal hops. Nice mouth feel; medium light body, medium light carbonation, smooth, and lightly crisp with a subtle dryness on the rear. Overall, a SOLID brew from a new to me brewery.'),
+(1, 1001, 4.8, 'I got a can of this beer off the single shelf from my local Giant Eagle store. It poured a clear golden with white head that is leaving some lace. The scent had dank citrus notes. The taste was nicely balanced and easy to drink with tropical fruit peel flavors. The mouthfeel was medium in body with good carbonation. Overall it is a solid beer.'),
+(1, 1002, 3.9, 'Very traditional Belgian-style wheat with a great flavor profile. Good balance of clove and banana yeasty flavors. Well balanced overall, not too sweet. Well crafted!'),
+(1, 1003, 4.5, 'Oooooowoooooooo hops. Holy cow. This checks all the boxes in what I expect from an IPA. Wowee. Bitterness and aftertaste hit you after. Good stuff. Yep.')
+
 SELECT * FROM dbo.BreweryAddress
 
 SELECT * FROM dbo.Brewery
@@ -138,4 +146,5 @@ DROP TABLE dbo.UserBrewery
 
 */
 
-SELECT breweryName, phoneNumber, (SELECT streetAddress, city, stateOrTerritory, country, postalCode FROM dbo.BreweryAddress WHERE Brewery.breweryAddressId = BreweryAddress.addressId), dateEstablished, history FROM Brewery JOIN BreweryAddress ON Brewery.breweryAddressId = BreweryAddress.addressId WHERE breweryId = 1001
+SELECT * FROM users
+SELECT * FROM beer
