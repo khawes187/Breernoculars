@@ -1,4 +1,4 @@
-<template>
+<template class="template">
 <body class="body">
   <img class="backgroundimage" src="../images/image.png" width="100%" height="100%" alt="Beer next to hops">
   <div id="login" class="text-center">
@@ -114,6 +114,7 @@ export default {
 h1 {
   font-family: 'Lobster', cursive;
   font-size: 84px;
+  grid-area: h1;
 }
 
 .sr-only { /* Labels for username and password input boxes */
@@ -122,6 +123,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items:stretch;
+  grid-area: userPassInput;
 }
 
 input {
@@ -146,6 +148,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-area: returnButton;
 }
 
 button {
@@ -154,6 +157,19 @@ button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  display: block;  
+  display: block; 
+  grid-area: button; 
+}
+
+@media screen and (max-width: 450px) {
+  .template {
+    grid-template-areas: 
+      "h1"
+      "userPassInput"
+      "returnButton"
+      "button"
+  ;
+      grid-template-columns: auto;
+  }
 }
 </style>
