@@ -22,15 +22,7 @@ export default new Vuex.Store({
     user: currentUser || {},
     breweriesTest: [],
     breweries: [
-      {
-        breweryId: '',
-        breweryName:'',
-        breweryAddressId:'',
-        phoneNumber:'',
-        website:'',
-        history:'',
-        dateEstablished:''  
-      }
+
     ]
   },
   mutations: {
