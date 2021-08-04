@@ -5,9 +5,19 @@
       <router-link v-bind:to="{ name: 'home' }">Home</router-link><!-- |&nbsp; -->
     </div>
     <div id="beerLoverButtons">
-      <button class="add">Add a Beer</button>
+      <div class="addBeerButton">
+      <button class="add" style="border: 0; background: transparent">
+          <img src="@/images/button_icon.png" width="90" height="50" alt="Add a beer" />
+          <div class="addBeerText">Add a Beer</div>
+      </button>
+      </div>
       <div class="divider"/>
-      <button class="delete">Delete a Beer</button>
+      <div class="deleteBeerButton">
+      <button class="delete" style="border: 0; background: transparent">
+          <img src="@/images/button_icon.png" width="90" height="50" alt="Add a beer" />
+          <div class="deleteBeerText">Delete a Beer</div>
+      </button>
+      </div>
     </div>
   
     <!-- <div id="brewerButtons" >  needs linked to role//should this be a router-link? or v-if?
@@ -31,6 +41,12 @@
 </template>
 
 <style scoped>
+.addBeerText{
+  position:center;
+}
+.deleteBeerText{
+  position:center;
+}
 div#loginOrOut {
   grid-area: loginOrOut;
   text-align: end;
@@ -53,11 +69,11 @@ div#nav {
   /* text-align: right; */
 }
 button.add{
-  background-color: #4CAF50; 
+  /* background-color: #4CAF50; 
   color: black;
   padding: 5px 5px;
   text-align: center;
-  text-decoration: none;
+  text-decoration: none; */
   display: inline-block;
   font-size: 14px;
   grid-area: addButton;
