@@ -2,14 +2,13 @@
   <div>
     <h1>List of Breweries</h1>
     <div class="breweries">
-      <div class="loading" v-if="isLoading">
+     <!-- <div class="loading" v-if="isLoading">
         <img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
-      </div>
+      </div> -->
       <div
         class="brewery"
         v-for="brewery in breweries"
-        v-bind:key="brewery.breweryId"   
-        v-else>
+        v-bind:key="brewery.breweryId">   
         <h3>{{brewery.breweryName}}</h3>
         <p>{{brewery.breweryAddressId}}</p>
         <p>{{brewery.phoneNumber}}</p>
@@ -31,8 +30,8 @@ export default {
   name:'brewery-list',
   data() {
     return {
-      breweries: [],
-      isLoading: true
+      // breweries: [],
+     // isLoading: true
     };
   },
   created() {
@@ -41,8 +40,9 @@ export default {
   methods: {
     retrieveBreweries() {
       BreweryService.getBreweries().then(response => {
+        console.log(response);
         this.$store.commit("SET_BREWERIES", response.data);
-        this.isLoading = false;
+       // this.isLoading = false;
       });
     },
   }
