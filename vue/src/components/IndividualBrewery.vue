@@ -3,7 +3,7 @@
     <h2>Brewery Information</h2>
     <div>
         
-        <h2>Brewery Information</h2>
+        <h2>This is changed</h2>
         <ul class="breweryInfo">
           <h3>{{brewery.breweryName}}</h3>
           <p>{{brewery.phoneNumber}}</p>
