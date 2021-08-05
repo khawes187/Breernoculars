@@ -8,12 +8,13 @@
       <div
         class="brewery"
         v-for="brewery in this.$store.state.breweries"
-        v-bind:key="brewery.breweryId">   
-        <h3>{{brewery.breweryName}}</h3>
-        <p>{{brewery.phoneNumber}}</p>
-        <a href=#v-bind:brewery.website>{{brewery.breweryName}} Website</a>
-        <p>{{brewery.history}}</p>
-        <p>Date established: {{brewery.dateEstablished}}</p>
+        v-bind:key="brewery.breweryId"
+        v-on:click="viewBrewery(brewery.breweryId)">   
+          <h3>{{brewery.breweryName}}</h3>
+          <p>{{brewery.phoneNumber}}</p>
+          <a href=#v-bind:brewery.website>{{brewery.breweryName}} Website</a>
+          <p>{{brewery.history}}</p>
+          <p>Date established: {{brewery.dateEstablished}}</p>
         <!--<router-link v-bind:to="{ name: 'Brewery', params: { id: brewery.id } }">
           {{ brewery.title }}
         </router-link>-->
@@ -29,7 +30,7 @@ export default {
   name:'brewery-list',
   data() {
     return {
-      breweries: [],
+      //breweries: [],
      // isLoading: true
     };
   },
@@ -44,6 +45,9 @@ export default {
        // this.isLoading = false;
       });
     },
+    viewBrewery(breweryId){
+      this.$router.push(`/brewery/${breweryId}`);
+    }
   }
 };
 </script>
