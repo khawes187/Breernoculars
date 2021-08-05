@@ -46,6 +46,6 @@ namespace Capstone.Controllers
             BeerDAO.DeleteBeer(beerId);
         }
 
-
     }
+
 }
