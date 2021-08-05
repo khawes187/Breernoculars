@@ -12,7 +12,7 @@ namespace Capstone.Controllers
     [Route("[controller]")]
     [ApiController]
     public class BreweryController : ControllerBase
-    {     
+    {
         private readonly IBreweryDAO BreweryDAO;
         private readonly IBreweryAddressDAO BreweryAddressDAO;
 
@@ -27,9 +27,27 @@ namespace Capstone.Controllers
         {
             List<Brewery> rawList = BreweryDAO.GetBreweries();
             return rawList;
+        }
 
+        [HttpGet("{breweryId}")]
+        public ActionResult<Brewery> GetBrewery(int breweryId)
+        {
+            Brewery brewery = BreweryDAO.GetBreweryByBreweryId(breweryId);
+            return brewery;
         }
 
 
+        [HttpPut("{breweryId}")]
+        public void UpdateBreweryController(Brewery brewery)
+        {
+            BreweryDAO.UpdateBrewery(brewery);
+        }
+
+        [HttpPost]
+        public void CreateBrewery(Brewery brewery)
+        {
+            BreweryDAO.AddBrewery(brewery);
+            
+        }
     }
 }
