@@ -7,17 +7,6 @@
       </div>
       <div
         class="brewery"
-<<<<<<< HEAD
-        v-for="brewery in breweries"
-        v-bind:key="brewery.breweryId"   
-        v-else>
-        <h3>{{brewery.breweryName}}</h3>
-        <p>{{brewery.breweryAddressId}}</p>
-        <p>{{brewery.phoneNumber}}</p>
-        <p>{{brewery.website}}</p>
-        <p>{{brewery.history}}</p>
-        <p>{{brewery.dateEstablished}}</p>
-=======
         v-for="brewery in this.$store.state.breweries"
         v-bind:key="brewery.breweryId"
         v-on:click="viewBrewery(brewery.breweryId)">   
@@ -26,7 +15,6 @@
           <a href=#v-bind:brewery.website>{{brewery.breweryName}} Website</a>
           <p>{{brewery.history}}</p>
           <p>Date established: {{brewery.dateEstablished}}</p>
->>>>>>> 1d34543c23b07070373413db4f084ef717458d19
         <!--<router-link v-bind:to="{ name: 'Brewery', params: { id: brewery.id } }">
           {{ brewery.title }}
         </router-link>-->
@@ -42,13 +30,8 @@ export default {
   name:'brewery-list',
   data() {
     return {
-<<<<<<< HEAD
-      breweries: [],
-      isLoading: true
-=======
       //breweries: [],
      // isLoading: true
->>>>>>> 1d34543c23b07070373413db4f084ef717458d19
     };
   },
   created() {
