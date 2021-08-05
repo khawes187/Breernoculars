@@ -13,7 +13,7 @@
         </ul>
         <div
         class="beers"
-        v-for="beer in this.$store.state.beers"
+        v-for="beer in beers"
         v-bind:key="beer.beerBreweryId">   
           <p>Beer: {{beer.beerName}}</p>
       </div>

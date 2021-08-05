@@ -4,16 +4,11 @@
      <div class="loading" v-if="isLoading">
         <img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
       </div>
-      <div
-        class="brewery"
-        v-for="brewery in this.$store.state.breweries"
-        v-bind:key="brewery.breweryId">   
-        <h3>{{brewery.breweryName}}</h3>
-        <p>{{brewery.phoneNumber}}</p>
-        <a href=#v-bind:brewery.website>{{brewery.breweryName}} Website</a>
-        <p>{{brewery.history}}</p>
-        <p>Date established: {{brewery.dateEstablished}}</p>
+      <div v-else>
+        <p>{{this.address.streetAddress}}</p>
+        <p>{{this.address.city}}, {{this.address.stateOrTerritory}} {{this.address.postalCode}}</p>
       </div>
+    </div>  
   </div>
 </template>
 
@@ -24,7 +19,6 @@ export default {
  name:'address-details',
   data() {
     return {
-      address: {},
       isLoading: true
     };
   },
@@ -33,14 +27,19 @@ export default {
   },
   methods: {
     retrieveAddress() {
-      AddressService.get().then(response => {
+      AddressService.getAddress(this.$route.params.addressId).then(response => {
         console.log(response);
-        this.$store.commit("SET_BREWERIES", response.data);
+        this.$store.commit("SET_ADDRESS", response.data);
         this.isLoading = false;
       });
     },
+  },
+  computed: {
+      address() {
+          return this.$store.state.address;
+      },
   }
-};
+};  
 </script>
 
 <style>

@@ -32,7 +32,14 @@ export default new Vuex.Store({
     beers: [],
     breweriesTest: [],
     breweries: [],
-    address: {}
+    address: {
+      addressId:'',
+      streetAddress:'',
+      city:'',
+      stateOrTerritory:'',
+      county:'',
+      postalCode:''
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
