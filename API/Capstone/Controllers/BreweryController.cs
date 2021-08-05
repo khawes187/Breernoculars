@@ -38,9 +38,9 @@ namespace Capstone.Controllers
 
 
         [HttpPut("{breweryId}")]
-        public void UpdateBreweryController(Brewery brewery)
+        public void UpdateBreweryController(Brewery brewery, int breweryId)
         {
-            BreweryDAO.UpdateBrewery(brewery);
+            BreweryDAO.UpdateBrewery(brewery, breweryId);
         }
 
         [HttpPost]

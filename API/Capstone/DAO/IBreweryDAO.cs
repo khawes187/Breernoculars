@@ -12,7 +12,7 @@ namespace Capstone.DAO
 
         void AddBrewery(Brewery brewery);
 
-        void UpdateBrewery(Brewery brewery);
+        void UpdateBrewery(Brewery brewery, int breweryId);
 
         Brewery GetBreweryByBreweryId(int breweryId);
     }
