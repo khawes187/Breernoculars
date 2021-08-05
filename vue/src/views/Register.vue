@@ -1,8 +1,7 @@
 <template>
-<body>
-  <img class="backgroundimage" src="../images/register.jpg" width="100%" height="100%" alt="Beer pouring from a tap">
-  <div id="register" class="text-center">
-    <form class="form-register" @submit.prevent="register">
+<body class="body">
+  <img class="backgroundimage" src="../images/registerpage.jpg" width="100%" height="100%" alt="Beer pouring from a tap">
+  <div id="register" class="text-center"><form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
@@ -119,17 +118,28 @@ export default {
   min-width: 1024px;
   width:100%;
   height: auto;
-  position: fixed;
+  position:relative;
   top: 0;
   left: 0;
   opacity: 0.9;
   z-index: -1;
+  border-style: groove;
+  border-radius: 25px;
+  border-color: black;
+  margin: 0;
+  padding: 0;
 }
-#register {
+#register.text-center {
+  margin-left: -60px;
+  margin-right: 60px;
   display: grid;
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 60%;
+  background: burlywood;
+  border-radius: 25px;
+  border-color: black;
+  border-style: groove;
   transform: translate(-50%, -50%);
   grid-template-columns: auto auto;
   grid-template-areas: 
@@ -164,7 +174,7 @@ label.sr-only-pw {
   grid-area: loginPass
 }
 
-/* input#username.form-control {
+input#username.form-control {
   font-family: 'Open Sans', sans-serif;
   resize: horizontal;
   width: 465px;
@@ -172,7 +182,7 @@ label.sr-only-pw {
   text-align: center;
   grid-area:usernameInput
 }
- */
+
 .form-control {
   font-family: 'Open Sans', sans-serif;
   resize: vertical;
@@ -198,14 +208,16 @@ label.brewer{
   grid-area: button;
 } 
 
-/* input:active {
+input:active {
   width: auto;
 }
 
 input:focus {
   min-width: 200px
-} */
-
+}
+.body {
+    margin: 0;
+}
 @media screen and (max-width: 450px) {
   .template {
     grid-template-areas: 
