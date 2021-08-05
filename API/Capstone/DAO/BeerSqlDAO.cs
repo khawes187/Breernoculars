@@ -28,7 +28,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT beerId, beerName, beerType, abv, beerDescription, seasonal " +
+                    SqlCommand cmd = new SqlCommand("SELECT beerId, beerName, beerType, abv, beerDescription, beerBreweryId, seasonal " +
                         "FROM dbo.Beer WHERE beerBreweryId = @beerBreweryId", conn);
                     cmd.Parameters.AddWithValue("@beerBreweryId", breweryId);
 
@@ -58,8 +58,8 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT beerName, beerType, abv, beerDescription, seasonal " +
-                        "FROM dbo.Beer WHERE beerId = @beerId", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT beerId, beerName, beerType, abv, beerDescription, beerBreweryId, seasonal " +
+                        "FROM dbo.Beer WHERE beer.beerId = @beerId", conn);
                     cmd.Parameters.AddWithValue("@beerId", beerId);
 
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -67,7 +67,6 @@ namespace Capstone.DAO
                     if (reader.Read())
                     {
                         returnBeer = GetBeerFromReader(reader);
-                        return returnBeer;
                     }
                 }
             }
@@ -109,19 +108,21 @@ namespace Capstone.DAO
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
+                SqlCommand cmd1 = new SqlCommand("DELETE FROM dbo.UserReviews WHERE beerId = @beerId)", conn);
+                cmd1.Parameters.AddWithValue("@beerId", beerId);
+                SqlCommand cmd2 = new SqlCommand("DELETE FROM dbo.Beer WHERE beerId = @beerId)", conn);
+                cmd2.Parameters.AddWithValue("@beerId", beerId);
 
-                SqlCommand cmd = new SqlCommand("DELETE FROM dbo.Beer WHERE beerId = @beerId)", conn);
-                cmd.Parameters.AddWithValue("@beerId", beerId);
-
-                cmd.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
             }
         }
 
         private Beer GetBeerFromReader(SqlDataReader reader)
         {
             Beer beer = new Beer();
-            beer.BeerId = Convert.ToInt32(reader["breweryId"]);
-            beer.BeerName = Convert.ToString(reader["breweryName"]);
+            beer.BeerId = Convert.ToInt32(reader["beerId"]);
+            beer.BeerName = Convert.ToString(reader["beerName"]);
             beer.BeerType = Convert.ToString(reader["beerType"]);
             beer.ABV = Convert.ToDecimal(reader["abv"]);
             beer.BeerDescription = Convert.ToString(reader["beerDescription"]);

@@ -29,15 +29,15 @@ namespace Capstone.Controllers
             return rawList;
         }
 
-        [HttpGet("/{breweryId}")]
-        public Brewery GetBrewery(int breweryId)
+        [HttpGet("{breweryId}")]
+        public ActionResult<Brewery> GetBrewery(int breweryId)
         {
             Brewery brewery = BreweryDAO.GetBreweryByBreweryId(breweryId);
             return brewery;
         }
 
 
-        [HttpPut]
+        [HttpPut("{breweryId}")]
         public void UpdateBreweryController(Brewery brewery)
         {
             BreweryDAO.UpdateBrewery(brewery);

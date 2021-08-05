@@ -1,16 +1,51 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Capstone.DAO;
+using Capstone.Models;
+using Capstone.Security;
 
 namespace Capstone.Controllers
 {
-    public class BeerController : Controller
+    [Route("[controller]")]
+    [ApiController]
+    public class BeerController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly IBeerDAO BeerDAO;
+
+        public BeerController(IBeerDAO _beerDAO)
         {
-            return View();
+            BeerDAO = _beerDAO;
         }
+
+        [HttpGet("brewery{beerBreweryId}")]
+        public List<Beer> GetBreweryBeers(int beerBreweryId)
+        {
+            List<Beer> beerList = BeerDAO.GetBeersFromBreweryId(beerBreweryId);
+            return beerList;
+        }
+
+        [HttpGet("{beerId}")]
+        public Beer GetBeer(int beerId)
+        {
+            Beer beer = BeerDAO.GetBeer(beerId);
+            return beer;
+        }
+
+        [HttpPost]
+        public void CreateBeer(Beer beer)
+        {
+            BeerDAO.AddBeer(beer);
+        }
+
+        [HttpDelete("{beerId}")]
+        public void RemoveBeer(int beerId)
+        {
+            BeerDAO.DeleteBeer(beerId);
+        }
+
+
     }
 }

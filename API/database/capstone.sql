@@ -32,7 +32,7 @@ GO
 
 Create Table BreweryAddress
 (
-	addressId int Identity(1000, 1) not null,
+	addressId int Identity(1, 1) not null,
 	streetAddress varchar(255) not null,
 	city varchar(255) not null,
 	stateOrTerritory varchar(255) not null,
@@ -44,7 +44,7 @@ Create Table BreweryAddress
 
 Create Table Brewery
 (
-	breweryId int Identity(1000, 1) not null,
+	breweryId int Identity(100, 1) not null,
 	breweryName varchar(500) not null,
 	breweryAddressId int not null,
 	phoneNumber varchar(14) not null,
@@ -83,13 +83,13 @@ Create Table UserBrewery
 
 Create Table UserReviews
 (
-	reviewBeerId int Identity (1, 1) not null,
+	beerReviewId int Identity (1, 1) not null,
 	userId int not null,
 	beerId int not null,
 	rating decimal not null,
 	reviewBody varchar (6000),
 
-	constraint pk_reviewBeerId primary key (reviewBeerId),
+	constraint pk_beerReviewId primary key (beerReviewId),
 	constraint fk_userIdRate foreign key (userId) references users(user_id),
 	constraint fk_beerIdRate foreign key (beerId) references Beer(beerId),
 	constraint chk_rating check (rating>=0.0 and rating<=5.0)
@@ -145,6 +145,4 @@ DROP TABLE dbo.Beer
 DROP TABLE dbo.UserBrewery
 
 */
-
-SELECT * FROM users
-SELECT * FROM beer
+SELECT brewery.breweryName, brewery.breweryId, brewery.phoneNumber, brewery.dateEstablished, brewery.history FROM Brewery WHERE breweryId = 100

@@ -6,7 +6,7 @@ using Capstone.Models;
 
 namespace Capstone.DAO
 {
-    interface IBeerDAO
+    public interface IBeerDAO
     {
         List<Beer> GetBeersFromBreweryId(int breweryId);
 
