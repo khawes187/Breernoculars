@@ -11,8 +11,12 @@
           <p>{{brewery.history}}</p>
           <p>Date established: {{brewery.dateEstablished}}</p>
         </ul>
-        <p class="firstbeer">First Beer Name</p>
-        <p class="secondbeer">Second Beer Name</p>
+        <div
+        class="beers"
+        v-for="beer in this.$store.state.beers"
+        v-bind:key="beer.beerBreweryId">   
+          <p>Beer: {{beer.beerName}}</p>
+      </div>
         
     </div> 
 </div>       
@@ -31,6 +35,7 @@ export default {
   },
   created() {
     this.retrieveBrewery();
+    this.retrieveBeers();
   },
   methods: {
     retrieveBrewery() {
@@ -40,10 +45,20 @@ export default {
        // this.isLoading = false;
       });
     },
+    retrieveBeers() {
+      BreweryService.getBeers(this.$route.params.beersBreweryId).then(response => {
+        console.log(response);
+        this.$store.commit("SET_BEERS", response.data);
+       // this.isLoading = false;
+    });
+    }
   },
   computed: {
-      card() {
+      brewery() {
           return this.$store.state.brewery;
+      },
+      beers() {
+        return this.$store.state.beers;
       }
   }
 };
