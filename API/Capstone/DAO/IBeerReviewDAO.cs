@@ -6,10 +6,10 @@ using Capstone.Models;
 
 namespace Capstone.DAO
 {
-    public interface IBreweryAddressDAO
+    public interface IBeerReviewDAO
     {
-        public BreweryAddress GetAddress(int addressId);
+        List<BeerReview> GetBeerReviewsFromBeerId(int beerId);
 
-        public void CreateAddress(BreweryAddress address);
+        void WriteBeerReview(BeerReview review);
     }
 }

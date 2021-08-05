@@ -29,7 +29,8 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddressId, phoneNumber, website, dateEstablished, history FROM Brewery", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddressId, phoneNumber, " +
+                        "website, dateEstablished, history FROM Brewery", conn);
          
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -44,15 +45,45 @@ namespace Capstone.DAO
             {
                 throw;
             }
-
             return returnBreweries;
+        }
+
+        public Brewery GetBreweryByBreweryId(int breweryId)
+        {
+            Brewery tempBrewery = new Brewery();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddressId, phoneNumber, website, dateEstablished, history " +
+                        "FROM Brewery WHERE breweryId = @breweryId", conn);
+                    cmd.Parameters.AddWithValue("@breweryId", breweryId);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        tempBrewery = GetBreweryFromReader(reader);
+
+                        return tempBrewery;
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            return tempBrewery;
         }
 
         public void AddBrewery(Brewery brewery)
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString)) // need to change breweryAddressId
                 {
                     conn.Open();
 
@@ -76,36 +107,32 @@ namespace Capstone.DAO
 
         }
 
-        public void UpdateBrewery(Brewery brewery)
-        {
+        public void UpdateBrewery(Brewery brewery) // WHEN BREWER UPDATES A BREWERY, HAVE FIELDS IN VUE POPULATE WITH ORIGINAL VALUES
+        {                                          // SO THAT THINGS THAT DON'T NEED TO BE OVERWRITTEN AREN'T CHANGED?
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    //SqlCommand cmd = new SqlCommand("SELECT addressId FROM dbo.BreweryAddress JOIN dbo.Brewery ON breweryAddressId " +
-                    //    "= addressId WHERE Brewery.breweryId = @breweryId");
-                    //// GET addressId to use for brewery
-
-                    SqlCommand cmd2 = new SqlCommand("UPDATE dbo.Brewery SET breweryName = @breweryName," +
+                    SqlCommand cmd = new SqlCommand("UPDATE dbo.Brewery SET breweryId = @breweryId, breweryName = @breweryName," +
                         " phoneNumber = @phoneNumber, website = @website, dateEstablished = @dateEstablished, " +
-                        "history = @history)", conn);
-                    cmd2.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
-                    //cmd.Parameters.AddWithValue("@breweryAddressId", brewery.BreweryAddressId); no need to update ID
-                    cmd2.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
-                    cmd2.Parameters.AddWithValue("@website", brewery.Website);
-                    cmd2.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
-                    cmd2.Parameters.AddWithValue("@history", brewery.History);
+                        "history = @history) WHERE breweryId = @breweryId", conn);
+                    cmd.Parameters.AddWithValue("@breweryId", brewery.BreweryId);
+                    cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
+                    cmd.Parameters.AddWithValue("@breweryAddressId", brewery.BreweryAddressId);
+                    cmd.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@website", brewery.Website);
+                    cmd.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
+                    cmd.Parameters.AddWithValue("@history", brewery.History);
 
-                    cmd2.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (SqlException)
             {
                 throw;
             }
-
         }
 
         private Brewery GetBreweryFromReader(SqlDataReader reader)

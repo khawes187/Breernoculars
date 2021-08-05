@@ -34,7 +34,7 @@ namespace Capstone.DAO
                     if (reader.Read())
                     {
                         returnBreweryAddress = GetBreweryAddressFromReader(reader);
-                        
+
                     }
                 }
             }
@@ -44,6 +44,33 @@ namespace Capstone.DAO
             }
 
             return returnBreweryAddress;
+        }
+
+        public void CreateAddress(BreweryAddress address)
+        {
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("INSERT INTO dbo.BreweryAddress (streetAddress, city, stateOrTerritory, " +
+                        "country, postalCode) VALUES (@streetAddress, @city, @stateOrTerritory, @country, @postalCode)", conn);
+                    cmd.Parameters.AddWithValue("@streetAddress", address.StreetAddress);
+                    cmd.Parameters.AddWithValue("@city", address.City);
+                    cmd.Parameters.AddWithValue("@stateOrTerritory", address.StateOrTerritory);
+                    cmd.Parameters.AddWithValue("@country", address.Country);
+                    cmd.Parameters.AddWithValue("@postalCode", address.PostalCode);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
         }
 
         private BreweryAddress GetBreweryAddressFromReader(SqlDataReader reader)
