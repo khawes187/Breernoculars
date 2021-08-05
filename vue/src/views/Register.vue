@@ -129,7 +129,7 @@ export default {
   display: grid;
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 57%;
   transform: translate(-50%, -50%);
   grid-template-columns: auto auto;
   grid-template-areas: 
