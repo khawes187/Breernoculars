@@ -95,7 +95,7 @@ export default {
 
   width:100%;
   height: auto;
-  position: fixed; /* THIS IS WHAT IS MESSING UP THE APP.VUE */
+  position: stretch; /* THIS IS WHAT IS MESSING UP THE APP.VUE */
   top: 0;
   left: 0;
   opacity: 0.6;
