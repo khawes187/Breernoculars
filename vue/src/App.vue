@@ -4,7 +4,7 @@
       <div id="home">
       <router-link v-bind:to="{ name: 'home' }">
         <button class="homeButton" style="border: 0; background: transparent">
-          <img src="@/images/bttnpng.png" width="55" height="65" alt="Go Home" />
+          <img src="@/images/editedbutton.gif" width="55" height="65" alt="Go Home" />
           <div class="homeText">Home</div>
       </button>
       </router-link><!-- |&nbsp; -->
@@ -13,14 +13,14 @@
     
       <div class="addBeerButton">
       <button class="add" style="border: 0; background: transparent">
-          <img src="@/images/bttnpng.png" width="55" height="65" alt="Add a beer" />
+          <img src="@/images/editedbutton.gif" width="55" height="65" alt="Add a beer" />
           <div class="addBeerText">Add a Beer</div>
       </button>
       </div>
       <!-- <div class="divider"/> -->
       <div class="deleteBeerButton">
       <button class="delete" style="border: 0; background: transparent">
-          <img src="@/images/bttnpng.png" width="55" height="65" alt="Delete a beer" />
+          <img src="@/images/editedbutton.gif" width="55" height="65" alt="Delete a beer" />
           <div class="deleteBeerText">Delete a Beer</div>
       </button>
       </div>
@@ -40,13 +40,13 @@
     <div id="loginOrOut">
       <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">
         <button class="loginButton" style="border: 0; background: transparent">
-          <img src="@/images/bttnpng.png" width="55" height="65" alt="Login" />
+          <img src="@/images/editedbutton.gif" width="55" height="65" alt="Login" />
           <div class="loginText">Login</div>
         </button>
       </router-link>
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">
         <button class="logoutButton" style="border: 0; background: transparent">
-          <img src="@/images/bttnpng.png" width="55" height="65" alt="logout" />
+          <img src="@/images/editedbutton.gif" width="55" height="65" alt="logout" />
           <div class="logoutText">Logout</div>
         </button>
       </router-link>
@@ -57,12 +57,16 @@
 </template>
 
 <style scoped>
+#app{
+  background: repeating-conic-gradient(lightblue 0% 25%, white 0% 50%) 50% / 20px 20px;
+  border-radius: 25px; 
+
+}
 #nav {
 /*   display: flex;
   flex-direction: row;
   justify-content: space-between;*/
   border-radius: 25px; 
-  background: white;
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-template-areas: 
