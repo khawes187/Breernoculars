@@ -122,22 +122,20 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0.6;
+  opacity: 0.9;
   z-index: -1;
 }
 #register {
   display: grid;
-  /* justify-content: center; */
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 60%;
   transform: translate(-50%, -50%);
   grid-template-columns: auto auto;
   grid-template-areas: 
     "createAccount createAccount"
     "loginName loginName"
-    "usernameInput usernameInput"
-    "loginPass passwordInput"
+    "passwordInput passwordInput"
     "brewLover brewer"
     "button button";
 }
@@ -146,6 +144,7 @@ h1 {
   font-family: 'Lobster', cursive;
   font-size: 84px;
   grid-area: createAccount;
+  display: inline;
 }
 
 label.sr-only-un {
@@ -165,43 +164,39 @@ label.sr-only-pw {
   grid-area: loginPass
 }
 
-input#username.form-control {
+/* input#username.form-control {
   font-family: 'Open Sans', sans-serif;
   resize: horizontal;
   width: 465px;
   height: 25px;
   text-align: center;
-  /* align-items: center;
-  justify-content: center; */
   grid-area:usernameInput
 }
-
-input#password.form-control {
+ */
+.form-control {
   font-family: 'Open Sans', sans-serif;
-  resize: horizontal;
+  resize: vertical;
   width: 465px;
   height: 25px;
   text-align: center;
-  align-items: center;
-  justify-content: center;
   grid-area: passwordInput;
+  border-radius: 10px;
 }
 
 label.brewlover{
+  font-family: 'Open Sans', sans-serif;
   grid-area: brewLover;
 }
 label.brewer{
+  font-family: 'Open Sans', sans-serif;
   grid-area: brewer;
 }
-/* button {
+ button {
   padding: 8px 32px;
   font-family: 'Open Sans', sans-serif;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   display: block;  
   grid-area: button;
-} */
+} 
 
 /* input:active {
   width: auto;
@@ -216,7 +211,6 @@ input:focus {
     grid-template-areas: 
       "createAccount"
       "loginName"
-      "usernameInput"
       "loginPass"
       "passwordInput"
       "brewlover"
