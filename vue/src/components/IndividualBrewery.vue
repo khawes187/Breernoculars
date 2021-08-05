@@ -1,6 +1,7 @@
 <template>
 <div>
-    <div v-for="brewery in this.$store.state.brewery" v-bind:key="brewery.breweryId">
+    <h2>Brewery Information</h2>
+    <div>
         
         <h2>Brewery Information</h2>
         <ul class="breweryInfo">
@@ -33,12 +34,17 @@ export default {
   },
   methods: {
     retrieveBrewery() {
-      BreweryService.getBrewery().then(response => {
+      BreweryService.getBrewery(this.$route.params.breweryId).then(response => {
         console.log(response);
-        this.$store.commit("SET_BREWERIES", response.data);
+        this.$store.commit("SET_BREWERY", response.data);
        // this.isLoading = false;
       });
     },
+  },
+  computed: {
+      card() {
+          return this.$store.state.brewery;
+      }
   }
 };
 </script>
