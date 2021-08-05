@@ -11,6 +11,7 @@
         v-bind:key="brewery.breweryId"
         v-on:click="viewBrewery(brewery.breweryId)">   
           <h3>{{brewery.breweryName}}</h3>
+          <address-detail />
           <p>{{brewery.phoneNumber}}</p>
           <a href=#v-bind:brewery.website>{{brewery.breweryName}} Website</a>
           <p>{{brewery.history}}</p>
@@ -25,9 +26,11 @@
 
 <script>
 import BreweryService from '../services/BreweryService';
+import AddressDetail from '../components/AddressDetail';
 
 export default {
   name:'brewery-list',
+  components: {AddressDetail},
   data() {
     return {
       //breweries: [],

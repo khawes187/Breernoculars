@@ -7,7 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import IndividualBrewery from '../components/IndividualBrewery.vue'
 import BreweryList from '../components/BreweryList.vue'
-import AddressDetail from '../components/BreweryList.vue'
+import AddressDetail from '../components/AddressDetail.vue'
 
 Vue.use(Router)
 
