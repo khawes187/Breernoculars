@@ -107,7 +107,7 @@ namespace Capstone.DAO
 
         }
 
-        public void UpdateBrewery(Brewery brewery) // WHEN BREWER UPDATES A BREWERY, HAVE FIELDS IN VUE POPULATE WITH ORIGINAL VALUES
+        public void UpdateBrewery(Brewery brewery, int breweryId) // WHEN BREWER UPDATES A BREWERY, HAVE FIELDS IN VUE POPULATE WITH ORIGINAL VALUES
         {                                          // SO THAT THINGS THAT DON'T NEED TO BE OVERWRITTEN AREN'T CHANGED?
             try
             {
@@ -115,10 +115,10 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("UPDATE dbo.Brewery SET breweryId = @breweryId, breweryName = @breweryName," +
+                    SqlCommand cmd = new SqlCommand("UPDATE dbo.Brewery SET breweryName = @breweryName, breweryAddressId = @breweryAddressId," +
                         " phoneNumber = @phoneNumber, website = @website, dateEstablished = @dateEstablished, " +
-                        "history = @history) WHERE breweryId = @breweryId", conn);
-                    cmd.Parameters.AddWithValue("@breweryId", brewery.BreweryId);
+                        "history = @history WHERE breweryId = @breweryId", conn);
+                    cmd.Parameters.AddWithValue("@breweryId", breweryId);
                     cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
                     cmd.Parameters.AddWithValue("@breweryAddressId", brewery.BreweryAddressId);
                     cmd.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
