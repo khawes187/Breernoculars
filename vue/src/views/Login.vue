@@ -101,12 +101,12 @@ export default {
   border-color: black;
   border-style: groove;
 }
-backgroundimage {
+.backgroundimage {
   min-height: 100%;
   min-width: 1024px;
   width:100%;
   height: auto;
-  position: fixed; /* THIS IS WHAT IS MESSING UP THE APP.VUE */
+  position:relative; /* THIS IS WHAT IS MESSING UP THE APP.VUE */
   top: 0;
   left: 0;
   opacity: 0.6;
@@ -176,6 +176,9 @@ button {
   text-align: center;
   display: block; 
   grid-area: button; 
+}
+.body {
+    margin: 0;
 }
 
 @media screen and (max-width: 450px) {

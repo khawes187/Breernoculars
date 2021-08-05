@@ -1,8 +1,7 @@
 <template>
-<body>
-  <img class="backgroundimage" src="../images/register.jpg" width="100%" height="100%" alt="Beer pouring from a tap">
-  <div id="register" class="text-center">
-    <form class="form-register" @submit.prevent="register">
+<body class="body">
+  <img class="backgroundimage" src="../images/registerpage.jpg" width="100%" height="100%" alt="Beer pouring from a tap">
+  <div id="register" class="text-center"><form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
@@ -34,6 +33,7 @@
         v-model="user.confirmPassword"
         required
       />
+      <div>
       <input
         type="radio"
         id="roleUser"
@@ -54,10 +54,17 @@
         required
       />
       <label class="brewer" for="roleBrewer">Brewer</label>
-      <router-link :to="{ name: 'login' }" tag="button">Have an account?</router-link>
+      </div>
+      <div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
-        Create Account
+        <img src="@/images/editedbutton.gif" width="55" height="65" alt="sumbit" />
+          <div class="createAccount">Create Account</div>
       </button>
+<!--       <router-link :to="{ name: 'login' }" tag="button">
+        <img src="@/images/editedbutton.gif" width="55" height="65" alt="return to login" />
+          <div class="ReturnLogin">Return to Login</div></router-link> -->
+      
+      </div>
     </form>
   </div>
 </body>
@@ -119,17 +126,28 @@ export default {
   min-width: 1024px;
   width:100%;
   height: auto;
-  position: fixed;
+  position:relative;
   top: 0;
   left: 0;
   opacity: 0.9;
   z-index: -1;
+  border-style: groove;
+  border-radius: 25px;
+  border-color: black;
+  margin: 0;
+  padding: 0;
 }
-#register {
+#register.text-center {
+  margin-left: -40px;
+  margin-right: 40px;
   display: grid;
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 60%;
+  background: burlywood;
+  border-radius: 25px;
+  border-color: black;
+  border-style: groove;
   transform: translate(-50%, -50%);
   grid-template-columns: auto auto;
   grid-template-areas: 
@@ -144,7 +162,7 @@ h1 {
   font-family: 'Lobster', cursive;
   font-size: 84px;
   grid-area: createAccount;
-  display: inline;
+  /* display: inline; taking this our makes the text centered*/
 }
 
 label.sr-only-un {
@@ -164,16 +182,21 @@ label.sr-only-pw {
   grid-area: loginPass
 }
 
-/* input#username.form-control {
+#username.form-control {
+  display: block;
+  margin : 0 auto;
   font-family: 'Open Sans', sans-serif;
   resize: horizontal;
   width: 465px;
   height: 25px;
   text-align: center;
-  grid-area:usernameInput
+  grid-area:usernameInput;
+  border-radius: 10px;
 }
- */
-.form-control {
+
+#password.form-control {
+  display: block;
+  margin : 0 auto;
   font-family: 'Open Sans', sans-serif;
   resize: vertical;
   width: 465px;
@@ -183,19 +206,57 @@ label.sr-only-pw {
   border-radius: 10px;
 }
 
+#confirmPassword.form-control {
+  display: block;
+  margin : 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  resize: vertical;
+  width: 465px;
+  height: 25px;
+  text-align: center;
+  grid-area: passwordInput;
+  border-radius: 10px;
+}
+
+ input[type='radio'], label.brewlover, label.brewer{
+   text-align:justify; 
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+   justify-content:center;
+   vertical-align: top;
+   width: 100%;
+ }
+
 label.brewlover{
+  width:100%;
+  margin:auto;
   font-family: 'Open Sans', sans-serif;
   grid-area: brewLover;
 }
 label.brewer{
+  margin: auto;
   font-family: 'Open Sans', sans-serif;
   grid-area: brewer;
 }
  button {
-  padding: 8px 32px;
-  font-family: 'Open Sans', sans-serif;
-  display: block;  
+  text-align:center; 
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  vertical-align: top;
+  width: 90%;
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;  
   grid-area: button;
+  
+  margin: 0;
+  position: absolute;
+  top: -350%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 } 
 
 /* input:active {
@@ -205,7 +266,9 @@ label.brewer{
 input:focus {
   min-width: 200px
 } */
-
+.body {
+    margin: 0;
+}
 @media screen and (max-width: 450px) {
   .template {
     grid-template-areas: 
