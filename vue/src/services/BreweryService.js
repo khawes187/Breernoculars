@@ -6,8 +6,7 @@ export default {
       return axios.get(`/brewery/${breweryId}`);
   },
 
-  getBreweries() {
-    //return http.get('/brewery');
+  getBreweries() {  
     return axios.get('/brewery');
   },
 

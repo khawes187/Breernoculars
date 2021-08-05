@@ -1,5 +1,8 @@
 <template class="template">
-<body class="body">
+
+<body class="body"> 
+  <!--  -->
+      
   <img class="backgroundimage" src="../images/image.png" width="100%" height="100%" alt="Beer next to hops">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
@@ -89,10 +92,18 @@ export default {
 /* img {
   opacity: 0.9;
 } */
-.backgroundimage {
+.menuButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: repeating-conic-gradient(lightblue 0% 25%, white 0% 50%) 50% / 20px 20px;
+  border-radius: 25px;
+  border-color: black;
+  border-style: groove;
+}
+backgroundimage {
   min-height: 100%;
   min-width: 1024px;
-
   width:100%;
   height: auto;
   position: fixed; /* THIS IS WHAT IS MESSING UP THE APP.VUE */
@@ -100,6 +111,11 @@ export default {
   left: 0;
   opacity: 0.6;
   z-index: -1;
+  border-style: groove;
+  border-radius: 25px;
+  border-color: black;
+  margin: 0px;
+  padding:0px; 
 }
 
 #login {
