@@ -17,6 +17,36 @@ namespace Capstone.DAO
             connectionString = dbConnectionString;
         }
 
+        public List<BreweryAddress> GetBreweryAddresses()
+        {
+            List<BreweryAddress> breweryAddresses = new List<BreweryAddress>();
+
+            BreweryAddress tempBreweryAddress = new BreweryAddress();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT addressId, streetAddress, city, stateOrTerritory, country, postalCode FROM BreweryAddress", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        tempBreweryAddress = GetBreweryAddressFromReader(reader);
+                        breweryAddresses.Add(tempBreweryAddress);
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            return breweryAddresses;
+        }
+
         public BreweryAddress GetAddress(int addressId)
         {
             BreweryAddress returnBreweryAddress = new BreweryAddress();

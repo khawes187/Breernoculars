@@ -21,26 +21,27 @@ export default {
  props: ['passedBreweryAddressId'],
   data() {
     return {
+      addresses: [],
       isLoading: true
     };
   },
   created(){
-    this.retrieveAddress();
+    this.retrieveAddresses();
   },
   methods: {
-    retrieveAddress() {
-      AddressService.getAddress(this.$store.state.brewery.breweryAddressId).then(response => {
+    retrieveAddresses() {
+      AddressService.getAddresses().then(response => {
         console.log(response);
-        this.$store.commit("SET_ADDRESS", response.data);
+        this.$store.commit("SET_ADDRESSES", response.data);
         this.isLoading = false;
       });   
     },
   },
   computed: {
       address() {
-          return this.$store.state.address;
+          return this.$store.state.addresses.filter(address => address.addressId == this.$store.state.brewery.breweryAddressId);
       },
-           
+
   }
 };  
 </script>

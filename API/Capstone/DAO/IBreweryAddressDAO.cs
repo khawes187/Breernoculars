@@ -8,8 +8,10 @@ namespace Capstone.DAO
 {
     public interface IBreweryAddressDAO
     {
-        public BreweryAddress GetAddress(int addressId);
+         List<BreweryAddress> GetBreweryAddresses();
 
-        public void CreateAddress(BreweryAddress address);
+         BreweryAddress GetAddress(int addressId);
+
+         void CreateAddress(BreweryAddress address);
     }
 }
