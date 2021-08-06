@@ -6,7 +6,7 @@
         <img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" alt="brewery photo">   
       </div>
         <h2 id="i-b-generalInfo">General Information</h2>
-        <ul id="i-b-breweryInfo">
+        <div id="i-b-breweryInfo">
           <!-- <h3>{{brewery.breweryName}}</h3> -->
           <address-detail id="i-b-address" v-bind:passedBreweryAddressId = "brewery.breweryAddressId" />
           <p id="i-b-phone">Phone: {{brewery.phoneNumber}}</p>
@@ -14,7 +14,7 @@
           <h4 id="i-b-about">About</h4>
           <p id="i-b-history">{{brewery.history}}</p>
           <p id="i-b-date">Date established: {{brewery.dateEstablished}}</p>
-        </ul>
+        </div>
         <h2 id="i-b-beerList">Beer List</h2>
         <div
         id="i-b-beers"
@@ -134,6 +134,8 @@ export default {
   display: inline-block;
 }
 #i-b-breweryInfo{
+  width:50%;
+  padding: 20px;
     grid-area:breweryInfo;
 }
 #i-b-firstbeer{
