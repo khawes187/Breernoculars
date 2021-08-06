@@ -17,7 +17,7 @@ import AddressService from '../services/AddressService';
 
 export default {
  name:'address-details',
- props: ['passedBreweryAddressId','individualPassedBreweryAddressId'],
+ props: ['passedBreweryAddressId'],
   data() {
     return {
       isLoading: true
@@ -28,22 +28,12 @@ export default {
   },
   methods: {
     retrieveAddress() {
-      if(this.passedBreweryAddressId != ''){
-        AddressService.getAddress(this.passedBreweryAddressId).then(response => {
+      AddressService.getAddress(this.passedBreweryAddressId).then(response => {
         console.log(response);
         this.$store.commit("SET_ADDRESS", response.data);
         this.isLoading = false;
-        })
-      }
-      
-      else{
-        AddressService.getAddress(this.individualPassedBreweryAddressId).then(response => {
-        console.log(response);
-        this.$store.commit("SET_ADDRESS", response.data);
-        this.isLoading = false;
-        })
-      }
-    }
+      });   
+    },
   },
   computed: {
       address() {
