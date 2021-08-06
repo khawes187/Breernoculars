@@ -1,7 +1,7 @@
 <template>
 <body class="body">
   <div id="imageAndText">
-  <img class="backgroundimage" src="../images/registerpage.jpg" width="100%" height="100%" alt="Beer pouring from a tap">
+  <!-- <img class="backgroundimage" src="../images/registerpage.jpg" width="100%" height="100%" alt="Beer pouring from a tap"> -->
   <div id="register" class="text-center"><form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
@@ -126,6 +126,7 @@ export default {
 <style scoped>
 #imageAndText{
   align-content: center;
+  /* position:relative; */
 }
 .backgroundimage {
   min-height: 100%;
@@ -145,18 +146,18 @@ export default {
 }
 
 #register.text-center {
-  margin-left: -40px;
-  margin-right: 40px;
-  display: grid;
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  padding: 20px;
+  margin-left: 500px;
+  /* margin-right: 40px;
+   */display: grid;
+  position: relative;
+  /* top: 50%;
+  left: 60%; */
+  padding: 15px;
   background: burlywood;
   border-radius: 25px;
   border-color: black;
   border-style: groove;
-  transform: translate(-50%, -50%);
+ /*  transform: translate(-50%, -50%); */
   grid-template-columns: auto auto;
   grid-template-areas: 
     "createAccount createAccount"
@@ -279,6 +280,9 @@ input:focus {
 } */
 .body {
     margin: 0;
+    background-image: url(../images/registerpage.jpg);
+    height:100%;
+    width:100%;
 }
 @media screen and (max-width: 450px) {
   .template {
