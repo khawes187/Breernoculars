@@ -11,11 +11,7 @@
         v-bind:key="brewery.breweryId"
         v-on:click="viewBrewery(brewery.breweryId)">   
           <h3>{{brewery.breweryName}}</h3>
-          <address-detail v-bind:passedBreweryAddressId = "brewery.breweryAddressId" />
-          <p>{{brewery.phoneNumber}}</p>
-          <a href=#v-bind:brewery.website>{{brewery.breweryName}} Website</a>
-          <p>{{brewery.history}}</p>
-          <p>Date established: {{brewery.dateEstablished}}</p>          
+          <address-detail v-bind:passedBreweryAddressId = "brewery.breweryAddressId" />    
         <!--<router-link v-bind:to="{ name: 'Brewery', params: { id: brewery.id } }">
           {{ brewery.title }}
         </router-link>-->
