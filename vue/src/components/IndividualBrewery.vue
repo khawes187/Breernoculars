@@ -5,16 +5,30 @@
       <div id="i-b-brewery-photo">
         <img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" alt="brewery photo">   
       </div>
-        <h2 id="i-b-generalInfo">General Information</h2>
+      <div>
+        <h1 id="i-b-generalInfo">General Information</h1>
+      </div>
         <div id="i-b-breweryInfo">
           <!-- <h3>{{brewery.breweryName}}</h3> -->
+        <div>  
           <address-detail id="i-b-address" v-bind:passedBreweryAddressId = "brewery.breweryAddressId" />
+        </div>
+        <div>
           <p id="i-b-phone">Phone: {{brewery.phoneNumber}}</p>
+        </div>
+        <div>
           <a href=#v-bind:brewery.website id="i-b-website">{{brewery.breweryName}} Website</a>
+        </div>
+        <div>
           <h4 id="i-b-about">About</h4>
+        </div>
+        <div>
           <p id="i-b-history">{{brewery.history}}</p>
+        </div>
+        <div>
           <p id="i-b-date">Date established: {{brewery.dateEstablished}}</p>
         </div>
+      </div>
         <h2 id="i-b-beerList">Beer List</h2>
         <div
         id="i-b-beers"
@@ -75,53 +89,75 @@ export default {
 
 <style>
 #i-b-h1{
-    text-align: center;
-    grid-area: header;
-    background-color: goldenrod;
-    font-family: 'Lobster', cursive;
-    font-size: 84px;
-    padding: 25px;
+  display: grid;
+  text-align: center;
+  grid-area: breweryName;
+  background-color: goldenrod;
+  font-family: 'Lobster', cursive;
+  font-size: 84px;
+  padding: 25px;
 }
 #i-b-generalInfo{
-    grid-area: generalInfo;
-    background-color: goldenrod;
-    color: black;
-    display: inline-block;
-}
-#i-b-about{
+  /* display: grid; 
+  grid-area: generalInfo;*/
+  border-radius: 25px;
   background-color: goldenrod;
   color: black;
-  display: inline-block;
+  display: inline;
+  padding: 1%;
+  text-align: center;
 }
+
 #i-b-phone{
+  display: grid;
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  grid-area: phone;
 }
 #i-b-website{
+  display: grid;
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  grid-area: webside;
 }
 #i-b-address{
+  display: grid;
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  width: 100%;
+  grid-area: address;
+}
+#i-b-about{
+  display: grid;
+  background-color: goldenrod;
+  color: black;
+  display: inline;
+  grid-area: about;
 }
 #i-b-history{
+  display: grid;
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  text-align: center;
+  grid-area: history;
 }
 #i-b-date{
+  display: grid;
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  grid-area: date;
 }
 #i-b-beerList{
+  display: grid;
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  grid-area: beerList;
 }
 /* #i-b-beers{
   background-color: goldenrod;
@@ -129,21 +165,26 @@ export default {
   display: inline-block;
 } */
 #i-b-beer-name{
+  display: grid;
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  grid-area: beer-name;
 }
 #i-b-breweryInfo{
+  display: grid;
   width:50%;
   padding: 20px;
-    grid-area:breweryInfo;
+  background-color: goldenrod;
+  border-radius: 25px;
+  grid-area:breweryInfo;
 }
-#i-b-firstbeer{
+/* #i-b-firstbeer{
     grid-area: firstBeer;
 }
 #i-b-secondbeer{
     grid-area: secondBeer;
-}
+} */
 #i-b-brewery-photo {
   display: grid;
   grid-area: breweryPhoto;
@@ -155,14 +196,14 @@ export default {
   height:100%;
   width:100%;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
   grid-template-areas: 
-    "header header header"
-    ". breweryPhoto ."
-    "generalInfo . ."
-    "breweryInfo firstBeer firstBeer"
-    "breweryInfo firstBeer firstBeer"
-    "breweryInfo secondBeer secondBeer"
-    "breweryInfo secondBeer secondBeer"
+    "breweryName breweryName"
+    "breweryPhoto breweryPhoto"
+    /* "generalInfo generalInfo" */
+    "address address"
+    "phone website"
+    "about about"
+    "date date"
 }
 </style>
