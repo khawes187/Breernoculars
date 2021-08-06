@@ -8,6 +8,7 @@ import store from '../store/index'
 import IndividualBrewery from '../components/IndividualBrewery.vue'
 import BreweryList from '../components/BreweryList.vue'
 import AddressDetail from '../components/AddressDetail.vue'
+import NewBreweryForm from '../views/NewBreweryForm'
 
 Vue.use(Router)
 
@@ -76,6 +77,14 @@ const router = new Router({
       path: "/address/:breweryAddressId",
       name: "address",
       component: AddressDetail,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/newBreweryForm",
+      name: "newBreweryForm",
+      component: NewBreweryForm,
       meta: {
         requiresAuth: false
       }
