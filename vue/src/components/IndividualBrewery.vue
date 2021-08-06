@@ -1,6 +1,6 @@
 <template>
 <div id="i-b-body">
-    
+    <div>
     <h1 id="i-b-h1">{{brewery.breweryName}}</h1>
     <div>
       <div id="i-b-brewery-photo">
@@ -35,7 +35,7 @@
           <p id="i-b-beer-name">{{beer.beerName}}</p>
       </div>
     </div> 
-       
+  </div>     
 </template>
 
 
