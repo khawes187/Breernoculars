@@ -8,7 +8,7 @@
         <h2 id="i-b-generalInfo">General Information</h2>
         <div id="i-b-breweryInfo">
           <!-- <h3>{{brewery.breweryName}}</h3> -->
-          <address-detail id="i-b-address" v-bind:passedBreweryAddressId = "brewery.breweryAddressId" />
+          <address-detail id="i-b-address"  />
           <p id="i-b-phone">Phone: {{brewery.phoneNumber}}</p>
           <a href=#v-bind:brewery.website id="i-b-website">{{brewery.breweryName}} Website</a>
           <h4 id="i-b-about">About</h4>
