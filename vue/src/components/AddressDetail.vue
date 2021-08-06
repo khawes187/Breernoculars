@@ -5,8 +5,8 @@
         <img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
       </div>
       <div v-else>
-        <p>{{this.address.streetAddress}}</p>
-        <p>{{this.address.city}}, {{this.address.stateOrTerritory}} {{this.address.postalCode}}</p>
+        <p>{{address.streetAddress}}</p>
+        <p>{{address.city}}, {{address.stateOrTerritory}} {{address.postalCode}}</p>
       </div>
     </div>  
   </div>
@@ -17,6 +17,7 @@ import AddressService from '../services/AddressService';
 
 export default {
  name:'address-details',
+ props: ['passedBreweryAddressId','individualPassedBreweryAddressId'],
   data() {
     return {
       isLoading: true
@@ -27,12 +28,22 @@ export default {
   },
   methods: {
     retrieveAddress() {
-      AddressService.getAddress(this.$route.params.addressId).then(response => {
+      if(this.passedBreweryAddressId != ''){
+        AddressService.getAddress(this.passedBreweryAddressId).then(response => {
         console.log(response);
         this.$store.commit("SET_ADDRESS", response.data);
         this.isLoading = false;
-      });
-    },
+        })
+      }
+      
+      else{
+        AddressService.getAddress(this.individualPassedBreweryAddressId).then(response => {
+        console.log(response);
+        this.$store.commit("SET_ADDRESS", response.data);
+        this.isLoading = false;
+        })
+      }
+    }
   },
   computed: {
       address() {

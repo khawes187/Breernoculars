@@ -5,6 +5,7 @@
         <h2>This is changed</h2>
         <ul class="breweryInfo">
           <h3>{{brewery.breweryName}}</h3>
+          <address-detail v-bind:individualPassedBreweryAddressId = "brewery.breweryAddressId" />
           <p>{{brewery.phoneNumber}}</p>
           <a href=#v-bind:brewery.website>{{brewery.breweryName}} Website</a>
           <p>{{brewery.history}}</p>
@@ -24,9 +25,11 @@
 
 <script>
 import BreweryService from '../services/BreweryService';
+import AddressDetail from '../components/AddressDetail';
 
 export default {
   name:'individual-brewery',
+  components: {AddressDetail},
   data() {
     return {
       //breweries: [],
