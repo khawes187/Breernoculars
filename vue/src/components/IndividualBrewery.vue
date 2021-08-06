@@ -2,7 +2,6 @@
 <div>
     <h2>Brewery Information</h2>
     <div>
-        
         <h2>This is changed</h2>
         <ul class="breweryInfo">
           <h3>{{brewery.breweryName}}</h3>
@@ -17,10 +16,11 @@
         v-bind:key="beer.beerBreweryId">   
           <p>Beer: {{beer.beerName}}</p>
       </div>
-        
     </div> 
 </div>       
 </template>
+
+
 
 <script>
 import BreweryService from '../services/BreweryService';
@@ -62,6 +62,8 @@ export default {
       }
   }
 };
+
+//test test
 </script>
 
 <style>
