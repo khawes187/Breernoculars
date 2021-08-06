@@ -32,13 +32,14 @@
 import BreweryService from '../services/BreweryService';
 import AddressDetail from '../components/AddressDetail';
 
+
 export default {
   name:'individual-brewery',
   components: {AddressDetail},
   data() {
     return {
       //breweries: [],
-     // isLoading: true
+     isLoading: true
     };
   },
   created() {
@@ -50,14 +51,14 @@ export default {
       BreweryService.getBrewery(this.$route.params.breweryId).then(response => {
         console.log(response);
         this.$store.commit("SET_BREWERY", response.data);
-       // this.isLoading = false;
+       this.isLoading = false;
       });
     },
     retrieveBeers() {
       BreweryService.getBeers(this.$route.params.breweryId).then(response => {
         console.log(response);
         this.$store.commit("SET_BEERS", response.data);
-       // this.isLoading = false;
+       this.isLoading = false;
     });
     }
   },
