@@ -35,7 +35,7 @@
           <p id="i-b-beer-name">{{beer.beerName}}</p>
       </div>
     </div> 
-  </div>     
+      </div>
 </template>
 
 
