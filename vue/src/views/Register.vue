@@ -50,7 +50,7 @@
         id="roleBrewer"
         class="form-control"
         name="set_role"
-        value="brewer"
+        value="potentialBrewer"
         v-model="user.role"
         required
       />
@@ -100,10 +100,18 @@ export default {
           .register(this.user)
           .then((response) => {
             if (response.status == 201) {
+              if (this.user.role == 'user') {
               this.$router.push({
                 path: '/login',
                 query: { registration: 'success' },
               });
+              }
+              else {
+                this.$router.push({
+                path: '/',
+                query: { registration: 'success' },
+              });
+              }
             }
           })
           .catch((error) => {
