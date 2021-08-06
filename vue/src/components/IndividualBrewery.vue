@@ -75,7 +75,7 @@ export default {
         this.$store.commit("SET_BEERS", response.data);
        this.isLoading = false;
     });
-    }
+    },
   },
   computed: {
       brewery() {
