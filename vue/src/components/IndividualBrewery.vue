@@ -46,7 +46,7 @@
 <script>
 import BreweryService from '../services/BreweryService';
 import AddressDetail from '../components/AddressDetail';
-
+import AddressService from '../services/AddressService';
 
 export default {
   name:'individual-brewery',
@@ -75,7 +75,14 @@ export default {
         this.$store.commit("SET_BEERS", response.data);
        this.isLoading = false;
     });
-    }
+    },
+        retrieveAddresses() {
+        AddressService.getAddresses().then(response => {
+        console.log(response);
+        this.$store.commit("SET_ADDRESSES", response.data);
+        this.isLoading = false;
+      });   
+    },
   },
   computed: {
       brewery() {
@@ -83,7 +90,10 @@ export default {
       },
       beers() {
         return this.$store.state.beers;
-      }
+      },
+      address() {
+          return this.$store.state.addresses.filter(address => address.addressId == this.$store.state.brewery.breweryAddressId);
+      },
   }
 };
 </script>
