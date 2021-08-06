@@ -46,7 +46,7 @@ export default {
       });
     },
     retrieveBeers() {
-      BreweryService.getBeers(this.$route.params.beersBreweryId).then(response => {
+      BreweryService.getBeers(this.$route.params.breweryId).then(response => {
         console.log(response);
         this.$store.commit("SET_BEERS", response.data);
        // this.isLoading = false;
