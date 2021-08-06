@@ -6,4 +6,7 @@ export default {
       return axios.get(`/address/${breweryAddressId}`);
   },
 
+  getAddresses() {
+    return axios.get(`/address`);
+},
 }

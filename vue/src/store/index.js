@@ -32,6 +32,7 @@ export default new Vuex.Store({
     beers: [],
     breweriesTest: [],
     breweries: [],
+    addresses:[],
     address: {
       addressId:'',
       streetAddress:'',
@@ -78,8 +79,8 @@ export default new Vuex.Store({
     SET_BREWERIES(state, data) {
       state.breweries = data;
     },
-    SET_ADDRESS(state, data) {
-      state.address = data;
+    SET_ADDRESSES(state, data) {
+      state.addresses = data;
     },
     SET_BREWERY(state, data) {
       state.brewery = data;
@@ -89,6 +90,9 @@ export default new Vuex.Store({
     },
     SET_REVIEWS(state, data){
       state.beerReviews = data;
-    }
+    },
+    SET_ADDRESS(state, data) {
+      state.address = data;
+    },
   }
 })

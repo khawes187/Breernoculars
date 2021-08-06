@@ -20,6 +20,13 @@ namespace Capstone.Controllers
             BreweryAddressDAO = _breweryAddressDAO;
         }
 
+        [HttpGet]
+        public  List<BreweryAddress> GetAllAddresses()
+        {
+            List<BreweryAddress> addresses = BreweryAddressDAO.GetBreweryAddresses();
+            return addresses;
+        }
+
         [HttpGet("{breweryAddressId}")]
         public BreweryAddress GetBreweryAddress(int breweryAddressId)
         {
