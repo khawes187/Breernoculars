@@ -1,5 +1,6 @@
 <template>
 <div id="i-b-body">
+    
     <h1 id="i-b-h1">{{brewery.breweryName}}</h1>
     <div>
       <div id="i-b-brewery-photo">
@@ -10,10 +11,7 @@
       </div>
         <div id="i-b-breweryInfo">
           <!-- <h3>{{brewery.breweryName}}</h3> -->
-        <div>  
-          <address-detail id="i-b-address" v-bind:passedBreweryAddressId = "brewery.breweryAddressId" />
-        </div>
-        <div>
+          <address-detail id="i-b-address"  />
           <p id="i-b-phone">Phone: {{brewery.phoneNumber}}</p>
         </div>
         <div>
@@ -37,7 +35,7 @@
           <p id="i-b-beer-name">{{beer.beerName}}</p>
       </div>
     </div> 
-</div>       
+       
 </template>
 
 

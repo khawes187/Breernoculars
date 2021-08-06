@@ -23,12 +23,12 @@ export default {
       isLoading: true
     };
   },
-  created() {
+  created(){
     this.retrieveAddress();
   },
   methods: {
     retrieveAddress() {
-      AddressService.getAddress(this.passedBreweryAddressId).then(response => {
+      AddressService.getAddress(this.$store.state.brewery.breweryAddressId).then(response => {
         console.log(response);
         this.$store.commit("SET_ADDRESS", response.data);
         this.isLoading = false;
@@ -39,6 +39,7 @@ export default {
       address() {
           return this.$store.state.address;
       },
+           
   }
 };  
 </script>
