@@ -3,7 +3,7 @@
 
    <div class="home">
     <header>
-      <h1>Working Title</h1>
+      <h1>Beernoculars</h1>
     </header>
     
     <img class="backgroundimage" src="../images/beer-2439237_960_720.webp" width="100%" height="100%" alt="homepage image">
