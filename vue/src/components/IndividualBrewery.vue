@@ -11,10 +11,12 @@
       </div>
         <div id="i-b-breweryInfo">
           <!-- <h3>{{brewery.breweryName}}</h3> -->
+        <div>
           <address-detail id="i-b-address"  />
-          <p id="i-b-phone">Phone: {{brewery.phoneNumber}}</p>
         </div>
         <div>
+          <p id="i-b-phone">Phone: {{brewery.phoneNumber}}</p> 
+        &ensp;
           <a href=#v-bind:brewery.website id="i-b-website">{{brewery.breweryName}} Website</a>
         </div>
         <div>
@@ -25,6 +27,7 @@
         </div>
         <div>
           <p id="i-b-date">Date established: {{brewery.dateEstablished}}</p>
+        </div>
         </div>
       </div>
         <h2 id="i-b-beerList">Beer List</h2>
@@ -97,7 +100,7 @@ export default {
 }
 #i-b-generalInfo{
   /* display: grid; 
-  grid-area: generalInfo;*/
+  grid-area: generalInfo; */
   border-radius: 25px;
   background-color: goldenrod;
   color: black;
@@ -111,6 +114,8 @@ export default {
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  padding: 5px;
+  border-radius: 25px;
   grid-area: phone;
 }
 #i-b-website{
@@ -118,6 +123,8 @@ export default {
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  padding: 5px;
+  border-radius: 25px;
   grid-area: webside;
 }
 #i-b-address{
@@ -125,7 +132,8 @@ export default {
   background-color: goldenrod;
   color: black;
   display: inline-block;
-  width: 100%;
+  padding: 5px;
+  border-radius: 25px;
   grid-area: address;
 }
 #i-b-about{
@@ -133,14 +141,20 @@ export default {
   background-color: goldenrod;
   color: black;
   display: inline;
+  padding:5px;
+  border-radius: 35px;;
   grid-area: about;
 }
 #i-b-history{
+  margin:0;
   display: grid;
   background-color: goldenrod;
   color: black;
   display: inline-block;
   text-align: center;
+  border-radius: 25px;
+  padding: 5px;
+  width: 50%;
   grid-area: history;
 }
 #i-b-date{
@@ -148,6 +162,8 @@ export default {
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  padding: 5px;
+  border-radius: 25px;;
   grid-area: date;
 }
 #i-b-beerList{
@@ -155,6 +171,8 @@ export default {
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  padding: 5px;
+  border-radius: 25px;
   grid-area: beerList;
 }
 /* #i-b-beers{
@@ -167,22 +185,19 @@ export default {
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  padding: 5px;
+  border-radius: 25px;
   grid-area: beer-name;
 }
 #i-b-breweryInfo{
   display: grid;
-  width:50%;
+  width:40%;
   padding: 20px;
-  background-color: goldenrod;
+ /*  background-color: goldenrod; */
   border-radius: 25px;
   grid-area:breweryInfo;
 }
-/* #i-b-firstbeer{
-    grid-area: firstBeer;
-}
-#i-b-secondbeer{
-    grid-area: secondBeer;
-} */
+
 #i-b-brewery-photo {
   display: grid;
   grid-area: breweryPhoto;
@@ -198,7 +213,7 @@ export default {
   grid-template-areas: 
     "breweryName breweryName"
     "breweryPhoto breweryPhoto"
-    /* "generalInfo generalInfo" */
+    "generalInfo generalInfo"
     "address address"
     "phone website"
     "about about"
