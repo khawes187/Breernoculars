@@ -5,7 +5,7 @@
         <img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
       </div>
       <div v-else>
-        <p>Yo yo yo this is the adsress of your brewwery yo!</p>
+        
         <p>{{address.streetAddress}}</p>
         <p>{{address.city}}, {{address.stateOrTerritory}} {{address.postalCode}}</p>
       </div>
