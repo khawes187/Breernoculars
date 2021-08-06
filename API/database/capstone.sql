@@ -113,7 +113,7 @@ INSERT INTO dbo.Beer
 VALUES
 ('Habituale', 'Kolsch Style Golden Ale', 5.0, 'Light, clean, crisp with a slight citrusy spicy character.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Saucy Brew Works' AND brewery.phoneNumber = '(216) 666-2568'), 'no'),
 ('Juicy ASAP', 'American IPA', 6.5, 'Tropical, citrusy, and most certainly juicy.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Saucy Brew Works' AND brewery.phoneNumber = '(216) 666-2568'), 'no'),
-('Space Chimp Wit OG', 'Wheat Beer - Witbier', 5.0, 'Our original gangester, Space Chimp Wit, brewed with bitter orange and coriander.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Terrestrial Brewing Company' AND brewery.phoneNumber = '(216) 465-9999'), 'no'),
+('Space Chimp Wit OG', 'Wheat Beer - Witbier', 5.0, 'Our original gangster, Space Chimp Wit, brewed with bitter orange and coriander.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Terrestrial Brewing Company' AND brewery.phoneNumber = '(216) 465-9999'), 'no'),
 ('Evenstar', 'American IPA', 7.4, 'A West Coast Style IPA brewed with Simcoe, Nugget, Centennial and Citra hops. Dry and resinous with a fruity and bitter finish.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Terrestrial Brewing Company' AND brewery.phoneNumber = '(216) 465-9999'), 'no')
 
 INSERT INTO dbo.UserReviews
@@ -130,8 +130,6 @@ SELECT * FROM dbo.Brewery
 
 SELECT * FROM dbo.Beer
 
-
-
 /* BREAK GLASS IN CASE OF EMERGENCY: */
 
 /*
@@ -146,3 +144,20 @@ DROP TABLE dbo.UserBrewery
 
 */
 SELECT brewery.breweryName, brewery.breweryId, brewery.phoneNumber, brewery.dateEstablished, brewery.history FROM Brewery WHERE breweryId = 100
+
+SELECT beerName, beerType, abv, beerDescription, seasonal FROM dbo.Beer WHERE beerId = 1000
+
+SELECT * FROM Brewery
+
+UPDATE dbo.Brewery SET breweryName = 'ploop', breweryAddressId = 3, phoneNumber = '(216) 666-MILK', website = 'https://woooooooops', dateEstablished = '9999', history = 'never' WHERE breweryId = 102
+
+SELECT * FROM Brewery
+
+INSERT INTO Beer
+(beerName, beerType, abv, beerDescription, beerBreweryId, seasonal)
+VALUES
+('guhhh', 'bleg', 5.0, 'ping pong ball.', 100, 'no')
+
+SELECT * FROM Beer
+
+DELETE FROM dbo.Beer WHERE beer.beerId = 1005
