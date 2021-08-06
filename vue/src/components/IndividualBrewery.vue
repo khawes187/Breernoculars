@@ -1,26 +1,26 @@
 <template>
-<div>
-    <h1>{{brewery.breweryName}}</h1>
+<div id="i-b-body">
+    <h1 id="i-b-h1">{{brewery.breweryName}}</h1>
     <div>
-      <div class="brewery-photo">
+      <div id="i-b-brewery-photo">
         <img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" alt="brewery photo">   
       </div>
-        <h2 class="generalInfo">General Information</h2>
-        <ul class="breweryInfo">
+        <h2 id="i-b-generalInfo">General Information</h2>
+        <ul id="i-b-breweryInfo">
           <!-- <h3>{{brewery.breweryName}}</h3> -->
-          <address-detail v-bind:passedBreweryAddressId = "brewery.breweryAddressId" />
-          <p class="phone">Phone: {{brewery.phoneNumber}}</p>
-          <a href=#v-bind:brewery.website class="website">{{brewery.breweryName}} Website</a>
-          <h4 class="about">About</h4>
-          <p>{{brewery.history}}</p>
-          <p class="date">Date established: {{brewery.dateEstablished}}</p>
+          <address-detail id="i-b-address" v-bind:passedBreweryAddressId = "brewery.breweryAddressId" />
+          <p id="i-b-phone">Phone: {{brewery.phoneNumber}}</p>
+          <a href=#v-bind:brewery.website id="i-b-website">{{brewery.breweryName}} Website</a>
+          <h4 id="i-b-about">About</h4>
+          <p id="i-b-history">{{brewery.history}}</p>
+          <p id="i-b-date">Date established: {{brewery.dateEstablished}}</p>
         </ul>
-        <h2 class="beerList">Beer List</h2>
+        <h2 id="i-b-beerList">Beer List</h2>
         <div
-        class="beers"
+        id="i-b-beers"
         v-for="beer in beers"
         v-bind:key="beer.beerBreweryId">   
-          <p>{{beer.beerName}}</p>
+          <p id="i-b-beer-name">{{beer.beerName}}</p>
       </div>
     </div> 
 </div>       
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style>
-h1{
+#i-b-h1{
     text-align: center;
     grid-area: header;
     background-color: goldenrod;
@@ -81,37 +81,72 @@ h1{
     font-size: 84px;
     padding: 25px;
 }
-h2{
+#i-b-generalInfo{
     grid-area: generalInfo;
     background-color: goldenrod;
     color: black;
     display: inline-block;
 }
-h4{
+#i-b-about{
   background-color: goldenrod;
   color: black;
   display: inline-block;
 }
-p{
+#i-b-phone{
   background-color: goldenrod;
   color: black;
   display: inline-block;
 }
-.breweryInfo{
+#i-b-website{
+  background-color: goldenrod;
+  color: black;
+  display: inline-block;
+}
+#i-b-address{
+  background-color: goldenrod;
+  color: black;
+  display: inline-block;
+}
+#i-b-history{
+  background-color: goldenrod;
+  color: black;
+  display: inline-block;
+}
+#i-b-date{
+  background-color: goldenrod;
+  color: black;
+  display: inline-block;
+}
+#i-b-beerList{
+  background-color: goldenrod;
+  color: black;
+  display: inline-block;
+}
+/* #i-b-beers{
+  background-color: goldenrod;
+  color: black;
+  display: inline-block;
+} */
+#i-b-beer-name{
+  background-color: goldenrod;
+  color: black;
+  display: inline-block;
+}
+#i-b-breweryInfo{
     grid-area:breweryInfo;
 }
-.firstbeer{
+#i-b-firstbeer{
     grid-area: firstBeer;
 }
-.secondbeer{
+#i-b-secondbeer{
     grid-area: secondBeer;
 }
-.brewery-photo {
+#i-b-brewery-photo {
   display: grid;
   grid-area: breweryPhoto;
   justify-content: center;
 }
-.body{
+#i-b-body{
   margin: 0;
   background-image: url(../images/BreweryInfoPage.jpg);
   height:100%;
