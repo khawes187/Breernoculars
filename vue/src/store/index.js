@@ -39,7 +39,24 @@ export default new Vuex.Store({
       stateOrTerritory:'',
       county:'',
       postalCode:''
-    }
+    }, //ADDED BY PAT, BEWARE:
+    beer: {
+      beerId:'',
+      beerName:'',
+      beerType:'',
+      abv:'',
+      beerDescription:'',
+      beerBreweryId:'',
+      seasonal:''
+    },
+    reviews: [],
+    beerReview: {
+      beerReviewId:'',
+      userId:'',
+      beerId:'',
+      rating:'',
+      reviewBody:'',
+    } //WARNING COMPLETE
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -69,6 +86,9 @@ export default new Vuex.Store({
     },
     SET_BEERS(state, data) {
       state.beers = data;
+    },
+    SET_REVIEWS(state, data){
+      state.beerReviews = data;
     }
   }
 })

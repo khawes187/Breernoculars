@@ -1,8 +1,13 @@
 <template>
-<div>
+<body>
+  <div>
     <individual-brewery />
-</div>       
+</div>
+</body>
+       
+  
 </template>
+
 
 <script>
 import IndividualBrewery from '@/components/IndividualBrewery';

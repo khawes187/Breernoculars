@@ -23,8 +23,8 @@
       </button>
     </div>
 
-    <div class="fillerSpace">
-    </div>
+   <!--  <div class="fillerSpace">
+    </div> -->
      <!--  needs linked to role//should this be a router-link? or v-if? -->
 <!--       <div class="addBeerFromBreweryButton">
       <button class="add" style="border: 0; background: transparent">
@@ -40,7 +40,7 @@
       </div> -->
     
 
-    <!-- needs linked to role//should this be a router-link? or v-if? -->
+    <!-- needs linked to roe//should this be a router-link? or v-if? -->
 <!--     <div class="addBrewer">
       <button class="add" style="border: 0; background: transparent">
         <img src="@/images/editedbutton.gif" width="55" height="65" alt="Delete a beer" />
@@ -68,25 +68,47 @@
         </button>
       </router-link>
     </div>
-  </div>
+    <div class="search-container">
+   <!-- <form action="">  LINK PAGE FOR SEARCHING -->
+    <input type="text" class="searchBar" placeholder="Search.." name="search">
+      <button id="searchSubmit" type="submit">Submit</button>
+    </div>
     
-   
+   </div>
     <router-view />
   </div>
 </template>
 
 <style scoped>
+.searchBar{
+  grid-area: searchBar;
+  /* float: right; */
+  /* padding: 6px; */
+  border-color: black;
+  /* margin-top: 8px;
+  margin-right: 16px; */
+  font-size: 17px;
+  align-items:left;
+  margin-top: 30px;
 
+}
+#searchSubmit{
+  /* float:right; */
+  /* display: flex; */
+  /* text-align: left; */
+  cursor: pointer;
+  margin-top: 30px;
+  margin: 0;
+  padding: 4px;
+}
  .menuButtons {
-  display: grid;
-  flex-direction:row;
   justify-content:space-around;
-  border-radius: 25px; 
+  /* border-radius: 25px;  */
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   grid-template-rows: auto;
   grid-template-areas: 
-    "home addButton deleteButton loginOrOut";
+    "home addButton deleteButton loginOrOut searchbar";
   text-align: center;
   
   background: repeating-conic-gradient(lightblue 0% 25%, white 0% 50%) 50% / 20px 20px;
