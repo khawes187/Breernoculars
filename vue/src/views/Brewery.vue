@@ -2,7 +2,6 @@
 <body>
   <div>
     <individual-brewery />
-    <p>hello</p>
 </div>
 </body>
        
