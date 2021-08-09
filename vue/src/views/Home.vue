@@ -66,6 +66,7 @@ header {
     goldenrod,
     goldenrod,
     transparent);
+    grid-area: h1;
 }
 /* .background {
   grid-area: backgroundPic;
@@ -137,14 +138,13 @@ img.lazy {
   z-index: 100;
 } */
 
-
-@media screen and (max-width: 450px) {
-  .template {
+@media screen and (max-width: 480px) {
+  body {
     grid-template-areas: 
       "header"
       "breweryList"
-  ;
-      grid-template-columns: auto;
+    ;
+    grid-template-columns: auto;
   }
 }
 </style>
