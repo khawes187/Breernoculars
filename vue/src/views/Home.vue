@@ -3,7 +3,7 @@
 
    <div class="home">
     <header>
-      <h1>Beernoculars</h1>
+      <h1 id="home-h1">Beernoculars</h1>
     </header>
     
     <img class="backgroundimage" src="../images/beer-2439237_960_720.webp" width="100%" height="100%" alt="homepage image">
@@ -54,8 +54,10 @@ header {
   grid-area: header;
   text-align: center;
 }
-h1 {
-  color: goldenrod;
+#home-h1 {
+  color: black;
+  background-color: goldenrod;
+  font-family: 'Lobster', cursive;
   font-size: 84px;
 }
 /* .background {
@@ -74,29 +76,28 @@ h1 {
   }
  div.home {
   cursor: pointer;
-  display: grid;
+  /* display: grid; */
   grid-template-columns: auto auto auto;
   grid-template-areas: 
     "header header header"
-    "loading loading loading"
+    /* "loading loading loading" */
     ". breweryList ."
   ;
   height: 100vh;
   grid-gap: 10px;
  }
  .breweryList{
-   background-color: blanchedalmond;
-   opacity: 0.5;
+   background-color: goldenrod;
+   opacity: 0.9;
    grid-area: breweryList;
    font-family: 'Open Sans', sans-serif;
-   padding: 0px 25px 25px 25px;
+   /* padding: 0px 25px 25px 25px; */
+   padding: 10px;
+   width: 25%;
    border-radius: 25px;
+   text-align: center;
+   
  }
-  /*
-
-div.breweries{
-  background-image: "../images/beer-2439237_960_720.webp";
-}*/
 div.loading {
   flex: 3;
   

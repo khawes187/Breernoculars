@@ -97,10 +97,10 @@
   justify-content:space-around;
   /* border-radius: 25px;  */
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
   grid-template-rows: auto;
   grid-template-areas: 
-    "home addButton deleteButton loginOrOut searchbar";
+    "home addButton deleteButton loginOrOut";
   text-align: center;
   
   background: repeating-conic-gradient(lightblue 0% 25%, white 0% 50%) 50% / 20px 20px;
