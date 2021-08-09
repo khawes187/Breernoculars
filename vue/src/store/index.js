@@ -88,6 +88,9 @@ export default new Vuex.Store({
     SET_BEERS(state, data) {
       state.beers = data;
     },
+    SET_BEER(state, data) {
+      state.beer = data;
+    },
     SET_REVIEWS(state, data){
       state.beerReviews = data;
     },
