@@ -1,5 +1,5 @@
 <template class="template">
-<body>
+<body class="body">
 
    <div class="home">
     <header>
@@ -59,6 +59,13 @@ header {
   background-color: goldenrod;
   font-family: 'Lobster', cursive;
   font-size: 84px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    goldenrod,
+    goldenrod,
+    goldenrod,
+    transparent);
 }
 /* .background {
   grid-area: backgroundPic;
@@ -75,39 +82,61 @@ header {
   z-index: -1;
   }
  div.home {
-  cursor: pointer;
-  /* display: grid; */
+  display: grid;
   grid-template-columns: auto auto auto;
   grid-template-areas: 
-    "header header header"
-    /* "loading loading loading" */
-    ". breweryList ."
+    "header header header "
+    ". loading ."
+    ". . breweryList"
   ;
-  height: 100vh;
-  grid-gap: 10px;
+  grid-gap: 10px; 
+  background: linear-gradient(
+  to right,
+  transparent,
+  transparent,
+  goldenrod); /*THIS MIGHT DO WHAT I WANT TO DO*/
  }
  .breweryList{
+   cursor: pointer;
    background-color: goldenrod;
    opacity: 0.9;
    grid-area: breweryList;
    font-family: 'Open Sans', sans-serif;
-   /* padding: 0px 25px 25px 25px; */
-   padding: 10px;
-   width: 25%;
+   width: 100%;
    border-radius: 25px;
    text-align: center;
-   
+   justify-content: center;
+   height: 100%;
+   top: 0;
+   height: 100%;
+   z-index: 2;
+   background: linear-gradient(
+    to right,
+    transparent,
+    goldenrod,
+    goldenrod,
+    goldenrod);
  }
 div.loading {
   flex: 3;
   
 }
+/*.body{ Trying to make a yellow stripe on the page */
+ 
+  /* background-color: goldenrod;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;  
+}
+
+/* I think this can be deleted
 img.lazy {
   position: absolute;
   top: 100px;
   left: 240px;
   z-index: 100;
-}
+} */
+
 
 @media screen and (max-width: 450px) {
   .template {
