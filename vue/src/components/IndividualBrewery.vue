@@ -32,18 +32,16 @@
         </div>
         </div>
       </div>
-        <h2 id="i-b-beerList">Beer List</h2>
-        <br>
+        <!-- <h2 id="i-b-beerList">Beer List</h2> --> 
         <div
         id="i-b-beers"
         v-for="beer in beers"
         v-bind:key="beer.beerBreweryId">  
-        
           <h2 id="i-b-beer-name">{{beer.beerName}}</h2>
           <p id="i-b-beer-photo"><img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" alt="beer list photo"></p>
           <p id="i-b-beer-type">{{beer.beerType}}</p>
           <p id="i-b-beer-abv">ABV:{{beer.abv}}</p>
-          <p id="beer-description">{{beer.beerDescription}}</p>
+          <p id="i-b-beer-description">{{beer.beerDescription}}</p>
           <p id="i-b-beer-seasonal">Seasonal? - {{beer.seasonal}}</p>
       </div>
     </div> 
@@ -118,9 +116,18 @@ export default {
   font-family: 'Lobster', cursive;
   font-size: 84px;
   padding: 25px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    goldenrod,
+    goldenrod,
+    goldenrod,
+    goldenrod,
+    transparent);
 }
 #i-b-generalInfo{
   /* display: grid;  */
+  margin-left: 10px;
   width: 40%;
   padding-left: 50px;
   grid-area: generalInfo;
@@ -192,29 +199,36 @@ export default {
   border-radius: 25px;;
   grid-area: date;
 }
+
 #i-b-beerList{
   display: grid;
   background-color: goldenrod;
   color: black;
   display: inline-block;
-  padding: 5px;
-  border-radius: 25px;  
+  padding: 10px;
+  border-radius: 25px;
+  text-align: center;
 }
 #i-b-beers{
+  margin: 10px;
+  padding: 10px;
+  border-radius: 25px;
   background-color: goldenrod;
   color: black;
-  /* display: inline-block; */
+  width: 40%;
+  /* display: inline-block; 
   border-radius: 25px;
-  width:fit-content;
+  
+  margin: 0;
   text-align: center;
-  grid-template-columns: auto auto;
-  grid-template-areas: 
+ grid-template-columns: auto auto;
+   grid-template-areas: 
     "name name"
     "photo photo"
     "type type"
     "abv abv"
     "description description"
-    "seasonal seasonal";
+    "seasonal seasonal"; */
 } 
 #i-b-beer-name{ 
   background-color: goldenrod;
@@ -224,18 +238,16 @@ export default {
   border-radius: 25px;
   display: grid;
   grid-area: name;
+  text-align: center;
 }
 #i-b-beer-photo{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  
+  margin-left: 10%;
+  margin-right: 10%;
   display: grid;
   grid-area: photo;
 }
 #i-b-beer-type{
   text-align: center;
-  
   display: grid;
   grid-area: type;
 }
@@ -246,7 +258,7 @@ export default {
 }
 #i-b-beer-description{
   text-align: center;
-  width:100%;
+  
   display: grid;
   grid-area: description;
 }
@@ -256,9 +268,8 @@ export default {
   grid-area: seasonal;
 }
 #i-b-breweryInfo{
-  /* display: grid; */
+  margin: 10px;
   width:30%;
-  /* padding: 20px; */
   padding-left: 50px;
   padding-top: 20px;
   background-color: goldenrod;
