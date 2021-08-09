@@ -18,6 +18,7 @@
         <div>
           <p id="i-b-phone">Phone: {{brewery.phoneNumber}}</p> 
         &ensp;
+        &ensp;
           <a href=#v-bind:brewery.website id="i-b-website">{{brewery.breweryName}} Website</a>
         </div>
         <div>
@@ -112,13 +113,15 @@ export default {
   padding: 25px;
 }
 #i-b-generalInfo{
-  /* display: grid; 
-  grid-area: generalInfo; */
+  /* display: grid;  */
+  width: 40%;
+  padding-left: 50px;
+  grid-area: generalInfo;
+  padding: 5px;
   border-radius: 25px;
   background-color: goldenrod;
   color: black;
   display: inline;
-  padding: 1%;
   text-align: center;
 }
 
@@ -141,10 +144,12 @@ export default {
   grid-area: webside;
 }
 #i-b-address{
-  display: grid;
+  /* display: grid; */
   background-color: goldenrod;
   color: black;
   display: inline-block;
+  width: 70%;width: 70%;
+  text-align: center;
   padding: 5px;
   border-radius: 25px;
   grid-area: address;
@@ -154,6 +159,7 @@ export default {
   background-color: goldenrod;
   color: black;
   display: inline;
+  width: 100%;
   padding:5px;
   border-radius: 35px;;
   grid-area: about;
@@ -166,7 +172,7 @@ export default {
   display: inline-block;
   text-align: center;
   border-radius: 25px;
-  padding: 5px;
+  padding: 15px;
   width: 50%;
   grid-area: history;
 }
@@ -203,10 +209,12 @@ export default {
   grid-area: beer-name;
 }
 #i-b-breweryInfo{
-  display: grid;
-  width:40%;
-  padding: 20px;
- /*  background-color: goldenrod; */
+  /* display: grid; */
+  width:30%;
+  /* padding: 20px; */
+  padding-left: 50px;
+  padding-top: 20px;
+  background-color: goldenrod;
   border-radius: 25px;
   grid-area:breweryInfo;
 }
@@ -227,8 +235,8 @@ export default {
     "breweryName breweryName"
     "breweryPhoto breweryPhoto"
     "generalInfo generalInfo"
-    "address address"
-    "phone website"
+    "address website"
+    "address phone"
     "about about"
     "date date"
 }
