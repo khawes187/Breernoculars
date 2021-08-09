@@ -11,15 +11,35 @@
             <ul class="userReviews" v-for="review in reviews" v-bind:key="review.reviewBody">
                 <p>User: {{user.username}}</p>
                 <p>{{review.reviewBody}}</p>
-            <ul>
+            </ul>
         </div>
+        <h3>Submit a review for {{beer.beerName}}:</h3>
+        <a href="#" v-on:click.prevent="showForm = true" v-if="!showForm">Show Form</a>
+        <form v-on:submit.prevent="addNewReview" v-if="showForm === true">
+            <div class="form-element">
+                <label for="rating" >Rating:</label>
+                <select id="rating" v-model.number="newReview.rating">
+                    <option value="1">1 Bottles</option>
+                    <option value="2">2 Bottles</option>
+                    <option value="3">3 Bottles</option>
+                    <option value="4">4 Bottles</option>
+                    <option value="5">5 Bottles</option>
+                </select>
+            </div>
+            <div class="form-element">
+                <label for="review">Review:</label>
+                <textarea id="review" type="text" v-model="newReview.review">                    </textarea>
+            </div>
+            <input type="submit" value="Save"/>
+            <input type="button" value="Cancel" v-on:click="resetForm"/>
+        </form> 
     </div>
 </template>
 
 <script>
-import BeerAndReviewService from '../services/BeerandReviewService';
+import BeerAndReviewService from '../services/BeerAndReviewService';
 
-export default { //I HAVE NO IDEA WHAT I HAVE DONE OR WHAT THE CONSEQUENCES MAY BE
+export default { 
     name:'beer-and-reviews',
     components: {},
     data() {
@@ -34,22 +54,30 @@ export default { //I HAVE NO IDEA WHAT I HAVE DONE OR WHAT THE CONSEQUENCES MAY 
     methods: {    
         retrieveBeer() {
             BeerAndReviewService.getBeer(this.$route.params.beerId).then(response=> {
-                console.log(response); //Is "SET_BEERS" supposed to be plural if I want a single beer and 
-                this.$store.commit("SET_BEERS", response.data); //is this supposed to be a separate mutation?
+                console.log(response); 
+                this.$store.commit("SET_BEER", response.data); 
             });
         },
         retrieveReviews() {
             BeerAndReviewService.getBeerReviews(this.$route.params.beerId).then(response=> {
                 console.log(response);
                 this.$store.commit("SET_REVIEWS", response.data);
-            })
-        }
+            });
+        },
+        addNewReview() {
+            this.reviews.unshift(this.newReview);
+            this.resetForm();
+        },
+        resetForm(){
+            this.newReview = {};
+            this.showForm = false;
+        },
     },
     computed: {
         beer() {
             return this.$store.state.beer;
         },
-        beerReview(){ //really not sure about these
+        beerReview(){ 
             return this.$store.state.beerReviews;
         },
         reviews(){
