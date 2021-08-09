@@ -19,14 +19,14 @@
 <script>
 import BeerAndReviewService from '../services/BeerandReviewService';
 
-export default{ //I HAVE NO IDEA WHAT I HAVE DONE OR WHAT THE CONSEQUENCES MAY BE
-        name:'beer-and-reviews',
-    
-        //data(){
-            //return {
-                //PLACEHOLDER!
-            //};
-        //},
+export default { //I HAVE NO IDEA WHAT I HAVE DONE OR WHAT THE CONSEQUENCES MAY BE
+    name:'beer-and-reviews',
+    components: {},
+    data() {
+        return {
+            //PLACEHOLDER!
+        };
+    },
     created() {
         this.retrieveBeer();
         this.retrieveReviews();
