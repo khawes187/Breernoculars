@@ -68,11 +68,11 @@
         </button>
       </router-link>
     </div>
-    <div class="search-container">
+    <!-- <div class="search-container"> -->
    <!-- <form action="">  LINK PAGE FOR SEARCHING -->
-    <input type="text" class="searchBar" placeholder="Search.." name="search">
-      <button id="searchSubmit" type="submit">Submit</button>
-    </div>
+    <!-- <input type="text" class="searchBar" placeholder="Search.." name="search">
+      <button id="searchSubmit" type="submit">Submit</button> 
+    </div>-->
     
    </div>
     <router-view />
@@ -80,27 +80,19 @@
 </template>
 
 <style scoped>
-.searchBar{
+/* .searchBar{
   grid-area: searchBar;
-  /* float: right; */
-  /* padding: 6px; */
   border-color: black;
-  /* margin-top: 8px;
-  margin-right: 16px; */
   font-size: 17px;
   align-items:left;
   margin-top: 30px;
-
 }
 #searchSubmit{
-  /* float:right; */
-  /* display: flex; */
-  /* text-align: left; */
   cursor: pointer;
   margin-top: 30px;
   margin: 0;
   padding: 4px;
-}
+} */
  .menuButtons {
   justify-content:space-around;
   /* border-radius: 25px;  */
