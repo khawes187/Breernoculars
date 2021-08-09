@@ -1,4 +1,4 @@
-<template>
+<template class="template">
   <div id="app">
    <div class="menuButtons">
     <div id="home">
@@ -130,5 +130,14 @@
     width:50px;
     height:auto;
     display:inline-block;
+} */
+
+/* @media screen and (max-width: 450px) {
+  .template {
+    grid-template-areas: 
+      "home addButton deleteButton loginOrOut"
+  ;
+      grid-template-columns: auto auto auto auto;
+  }
 } */
 </style>
