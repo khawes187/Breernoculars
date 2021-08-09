@@ -1,5 +1,6 @@
 <template>
 <div id="i-b-body">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div>
     <h1 id="i-b-h1">{{brewery.breweryName}}</h1>
     <div>
@@ -39,10 +40,10 @@
         v-bind:key="beer.beerBreweryId">  
           <h2 id="i-b-beer-name">{{beer.beerName}}</h2>
           <p id="i-b-beer-photo"><img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" alt="beer list photo"></p>
-          <p id="i-b-beer-type">{{beer.beerType}}</p>
-          <p id="i-b-beer-abv">ABV:{{beer.abv}}</p>
-          <p id="i-b-beer-description">{{beer.beerDescription}}</p>
-          <p id="i-b-beer-seasonal">Seasonal? - {{beer.seasonal}}</p>
+          <p id="i-b-beer-type">Type:&ensp;{{beer.beerType}}</p>
+          <p id="i-b-beer-abv">ABV:&ensp;{{beer.abv}}</p>
+          <p id="i-b-beer-description">Description:&ensp;{{beer.beerDescription}}</p>
+          <p id="i-b-beer-seasonal">Seasonal Brew:&ensp;{{beer.seasonal}}</p>
       </div>
     </div> 
       </div>
@@ -108,6 +109,7 @@ export default {
 </script>
 
 <style>
+
 #i-b-h1{
   display: grid;
   text-align: center;
@@ -297,5 +299,26 @@ export default {
     "address phone"
     "about about"
     "date date"
+}
+@media screen and (max-width: 800px) {
+  #i-b-breweryInfo, #i-b-beers{
+    width: 90%;
+  }
+  #i-b-breweryInfo {
+    width: 90%;
+    padding: 0;
+    text-align: center;
+  }
+  #i-b-beer-photo{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 60%;
+  }
+  #i-b-body{
+  margin: 0;
+  background-image: url(../images/BreweryInfoPage.jpg);
+  height:100%;
+  width:100%;
+  }
 }
 </style>
