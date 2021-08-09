@@ -205,7 +205,7 @@ export default {
   color: black;
   /* display: inline-block; */
   border-radius: 25px;
-  width: 30%;
+  width:fit-content;
   text-align: center;
   grid-template-columns: auto auto;
   grid-template-areas: 
