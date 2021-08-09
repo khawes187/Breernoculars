@@ -33,11 +33,18 @@
         </div>
       </div>
         <h2 id="i-b-beerList">Beer List</h2>
+        <br>
         <div
         id="i-b-beers"
         v-for="beer in beers"
-        v-bind:key="beer.beerBreweryId">   
-          <p id="i-b-beer-name">{{beer.beerName}}</p>
+        v-bind:key="beer.beerBreweryId">  
+        
+          <h2 id="i-b-beer-name">{{beer.beerName}}</h2>
+          <p id="i-b-beer-photo"><img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" alt="beer list photo"></p>
+          <p id="i-b-beer-type">{{beer.beerType}}</p>
+          <p id="i-b-beer-abv">ABV:{{beer.abv}}</p>
+          <p id="beer-description">{{beer.beerDescription}}</p>
+          <p id="i-b-beer-seasonal">Seasonal? - {{beer.seasonal}}</p>
       </div>
     </div> 
       </div>
@@ -148,7 +155,7 @@ export default {
   background-color: goldenrod;
   color: black;
   display: inline-block;
-  width: 70%;width: 70%;
+  width: 80%;
   text-align: center;
   padding: 5px;
   border-radius: 25px;
@@ -173,7 +180,7 @@ export default {
   text-align: center;
   border-radius: 25px;
   padding: 15px;
-  width: 50%;
+  width: 80%;
   grid-area: history;
 }
 #i-b-date{
@@ -191,22 +198,62 @@ export default {
   color: black;
   display: inline-block;
   padding: 5px;
-  border-radius: 25px;
-  grid-area: beerList;
+  border-radius: 25px;  
 }
-/* #i-b-beers{
+#i-b-beers{
   background-color: goldenrod;
   color: black;
-  display: inline-block;
-} */
-#i-b-beer-name{
-  display: grid;
+  /* display: inline-block; */
+  border-radius: 25px;
+  width: 30%;
+  text-align: center;
+  grid-template-columns: auto auto;
+  grid-template-areas: 
+    "name name"
+    "photo photo"
+    "type type"
+    "abv abv"
+    "description description"
+    "seasonal seasonal";
+} 
+#i-b-beer-name{ 
   background-color: goldenrod;
   color: black;
   display: inline-block;
   padding: 5px;
   border-radius: 25px;
-  grid-area: beer-name;
+  display: grid;
+  grid-area: name;
+}
+#i-b-beer-photo{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  
+  display: grid;
+  grid-area: photo;
+}
+#i-b-beer-type{
+  text-align: center;
+  
+  display: grid;
+  grid-area: type;
+}
+#i-b-beer-abv{
+  text-align: center;
+  display: grid;
+  grid-area: abv;
+}
+#i-b-beer-description{
+  text-align: center;
+  width:100%;
+  display: grid;
+  grid-area: description;
+}
+#i-b-beer-seasonal{
+  text-align: center;
+  display: grid;
+  grid-area: seasonal;
 }
 #i-b-breweryInfo{
   /* display: grid; */
