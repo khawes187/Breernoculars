@@ -12,6 +12,6 @@ namespace Capstone.DAO
 
          BreweryAddress GetAddress(int addressId);
 
-         void CreateAddress(BreweryAddress address);
+         int CreateAddress(BreweryAddress address);
     }
 }
