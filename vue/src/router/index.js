@@ -9,6 +9,7 @@ import IndividualBrewery from '../components/IndividualBrewery.vue'
 import BreweryList from '../components/BreweryList.vue'
 import NewBreweryForm from '../views/NewBreweryForm'
 import BeerAndReviews from '../components/BeerAndReviews'
+import AddABeer from "../components/AddABeer"
 
 Vue.use(Router)
 
@@ -105,6 +106,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/beer",
+      name: "AddABeer",
+      component: AddABeer,
+      meta: {
+        requiresAuth: true
+      }
+    }
   ]
 })
 
