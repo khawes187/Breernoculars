@@ -97,11 +97,11 @@ export default new Vuex.Store({
     SET_ADDRESS(state, data) {
       state.address = data;
     },
+    ADD_REVIEW(state, data) {
+      state.beerReview = data;
+    },
     ADD_BEER(state, data) {
       state.beer = data;
-    },
-    ADD_REVIEW(state, review) {
-
-      const product = this.state.products.find(p => p.id == review.productID);
+    }
   }
 })

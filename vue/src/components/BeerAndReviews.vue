@@ -17,6 +17,10 @@
         <a href="#" v-on:click.prevent="showForm = true" v-if="!showForm">Show Form</a>
         <form v-on:submit.prevent="addNewReview" v-if="showForm === true">
             <div class="form-element">
+                <label for="title">Title:</label>
+                <input id="title" type="text" v-model="newReview.title">
+            </div>
+            <div class="form-element">
                 <label for="rating" >Rating:</label>
                 <select id="rating" v-model.number="newReview.rating">
                     <option value="1">1 Bottles</option>
@@ -31,7 +35,7 @@
                 <textarea id="review" type="text" v-model="newReview.review">                    </textarea>
             </div>
             <input type="submit" v-on:click="addNewReview()" value="Save"/>
-            <input type="button" value="Cancel" v-on:click="resetForm"/>
+            <input type="button" value="Cancel" v-on:click.prevent="resetForm"/>
         </form> 
     </div>
 </template>
@@ -44,7 +48,14 @@ export default {
     components: {},
     data() {
         return {
-            //PLACEHOLDER!
+            showForm: false,
+            newReview: {
+                productID: 0,
+                reviewer: "",
+                title: "",
+                rating: 0,
+                review: ""
+            }
         };
     },
     created() {
@@ -65,8 +76,9 @@ export default {
             });
         },
         addNewReview() {
-            this.reviews.unshift(this.newReview);
-            this.resetForm();
+            const productID = this.$route.params.id;
+            this.newReview.productID = productID;
+            this.$store.commit("ADD_REVIEW", this.newReview);
         },
         resetForm(){
             this.newReview = {};
