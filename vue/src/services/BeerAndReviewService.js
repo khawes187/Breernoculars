@@ -16,5 +16,8 @@ export default {
 
   getBeerReviews(beerId) {
     return axios.get(`/beerReview/${beerId}`)
+  },
+  postBeerReview() {
+    return axios.post(`/beerReview`)
   }
 }
