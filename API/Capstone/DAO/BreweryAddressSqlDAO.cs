@@ -76,25 +76,26 @@ namespace Capstone.DAO
             return returnBreweryAddress;
         }
 
-        public void CreateAddress(BreweryAddress address)
+        public int CreateAddress(BreweryAddress address)
         {
-
             try
             {
+                int addressId;
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand("INSERT INTO dbo.BreweryAddress (streetAddress, city, stateOrTerritory, " +
-                        "country, postalCode) VALUES (@streetAddress, @city, @stateOrTerritory, @country, @postalCode)", conn);
+                        "country, postalCode) OUTPUT INSERTED.addressId VALUES (@streetAddress, @city, @stateOrTerritory, @country, @postalCode)", conn);
                     cmd.Parameters.AddWithValue("@streetAddress", address.StreetAddress);
                     cmd.Parameters.AddWithValue("@city", address.City);
                     cmd.Parameters.AddWithValue("@stateOrTerritory", address.StateOrTerritory);
                     cmd.Parameters.AddWithValue("@country", address.Country);
                     cmd.Parameters.AddWithValue("@postalCode", address.PostalCode);
 
-                    cmd.ExecuteNonQuery();
+                    addressId = Convert.ToInt32(cmd.ExecuteScalar());
                 }
+                return addressId;
             }
             catch (SqlException)
             {

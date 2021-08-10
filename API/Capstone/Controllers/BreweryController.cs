@@ -44,9 +44,11 @@ namespace Capstone.Controllers
         }
 
         [HttpPost]
-        public void CreateBrewery(Brewery brewery)
+        public void CreateBrewery(Brewery brewery, BreweryAddress address)
         {
-            BreweryDAO.AddBrewery(brewery);
+            int addressId = BreweryAddressDAO.CreateAddress(address);
+            //AddressController newAddress = BreweryAddressDAO.addAddress(breewery.address)
+            BreweryDAO.AddBrewery(brewery, addressId);
             
         }
     }
