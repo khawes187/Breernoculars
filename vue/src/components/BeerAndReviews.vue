@@ -50,6 +50,7 @@ export default {
     components: {},
     data() {
         return {
+            showForm: false,
             newReview: {
                 productID: 0,
                 reviewer: "",
