@@ -45,7 +45,10 @@
           <p id="i-b-beer-description">Description:&ensp;{{beer.beerDescription}}</p>
           <p id="i-b-beer-seasonal">Seasonal Brew:&ensp;{{beer.seasonal}}</p>
       </div>
-      <button id="add-beer-button">Add Beer to Brewery</button>
+      <button id="add-beer-button" v-on:click="showImage = !showImage">Brewer Options</button>
+      <div v-if="showImage===true">
+        <add-a-beer />
+      </div>
     </div> 
       </div>
 </template>
@@ -55,15 +58,17 @@
 <script>
 import BreweryService from '../services/BreweryService';
 import AddressService from '../services/AddressService';
+import AddABeer from './AddABeer.vue';
 
 
 export default {
   name:'individual-brewery',
-  components: {},
+  components: {AddABeer},
   data() {
     return {
       //breweries: [],
-     isLoading: true
+     isLoading: true,
+     showImage: false
     };
   },
   created() {
@@ -114,6 +119,8 @@ export default {
   background-color: goldenrod;
   padding: 10px;
   border-radius: 25px;
+  font-weight: bold;
+  margin-left: 10px;
 }
 #i-b-h1{
   display: grid;
@@ -277,7 +284,7 @@ export default {
 #i-b-breweryInfo{
   margin: 10px;
   width:30%;
-  padding-left: 50px;
+  padding-left: 20px;
   padding-top: 20px;
   background-color: goldenrod;
   border-radius: 25px;
