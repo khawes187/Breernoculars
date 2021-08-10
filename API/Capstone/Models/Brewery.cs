@@ -10,7 +10,8 @@ namespace Capstone.Models
         public string PhoneNumber { get; set; }
         public string Website { get; set; }
         public string History { get; set; }
-        public string DateEstablished { get; set; }       
+        public string DateEstablished { get; set; }
+        public bool Approved { get; set; }
     }
 }
 

@@ -81,8 +81,8 @@ export default {
             return this.$store.state.beerReviews;
         },
         reviews(){
-            return this.$store.state.reviews;
-        }
+            return this.$store.state.reviews.find(reviews => reviews.beerId == this.$store.state.beer.beerId);
+        },
     }
 }    
 </script>
