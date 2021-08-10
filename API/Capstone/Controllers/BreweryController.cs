@@ -14,11 +14,10 @@ namespace Capstone.Controllers
     public class BreweryController : ControllerBase
     {
         private readonly IBreweryDAO BreweryDAO;
-        private readonly IBreweryAddressDAO BreweryAddressDAO;
+        
 
-        public BreweryController(IBreweryDAO _breweryDAO, IBreweryAddressDAO _breweryAddressDAO)
-        {
-            BreweryAddressDAO = _breweryAddressDAO;
+        public BreweryController(IBreweryDAO _breweryDAO)
+        {           
             BreweryDAO = _breweryDAO;
         }
 
@@ -44,11 +43,9 @@ namespace Capstone.Controllers
         }
 
         [HttpPost]
-        public void CreateBrewery(Brewery brewery, BreweryAddress address)
-        {
-            int addressId = BreweryAddressDAO.CreateAddress(address);
-            //AddressController newAddress = BreweryAddressDAO.addAddress(breewery.address)
-            BreweryDAO.AddBrewery(brewery, addressId);
+        public void CreateBrewery(Brewery brewery)
+        {         
+            BreweryDAO.AddBrewery(brewery);
             
         }
     }
