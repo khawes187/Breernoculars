@@ -58,7 +58,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddressId, phoneNumber, website, dateEstablished, history " +
+                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddressId, phoneNumber, website, dateEstablished, history, approved " +
                         "FROM Brewery WHERE breweryId = @breweryId", conn);
                     cmd.Parameters.AddWithValue("@breweryId", breweryId);
 
@@ -88,14 +88,15 @@ namespace Capstone.DAO
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Brewery (breweryName, breweryAddressId, phoneNumber, website, " +
-                        "dateEstablished, history) VALUES(@breweryName, @breweryAddressId, @phoneNumber, @website, @dateEstablished, @history)", conn);
+                        "dateEstablished, history, approved) VALUES(@breweryName, @breweryAddressId, @phoneNumber, @website, @dateEstablished, @history, @approved)", conn);
                     cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
                     cmd.Parameters.AddWithValue("@breweryAddressId", brewery.BreweryAddressId);
                     cmd.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
                     cmd.Parameters.AddWithValue("@website", brewery.Website);
                     cmd.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
                     cmd.Parameters.AddWithValue("@history", brewery.History);
-                    
+                    cmd.Parameters.AddWithValue("@approved", brewery.Approved);
+
 
                     cmd.ExecuteNonQuery();
                 }
@@ -145,6 +146,7 @@ namespace Capstone.DAO
             brewery.Website = Convert.ToString(reader["website"]);
             brewery.DateEstablished = Convert.ToString(reader["dateEstablished"]);
             brewery.History = Convert.ToString(reader["history"]);
+            brewery.Approved = Convert.ToBoolean(reader["approved"]);
 
             return brewery;
         }
