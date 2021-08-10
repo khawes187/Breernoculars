@@ -11,7 +11,7 @@ namespace Capstone.Models
         public string Website { get; set; }
         public string History { get; set; }
         public string DateEstablished { get; set; }
-        public bool Approved { get; set; }
+        public bool Approved { get; set; } = false;
     }
 }
 
