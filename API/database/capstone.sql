@@ -50,7 +50,8 @@ Create Table Brewery
 	phoneNumber varchar(14) not null,
 	website varchar(5000) not null,
 	dateEstablished varchar(4) not null,
-	history varchar(8000)
+	history varchar(8000),
+	approved BIT not null
 
 	constraint pk_breweryId primary key (breweryId),
 	constraint fk_addressId foreign key (breweryAddressId) references BreweryAddress(addressId)
