@@ -100,14 +100,21 @@ INSERT INTO dbo.BreweryAddress
 (streetAddress, city, stateOrTerritory, country, postalCode)
 VALUES
 ('2885 Detroit Ave', 'Cleveland', 'OH', 'USA', '44113'),
-('7524 Father Frascati', 'Cleveland', 'OH', 'USA', '44102')
+('7524 Father Frascati', 'Cleveland', 'OH', 'USA', '44102'),
+('2516 Market Ave', 'Cleveland', 'OH', 'USA', '44113'),
+('1261 Superior Ave', 'Cleveland', 'OH', 'USA', '44114'),
+('4125 Lorain Ave', 'Cleveland', 'OH', 'USA', '44113')
+
+SELECT * FROM BreweryAddress
 
 INSERT INTO dbo.Brewery
 (breweryName, breweryAddressId, phoneNumber, website, dateEstablished, history, approved)
 VALUES
-('Saucy Brew Works', (SELECT addressId FROM dbo.BreweryAddress WHERE BreweryAddress.streetAddress = '2885 Detroit Ave' AND BreweryAddress.postalCode = '44113'), '(216) 666-2568', 'https://www.saucybrewworks.com/cleveland-brewpub/', '2017', 'For Saucy Brew Works, respect for community means being responsible with our resources. The brewery’s systems reduce water use and pre-treat wastewater. Fresh Fork Market uses our spent grains to feed their animals. We in turn will buy their meat — and the world goes round. Respect also means supporting education. Not only about the world of beer, but educating the next generation of bright minds. That’s why we support Breakthrough Schools, a top performing charter school network in our community that takes a different approach to education. Just like we take a different approach to beer.', 1),
-('Terrestrial Brewing Company', (SELECT addressId FROM dbo.BreweryAddress WHERE BreweryAddress.streetAddress = '7524 Father Frascati' AND BreweryAddress.postalCode = '44102'), '(216) 465-9999', 'https://www.facebook.com/terrestrialbrewing/', 'unkn', 'Small-batch brewery boasting unique beers and amazing views of Lake Erie in the Battery Park neighborhood. Owners: Ryan Bennett, Ralph Sgro. Head Brewer: Ralph Sgro', 1)
-
+('Saucy Brew Works', (SELECT addressId FROM dbo.BreweryAddress WHERE BreweryAddress.streetAddress = '2885 Detroit Ave'), '(216) 666-2568', 'https://www.saucybrewworks.com/cleveland-brewpub/', '2017', 'For Saucy Brew Works, respect for community means being responsible with our resources. The brewery’s systems reduce water use and pre-treat wastewater. Fresh Fork Market uses our spent grains to feed their animals. We in turn will buy their meat — and the world goes round. Respect also means supporting education. Not only about the world of beer, but educating the next generation of bright minds. That’s why we support Breakthrough Schools, a top performing charter school network in our community that takes a different approach to education. Just like we take a different approach to beer.', 1),
+('Terrestrial Brewing Company', (SELECT addressId FROM dbo.BreweryAddress WHERE BreweryAddress.streetAddress = '7524 Father Frascati'), '(216) 465-9999', 'https://www.facebook.com/terrestrialbrewing/', 'unkn', 'Small-batch brewery boasting unique beers and amazing views of Lake Erie in the Battery Park neighborhood. Owners: Ryan Bennett, Ralph Sgro. Head Brewer: Ralph Sgro', 1),
+('Great Lakes Brewing Company', (SELECT addressId FROM dbo.BreweryAddress WHERE BreweryAddress.streetAddress = '2516 Market Ave'), '(216) 771-4404', 'https://www.greatlakesbrewing.com', '1986', 'Two Irish brothers with limited brewing experience. A city that shuttered its last production brewery in the early 80s. A neighborhood in serious need of a facelift. In 1986 when Patrick and Daniel Conway opened their fledgling operation in Cleveland''s Ohio City neighborhood, the odds were stacked against them. Fortunately, they surrounded themselves with a staff of passionate, knowledgeable people, and from the start committed themselves to bringing a sophisticated, diverse selection of craft beer to their home state. Two decades, multiple awards, and a whole lot of stories later, Pat and Dan Conway celebrate over two decades of brewing exceptional beer for their adventurous and discerning customers.', 1),
+('Masthead Brewing Company', (SELECT addressId FROM dbo.BreweryAddress WHERE BreweryAddress.streetAddress = '1261 Superior Ave'), '(216) 206-6176', 'https://www.mastheadbrewingco.com', '2017', 'Masthead Brewing Company is located in the historic Bryant Building at 1261 Superior Avenue in downtown Cleveland. Our building was originally built in 1921 as an automotive dealership and is now listed on the National Register of Historic Places. The taproom features 300 seats, a 100’ long bar, and an additional 50 seat dog friendly patio with a view of downtown Cleveland. We’ve become known for our ever evolving lineup of juicy New England IPAs, Neapolitan-style pizza, and our barrel aged beer utilizing exclusively allocated whiskey barrels from top-rated distilleries.', 1),
+('Platform Beer Company', (SELECT addressId FROM dbo.BreweryAddress WHERE BreweryAddress.streetAddress = '4125 Lorain Ave'), '(216) 202-1386', 'https://platformbeer.co', '2014', 'Platform was founded in 2014 on the premise that collaboration should be at the cornerstone of everything that we do. Whether it be with pro brewers, the home brewing world or a variety of other industries, beer is special and should be shared. From humble beginnings, brewing on a 3 bbl brewhouse in Cleveland, Platform has expanded to a second tasting room in Columbus, a production facility in Cleveland, a Cincinnati tasting room named LOCOBA and a sour beer facility in Cleveland named Phunkenship. We brew high-quality craft beers for sale in our tasting rooms and distribute throughout Ohio, Indiana, Kentucky, Pennsylvania, New York City, Connecticut, and New Jersey. Platform Beer Co. products can be found at grocery stores and craft bottle shops. Expect a mix of ever-changing styles inspired by beer trends.', 1)
 
 INSERT INTO dbo.Beer
 (beerName, beerType, abv, beerDescription, beerBreweryId, seasonal)
@@ -150,15 +157,10 @@ SELECT beerName, beerType, abv, beerDescription, seasonal FROM dbo.Beer WHERE be
 
 SELECT * FROM Brewery
 
-UPDATE dbo.Brewery SET breweryName = 'ploop', breweryAddressId = 3, phoneNumber = '(216) 666-MILK', website = 'https://woooooooops', dateEstablished = '9999', history = 'never' WHERE breweryId = 102
-
 SELECT * FROM Brewery
-
-INSERT INTO Beer
-(beerName, beerType, abv, beerDescription, beerBreweryId, seasonal)
-VALUES
-('guhhh', 'bleg', 5.0, 'ping pong ball.', 100, 'no')
 
 SELECT * FROM Beer
 
 DELETE FROM dbo.Beer WHERE beer.beerId = 1005
+
+SELECT * FROM BEERS WHERE BREWERYiD = 100

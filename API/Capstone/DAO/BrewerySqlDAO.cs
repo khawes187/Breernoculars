@@ -79,7 +79,7 @@ namespace Capstone.DAO
             return tempBrewery;
         }
 
-        public void AddBrewery(Brewery brewery)
+        public void AddBrewery(Brewery brewery, int addressId)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace Capstone.DAO
                     SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Brewery (breweryName, breweryAddressId, phoneNumber, website, " +
                         "dateEstablished, history, approved) VALUES(@breweryName, @breweryAddressId, @phoneNumber, @website, @dateEstablished, @history, @approved)", conn);
                     cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
-                    cmd.Parameters.AddWithValue("@breweryAddressId", brewery.BreweryAddressId);
+                    cmd.Parameters.AddWithValue("@breweryAddressId", addressId);
                     cmd.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
                     cmd.Parameters.AddWithValue("@website", brewery.Website);
                     cmd.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
