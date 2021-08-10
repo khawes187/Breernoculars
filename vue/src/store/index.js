@@ -100,5 +100,8 @@ export default new Vuex.Store({
     ADD_BEER(state, data) {
       state.beer = data;
     },
+    ADD_REVIEW(state, review) {
+
+      const product = this.state.products.find(p => p.id == review.productID);
   }
 })
