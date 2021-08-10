@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <h2>{{beer.beerName}}</h2>
+    <div id="b-r-body">
+        <h2 id="b-r-h2">{{beer.beerName}}</h2>
         <div>
-            <ul class="beer">
+            <ul class="b-r-beer">
                 <li>Style:{{beer.beerType}}</li>
                 <li>ABV:{{beer.abv}}</li>
                 <li>{{beer.beerDescription}}</li>
                 <li>Seasonal? - {{beer.seasonal}}</li>
             </ul>
-            <ul class="userReviews" v-for="review in reviews" v-bind:key="review.reviewBody">
+            <ul class="b-r-userReviews" v-for="review in reviews" v-bind:key="review.reviewBody">
                 <p>User: {{user.username}}</p>
                 <p>{{review.reviewBody}}</p>
             </ul>
