@@ -42,7 +42,8 @@ namespace Capstone.Controllers
         {
             BreweryDAO.UpdateBrewery(brewery, breweryId);
         }
-
+        
+        /*
         [HttpPost]
         public void CreateBrewery(Brewery brewery, BreweryAddress address)
         {
@@ -50,6 +51,6 @@ namespace Capstone.Controllers
             //AddressController newAddress = BreweryAddressDAO.addAddress(breewery.address)
             BreweryDAO.AddBrewery(brewery, addressId);
             
-        }
+        }*/
     }
 }
