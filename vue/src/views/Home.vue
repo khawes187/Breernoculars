@@ -2,17 +2,20 @@
 <body class="body">
 
    <div class="home">
+     <div class="logo-photo">
+        <img src="../images/beernoculars copy right.gif" alt="beernocular logo">
+      </div>
     <header>
+      
       <h1 id="home-h1">Beernoculars</h1>
-    </header>
-    
+    </header>    
     <img class="backgroundimage" src="../images/beer-2439237_960_720.webp" width="100%" height="100%" alt="homepage image">
 
     <div class="loading" v-if="isLoading">
       <img class="lazy" src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" />
     </div>
     <div class="breweryList">
-      <brewery-list />
+      <brewery-list /> 
     </div>  
     <!--<div class="breweries">
       <button v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.name" onclick="var displayBrewery = brewery.name">{{brewery.name}}</button>
@@ -48,13 +51,19 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap');
+.logo-photo{
+  /* object-fit:fill; */
+  display:grid;
+  grid-area: logoImage;
 
-header {
+}
+/* header {
   font-family: 'Lobster', cursive;
   grid-area: header;
   text-align: center;
-}
+} */
 #home-h1 {
+  text-align: center;
   color: black;
   background-color: goldenrod;
   font-family: 'Lobster', cursive;
@@ -62,7 +71,6 @@ header {
   background: linear-gradient(
     to right,
     transparent,
-    goldenrod,
     goldenrod,
     goldenrod,
     transparent);
@@ -84,18 +92,18 @@ header {
   }
  div.home {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 300px 790px;
   grid-template-areas: 
-    "header header header "
-    ". loading ."
-    ". . breweryList"
+    "logoImage h1"
+    ". breweryList"
   ;
   grid-gap: 10px; 
   background: linear-gradient(
   to right,
   transparent,
   transparent,
-  goldenrod); /*THIS MIGHT DO WHAT I WANT TO DO*/
+  goldenrod,
+    goldenrod); /*THIS MIGHT DO WHAT I WANT TO DO*/
  }
  .breweryList{
    cursor: pointer;
@@ -104,6 +112,7 @@ header {
    grid-area: breweryList;
    font-family: 'Open Sans', sans-serif;
    width: 100%;
+   padding-left: 200px;
    border-radius: 25px;
    text-align: center;
    justify-content: center;
@@ -113,6 +122,7 @@ header {
    z-index: 2;
    background: linear-gradient(
     to right,
+    transparent,
     transparent,
     goldenrod,
     goldenrod,

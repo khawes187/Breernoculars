@@ -2,7 +2,8 @@
 <body class="body">
   <div id="imageAndText">
   <!-- <img class="backgroundimage" src="../images/registerpage.jpg" width="100%" height="100%" alt="Beer pouring from a tap"> -->
-  <div id="register" class="text-center"><form class="form-register" @submit.prevent="register">
+  <div id="register" class="text-center">
+    <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}

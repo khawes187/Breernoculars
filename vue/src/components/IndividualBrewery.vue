@@ -45,6 +45,7 @@
           <p id="i-b-beer-description">Description:&ensp;{{beer.beerDescription}}</p>
           <p id="i-b-beer-seasonal">Seasonal Brew:&ensp;{{beer.seasonal}}</p>
       </div>
+      <button id="add-beer-button">Add Beer to Brewery</button>
     </div> 
       </div>
 </template>
@@ -109,7 +110,11 @@ export default {
 </script>
 
 <style>
-
+#add-beer-button{
+  background-color: goldenrod;
+  padding: 10px;
+  border-radius: 25px;
+}
 #i-b-h1{
   display: grid;
   text-align: center;
