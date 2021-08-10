@@ -89,30 +89,16 @@ export default {
 /* img {
   opacity: 0.9;
 } */
-.menuButtons{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background: repeating-conic-gradient(lightblue 0% 25%, white 0% 50%) 50% / 20px 20px;
-  border-radius: 25px;
-  border-color: black;
-  border-style: groove;
-}
 .backgroundimage {
   min-height: 100%;
   min-width: 1024px;
   width:100%;
   height: auto;
-  position:relative; /* THIS IS WHAT IS MESSING UP THE APP.VUE */
+  position: fixed;
   top: 0;
   left: 0;
-  opacity: 0.6;
+  opacity: 0.8;
   z-index: -1;
-  border-style: groove;
-  border-radius: 25px;
-  border-color: black;
-  margin: 0px;
-  padding:0px; 
 }
 
 #login {
@@ -148,14 +134,6 @@ input {
   text-align: center;
   align-items: center;
   justify-content: center;
-}
-
-input:active {
-  width: auto;
-}
-
-input:focus {
-  min-width: 200px
 }
 
 .return-button {
