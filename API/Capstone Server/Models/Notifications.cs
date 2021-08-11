@@ -6,5 +6,6 @@ namespace Capstone_Server.Models
 {
     class Notifications
     {
+        public string[] Notification { get; set; }
     }
 }

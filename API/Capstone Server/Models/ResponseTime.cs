@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Capstone_Server.Models
 {
-    class Class1
+    class ResponseTime
     {
+        public decimal time { get; set; }
+
+        public string measure { get; set; }
     }
 }

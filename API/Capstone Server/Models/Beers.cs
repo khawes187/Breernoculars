@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Capstone_Server.Models
 {
-    class Meta
+    class Beers
     {
+        public int Count { get; set; }
+
+        public List<Item> Items { get; set; }
     }
 }
