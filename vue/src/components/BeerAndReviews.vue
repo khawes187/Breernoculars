@@ -1,16 +1,16 @@
 <template>
     <div id="b-r-body">
-        <h2 id="b-r-h2">{{beer.beerName}}</h2>
+        <h2 id="b-r-h2">{{this.$store.state.beer.beerName}}</h2>
         <div>
             <ul class="b-r-beer">
-                <li id ="b-r-style">Style:{{beer.beerType}}</li>
-                <li id ="b-r-abv">ABV:{{beer.abv}}</li>
-                <li id ="b-r-description">{{beer.beerDescription}}</li>
-                <li id ="b-r-seasonal">Seasonal? - {{beer.seasonal}}</li>
+                <li id ="b-r-style">Style:{{this.$store.state.beer.beerType}}</li>
+                <li id ="b-r-abv">ABV:{{this.$store.state.beer.abv}}</li>
+                <li id ="b-r-description">{{this.$store.state.beer.beerDescription}}</li>
+                <li id ="b-r-seasonal">Seasonal? - {{this.$store.state.beer.seasonal}}</li>
             </ul>
-            <ul class="b-r-userReviews" v-for="review in reviews" v-bind:key="review.reviewBody">
-                <p>User: {{user.username}}</p>
-                <p>{{review.reviewBody}}</p>
+            <ul class="b-r-userReviews" v-for="review in this.$store.state.reviews" v-bind:key="review.BeerReviewId">
+                <p>User: {{review.UserId}}</p>
+                <p>{{review.ReviewBody}}</p>
             </ul>
         </div>
         <h3 id="b-r-submit">Submit a review for {{beer.beerName}}:</h3>
@@ -93,7 +93,7 @@ export default {
             return this.$store.state.beerReviews;
         },
         reviews(){
-            return this.$store.state.reviews.find(reviews => reviews.beerId == this.$store.state.beer.beerId);
+            return this.$store.state.reviews.filter(reviews => reviews.beerId == this.$store.state.beer.beerId);
         },
     }
 }    

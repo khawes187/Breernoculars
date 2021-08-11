@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export default {
-    addBeer() {  
-        return axios.post('/brewery');
+    addBeer(newBeer) {  
+        return axios.post('/beer', newBeer);
     },
     
     deleteBeer(beerId) {  
