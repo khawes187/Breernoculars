@@ -1,5 +1,5 @@
 <template>
-    <div id="b-r-body">
+    <div id="b-r-body" content="width=device-width, initial-scale=1.0">
         <h2 id="b-r-h2">{{this.$store.state.beer.beerName}}</h2>
         <div>
             <ul class="b-r-beer">

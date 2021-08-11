@@ -1,5 +1,5 @@
 <template class="template">
-<body class="body">
+<body class="body" content="width=device-width, initial-scale=1.0">
 
    <div class="home">
      <div class="logo-photo">

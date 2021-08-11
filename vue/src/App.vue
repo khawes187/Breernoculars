@@ -1,5 +1,5 @@
 <template class="template">
-  <div id="app">
+  <div id="app" content="width=device-width, initial-scale=1.0">
    <div class="menuButtons">
     <div id="home">
       <router-link v-bind:to="{ name: 'home' }">

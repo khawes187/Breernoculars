@@ -1,5 +1,5 @@
 <template>
-<body class="body">
+<body class="body" content="width=device-width, initial-scale=1.0">
   <div id="imageAndText">
   <!-- <img class="backgroundimage" src="../images/registerpage.jpg" width="100%" height="100%" alt="Beer pouring from a tap"> -->
   <div id="register" class="text-center">
