@@ -18,15 +18,13 @@
         <form v-on:submit.prevent="addNewReview" v-if="showForm === true">
             <div class="form-element">
                 <label for="rating" >Rating:</label>
--                <select id="rating" v-model.number="newReview.rating">
--                    <option value="1">1 Bottles</option>
--                    <option value="2">2 Bottles</option>
--                    <option value="3">3 Bottles</option>
--                    <option value="4">4 Bottles</option>
--                    <option value="5">5 Bottles</option>
--                </select>
-                <label for="title">Title:</label>
-                <input id="title" type="text" v-model="newReview.title">
+                <select id="rating" v-model.number="newReview.rating">
+                    <option value="1">1 Bottles</option>
+                    <option value="2">2 Bottles</option>
+                    <option value="3">3 Bottles</option>
+                    <option value="4">4 Bottles</option>
+                    <option value="5">5 Bottles</option>
+                </select>
             </div>
             <div class="form-element">
 
@@ -64,12 +62,12 @@ export default {
     methods: {    
         submitForm(){
             const newNewReview = {
-                userId: parseInt(this.newReview.userId),
-                beerId: parseInt(this.beer.beerId),
-                beerBreweryId: parseInt(this.$route.params.breweryId),
-                Seasonal: this.beer.Seasonal
+                userId: parseInt(this.$store.state.user.userId),
+                beerId: parseInt(this.$route.params.beerId),
+                rating: parseInt(this.newReview.rating),
+                reviewBody: this.newReview.reviewBody
                 }
-            AddBeerService.addBeer(newBeer).then(response=> {
+            BeerAndReviewService.postBeerReview(newNewReview).then(response=> {
                 console.log(response);
                 window.location.reload();
             })

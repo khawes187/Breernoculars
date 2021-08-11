@@ -42,7 +42,8 @@ export default {
                 abv: '',
                 beerDescription:'',
                 beerBreweryId: '',
-                Seasonal:''
+                Seasonal:'',
+                beerUrl: ''
             }
         }
     },
