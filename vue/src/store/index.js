@@ -27,7 +27,8 @@ export default new Vuex.Store({
       phoneNumber: '',
       website: '',
       dateEstablished: '',
-      history: ''
+      history: '',
+      breweryUrl: ''
     },
     beers: [],
     breweriesTest: [],
