@@ -1,6 +1,6 @@
 <template>
     <div id="create-beer-form">
-        <form v-on:sumbit.prevent="submitForm">
+        <form v-on:submit.prevent="submitForm">
             <label for="beerName">Beer Name:</label><br>
             <input type="text" id="beerName" name="beerName" v-model="beer.beerName"><br>
             <br>
@@ -57,19 +57,18 @@ export default {
                 beerName:this.beer.beerName,
                 beerImg: this.beer.beerImg,
                 beerType: this.beer.beerType,
-                abv: this.beer.abv,
+                abv: parseInt(this.beer.abv),
                 beerDescription: this.beer.beerDescription,
-                beerBreweryId: this.beer.beerBreweryId,
+                beerBreweryId: parseInt(this.$route.params.breweryId),
                 Seasonal:this.beer.Seasonal
                 };
                 AddBeerService.addBeer(newBeer).then(response=> {
-                console.log(response);})
-<<<<<<< HEAD
-                this.$store.commit('ADD-BEER', newBeer)
-=======
+                console.log(response); 
+                window.location.reload(); })
+                
+               
             
->>>>>>> b386a8961de6c24baf11279e58cd4744f2477cfc
-        }
+        },
 
     }//closes methods
     
