@@ -87,8 +87,8 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Brewery (breweryName, breweryAddress, phoneNumber, website, " +
-                        "dateEstablished, history, approved) VALUES(@breweryName, @breweryAddress, @phoneNumber, @website, @dateEstablished, @history, @approved)", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Brewery (breweryName, breweryAddress, phoneNumber, website, breweryUrl " +
+                        "dateEstablished, history, approved) VALUES(@breweryName, @breweryAddress, @phoneNumber, @website, @dateEstablished, @history, @approved, @BreweryUrl)", conn);
                     cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
                     cmd.Parameters.AddWithValue("@breweryAddress", brewery.BreweryAddress);
                     cmd.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
@@ -96,6 +96,8 @@ namespace Capstone.DAO
                     cmd.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
                     cmd.Parameters.AddWithValue("@history", brewery.History);
                     cmd.Parameters.AddWithValue("@approved", brewery.Approved);
+                    cmd.Parameters.AddWithValue("@breweryUrl", brewery.BreweryUrl);
+
 
 
                     cmd.ExecuteNonQuery();
@@ -147,6 +149,8 @@ namespace Capstone.DAO
             brewery.DateEstablished = Convert.ToString(reader["dateEstablished"]);
             brewery.History = Convert.ToString(reader["history"]);
             brewery.Approved = Convert.ToBoolean(reader["approved"]);
+            brewery.BreweryUrl= Convert.ToString(reader["breweryUrl"]);
+
 
             return brewery;
         }
