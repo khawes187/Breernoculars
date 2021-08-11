@@ -29,7 +29,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddressId, phoneNumber, " +
+                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddress, phoneNumber, " +
                         "website, dateEstablished, history, approved FROM Brewery", conn);
          
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -58,7 +58,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddressId, phoneNumber, website, dateEstablished, history, approved " +
+                    SqlCommand cmd = new SqlCommand("SELECT breweryId, breweryName, breweryAddress, phoneNumber, website, dateEstablished, history, approved " +
                         "FROM Brewery WHERE breweryId = @breweryId", conn);
                     cmd.Parameters.AddWithValue("@breweryId", breweryId);
 
@@ -79,7 +79,7 @@ namespace Capstone.DAO
             return tempBrewery;
         }
 
-        public void AddBrewery(Brewery brewery, int addressId)
+        public void AddBrewery(Brewery brewery)
         {
             try
             {
@@ -87,10 +87,10 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Brewery (breweryName, breweryAddressId, phoneNumber, website, " +
-                        "dateEstablished, history, approved) VALUES(@breweryName, @breweryAddressId, @phoneNumber, @website, @dateEstablished, @history, @approved)", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Brewery (breweryName, breweryAddress, phoneNumber, website, " +
+                        "dateEstablished, history, approved) VALUES(@breweryName, @breweryAddress, @phoneNumber, @website, @dateEstablished, @history, @approved)", conn);
                     cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
-                    cmd.Parameters.AddWithValue("@breweryAddressId", addressId);
+                    cmd.Parameters.AddWithValue("@breweryAddress", brewery.BreweryAddress);
                     cmd.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
                     cmd.Parameters.AddWithValue("@website", brewery.Website);
                     cmd.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
@@ -116,12 +116,12 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("UPDATE dbo.Brewery SET breweryName = @breweryName, breweryAddressId = @breweryAddressId," +
+                    SqlCommand cmd = new SqlCommand("UPDATE dbo.Brewery SET breweryName = @breweryName, breweryAddress = @breweryAddress," +
                         " phoneNumber = @phoneNumber, website = @website, dateEstablished = @dateEstablished, " +
                         "history = @history WHERE breweryId = @breweryId", conn);
                     cmd.Parameters.AddWithValue("@breweryId", breweryId);
                     cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
-                    cmd.Parameters.AddWithValue("@breweryAddressId", brewery.BreweryAddressId);
+                    cmd.Parameters.AddWithValue("@breweryAddress", brewery.BreweryAddress);
                     cmd.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
                     cmd.Parameters.AddWithValue("@website", brewery.Website);
                     cmd.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
@@ -141,7 +141,7 @@ namespace Capstone.DAO
             Brewery brewery = new Brewery();
             brewery.BreweryId = Convert.ToInt32(reader["breweryId"]);
             brewery.BreweryName = Convert.ToString(reader["breweryName"]);
-            brewery.BreweryAddressId = Convert.ToInt32(reader["breweryAddressId"]);
+            brewery.BreweryAddress = Convert.ToString(reader["breweryAddress"]);
             brewery.PhoneNumber = Convert.ToString(reader["phoneNumber"]);
             brewery.Website = Convert.ToString(reader["website"]);
             brewery.DateEstablished = Convert.ToString(reader["dateEstablished"]);

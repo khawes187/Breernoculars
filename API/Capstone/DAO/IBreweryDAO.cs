@@ -10,7 +10,7 @@ namespace Capstone.DAO
     {
         List<Brewery> GetBreweries();
 
-        void AddBrewery(Brewery brewery, int addressId);
+        void AddBrewery(Brewery brewery);
 
         void UpdateBrewery(Brewery brewery, int breweryId);
 
