@@ -92,7 +92,7 @@ export default {
   },
   computed: {
       brewery() {
-          return this.$store.state.brewery;
+        return this.$store.state.brewery;
       },
       beers() {
         return this.$store.state.beers;

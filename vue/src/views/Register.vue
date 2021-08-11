@@ -109,7 +109,7 @@ export default {
               }
               else {
                 this.$router.push({
-                path: '/',
+                path: '/newBreweryForm',
                 query: { registration: 'success' },
               });
               }
