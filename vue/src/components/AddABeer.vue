@@ -37,7 +37,6 @@ export default {
         return {
             beer: {
                 beerName:'',
-                beerImg: '',
                 beerType: '',
                 abv: '',
                 beerDescription:'',
@@ -62,12 +61,12 @@ export default {
         submitForm(){
             const newBeer = {
                 beerName: this.beer.beerName,
-                beerImg: this.beer.beerImg,
-                beerType: this.beer.beertype,
+                beerType: this.beer.beerType,
                 abv: parseInt(this.beer.abv),
                 beerDescription: this.beer.beerDescription,
                 beerBreweryId: parseInt(this.$route.params.breweryId),
-                Seasonal: this.beer.Seasonal
+                Seasonal: this.beer.Seasonal,
+                beerUrl: this.beer.beerUrl,
                 }
             AddBeerService.addBeer(newBeer).then(response=> {
                 console.log(response);
