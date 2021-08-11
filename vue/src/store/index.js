@@ -86,8 +86,5 @@ export default new Vuex.Store({
     ADD_REVIEW(state, data) {
       state.beerReview = data;
     },
-    ADD_BEER(state, data) {
-      state.beer = data;
-    }
   }
 })

@@ -63,7 +63,7 @@ const router = new Router({
       name: "IndividualBrewery",
       component: IndividualBrewery,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
@@ -74,26 +74,10 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    /*{
-      path: "/address/:breweryAddressId",
-      name: "address",
-      component: AddressDetail,
-      meta: {
-        requiresAuth: false
-      }
-    }*/
     {
       path: "/newBreweryForm",
       name: "newBreweryForm",
       component: NewBreweryForm,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/address",
-      name: "addresses",
-      component: IndividualBrewery,
       meta: {
         requiresAuth: false
       }
@@ -111,7 +95,7 @@ const router = new Router({
       name: "AddABeer",
       component: AddABeer,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     }
   ]

@@ -1,6 +1,6 @@
 <template>
     <div id="create-beer-form">
-        <form input type="text" v-on:sumbit.prevent="submitForm">
+        <form v-on:sumbit.prevent="submitForm">
             <label for="beerName">Beer Name:</label><br>
             <input type="text" id="beerName" name="beerName" v-model="beer.beerName"><br>
             <br>
@@ -17,7 +17,7 @@
             <input type="text" id="beerDescription" name="beerDescription" v-model="beer.beerDescription"><br>
             <br>
             <label for="beerSeasonal">Is It Seasonal? (yes/no):</label><br>
-            <input type="text" id="beerSeasonal" name="beerSeasonal" v-model="beer.beerSeasonal"><br>
+            <input type="text" id="beerSeasonal" name="beerSeasonal" v-model="beer.Seasonal"><br>
             <br>
             <button type="submit" id="beer-submit-button" style="border: 0; background: transparent">
                 <img src="@/images/editedbutton.gif" width="55" height="65" alt="add beer" />
@@ -47,12 +47,6 @@ export default {
         }
     },
     methods: {
-        addNewBeer() {
-            AddBeerService.addBeer(this.$route.params.newBeer).then(response=> {
-                console.log(response); 
-                
-            });
-        }, 
         resetForm(){
             this.newBeer = {};
             this.showForm = false;
@@ -62,13 +56,13 @@ export default {
             const newBeer = {
                 beerName:this.beer.beerName,
                 beerImg: this.beer.beerImg,
-                beerType: this.beer.beertype,
+                beerType: this.beer.beerType,
                 abv: this.beer.abv,
                 beerDescription: this.beer.beerDescription,
                 beerBreweryId: this.beer.beerBreweryId,
                 Seasonal:this.beer.Seasonal
-                }
-            AddBeerService.addBeer(newBeer).then(response=> {
+                };
+                AddBeerService.addBeer(newBeer).then(response=> {
                 console.log(response);})
             
         }
