@@ -37,14 +37,14 @@ export default {
     data() {
         return {
             beer: {
-                beerName:"",
-                beerImg: "",
-                beerType: "",
-                abv: "",
-                beerDescription:"",
-                beerBreweryId: "",
-                Seasonal:"",
-                beerUrl:""
+                beerName:'',
+                beerImg: '',
+                beerType: '',
+                abv: '',
+                beerDescription:'',
+                beerBreweryId: '',
+                Seasonal:'',
+                beerUrl:''
             }
         }
     },
