@@ -13,8 +13,7 @@
         <div id="i-b-breweryInfo">
           <!-- <h3>{{brewery.breweryName}}</h3> -->
         <div id="i-b-address">   
-          <p>{{address.streetAddress}}</p>
-        <p>{{address.city}}, {{address.stateOrTerritory}} {{address.postalCode}}</p> 
+          <p>{{brewery.breweryAddress}}</p>
         </div>
         <div>
           <p id="i-b-phone">Phone: {{brewery.phoneNumber}}</p> 
@@ -57,7 +56,6 @@
 
 <script>
 import BreweryService from '../services/BreweryService';
-import AddressService from '../services/AddressService';
 import AddABeer from './AddABeer.vue';
 
 
@@ -81,8 +79,7 @@ export default {
       BreweryService.getBrewery(this.$route.params.breweryId).then(response => {
         console.log(response);
         this.$store.commit("SET_BREWERY", response.data);
-       this.isLoading = false;
-       this.retrieveAddresses();
+       this.isLoading = false;     
       });
     },
     retrieveBeers() {
@@ -92,13 +89,6 @@ export default {
        this.isLoading = false;
     });
     },
-    retrieveAddresses() {
-      AddressService.getAddresses().then(response => {
-        console.log(response);
-        this.$store.commit("SET_ADDRESSES", response.data);
-        this.isLoading = false;
-      });   
-    },
   },
   computed: {
       brewery() {
@@ -106,9 +96,6 @@ export default {
       },
       beers() {
         return this.$store.state.beers;
-      },
-      address() {
-        return this.$store.state.addresses.find(address => address.addressId == this.$store.state.brewery.breweryAddressId);       
       },
   }
 };

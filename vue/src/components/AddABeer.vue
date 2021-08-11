@@ -54,7 +54,7 @@ export default {
             });
         }, 
         resetForm(){
-            this.newReview = {};
+            this.newBeer = {};
             this.showForm = false;
         },
         
@@ -70,6 +70,7 @@ export default {
                 }
             AddBeerService.addBeer(newBeer).then(response=> {
                 console.log(response);})
+            
         }
 
     }//closes methods
