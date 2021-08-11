@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export default {
 
-  getBeer(breweryId, beerId) {
-    return axios.get(`/brewery/${breweryId}/${beerId}`);
+  getBeer(beerId) {
+    return axios.get(`/beer/${beerId}`);
   },
 
   postBeer(beer) {  

@@ -1,24 +1,24 @@
 <template>
     <div id="b-r-body" content="width=device-width, initial-scale=1.0">
-        <h2 id="b-r-h2">{{this.$store.state.beer.beerName}}</h2>
+        <h2 id="b-r-h2">{{beer.beerName}}</h2>
         <div>
             <ul class="b-r-beer">
-                <li id ="b-r-style">Style:{{this.$store.state.beer.beerType}}</li>
-                <li id ="b-r-abv">ABV:{{this.$store.state.beer.abv}}</li>
-                <li id ="b-r-description">{{this.$store.state.beer.beerDescription}}</li>
-                <li id ="b-r-seasonal">Seasonal? - {{this.$store.state.beer.seasonal}}</li>
+                <li id ="b-r-style">Style:{{beer.beerType}}</li><br>
+                <li id ="b-r-abv">ABV:{{beer.abv}}</li><br>
+                <li id ="b-r-description">{{beer.beerDescription}}</li><br>
+                <li id ="b-r-seasonal">Seasonal? - {{beer.seasonal}}</li><br>
             </ul>
-            <ul class="b-r-userReviews" v-for="review in this.$store.state.reviews" v-bind:key="review.BeerReviewId">
-                <p>User: {{review.UserId}}</p>
-                <p>{{review.ReviewBody}}</p>
+            <ul class="b-r-userReviews" v-for="review in this.$store.state.reviews" v-bind:key="review.beerReviewId">
+                <p>User: {{review.userId}}</p>
+                <p>{{review.reviewBody}}</p>
             </ul>
         </div>
         <h3 id="b-r-submit">Submit a review for {{beer.beerName}}:</h3>
         <a href="#" v-on:click.prevent="showForm = true" v-if="!showForm">Show Form</a>
-        <form v-on:submit.prevent="addNewReview" v-if="showForm === true">
+        <form v-on:submit.prevent="submitForm" v-if="showForm === true">
             <div class="form-element">
                 <label for="rating" >Rating:</label>
-                <select id="rating" v-model.number="newReview.rating">
+                <select id="rating" v-model="newReview.rating">
                     <option value="1">1 Bottles</option>
                     <option value="2">2 Bottles</option>
                     <option value="3">3 Bottles</option>
@@ -62,7 +62,7 @@ export default {
     methods: {    
         submitForm(){
             const newNewReview = {
-                userId: parseInt(this.$store.state.user.userId),
+                userId: this.$store.state.user.userId,
                 beerId: parseInt(this.$route.params.beerId),
                 rating: parseInt(this.newReview.rating),
                 reviewBody: this.newReview.reviewBody
@@ -74,7 +74,7 @@ export default {
             
         },
         retrieveBeer() {
-            BeerAndReviewService.getBeer(this.$route.params.breweryId, this.$route.params.beerId).then(response=> {
+            BeerAndReviewService.getBeer(this.$route.params.beerId).then(response=> {
                 console.log(response); 
                 this.$store.commit("SET_BEER", response.data); 
             });
@@ -85,11 +85,6 @@ export default {
                 this.$store.commit("SET_REVIEWS", response.data);
             });
         },
-        addNewReview() {
-            const productID = this.$route.params.id;
-            this.newReview.productID = productID;
-            this.$store.commit("ADD_REVIEW", this.newReview);
-        },
         resetForm(){
             this.newReview = {};
             this.showForm = false;
@@ -99,7 +94,7 @@ export default {
         beer() {
             return this.$store.state.beer;
         },
-        beerReviews(){ 
+        reviews(){ 
             return this.$store.state.reviews;
         }
     }
