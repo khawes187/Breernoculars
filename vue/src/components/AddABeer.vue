@@ -1,6 +1,6 @@
 <template>
     <div id="create-beer-form">
-        <form v-on:sumbit.prevent="submitForm">
+        <form v-on:submit="submitForm">
             <label for="beerName">Beer Name:</label><br>
             <input type="text" id="beerName" name="beerName" v-model="beer.beerName"><br>
             <br>
@@ -31,18 +31,19 @@
 import AddBeerService from '../services/AddBeerService';
 
 export default {
-    name:'Add-a-beer',
-    components: {},
+    name:'Add-a-beer', 
+    props:['newBeer'],
+
     data() {
         return {
             beer: {
-                beerName:'',
-                beerImg: '',
-                beerType: '',
-                abv: '',
-                beerDescription:'',
-                beerBreweryId: '',
-                Seasonal:''
+                beerName:"",
+                beerImg: "",
+                beerType: "",
+                abv: "",
+                beerDescription:"",
+                beerBreweryId: "",
+                Seasonal:""
             }
         }
     },
@@ -59,16 +60,12 @@ export default {
                 beerType: this.beer.beerType,
                 abv: this.beer.abv,
                 beerDescription: this.beer.beerDescription,
-                beerBreweryId: this.beer.beerBreweryId,
+                beerBreweryId: this.$store.state.brewery.breweryId,
                 Seasonal:this.beer.Seasonal
                 };
                 AddBeerService.addBeer(newBeer).then(response=> {
                 console.log(response);})
-<<<<<<< HEAD
-                this.$store.commit('ADD-BEER', newBeer)
-=======
             
->>>>>>> b386a8961de6c24baf11279e58cd4744f2477cfc
         }
 
     }//closes methods
