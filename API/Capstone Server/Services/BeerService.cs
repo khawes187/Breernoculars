@@ -6,7 +6,7 @@ using Capstone_Server.Models;
 
 namespace Capstone_Server.Controllers
 {
-    class BeerService
+    class BeerService //: IBeerService
     {
         private readonly static string API_BASE_URL = "https://api.untappd.com/v4/search/beer?client_id=D9113B090D88E521D913D0E19F3130A11AF32987&client_secret=61C5AC026FA95FD250D5012066CF246D229773AA&q=";
         private readonly IRestClient client = new RestClient();
