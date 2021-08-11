@@ -7,7 +7,7 @@ export default {
   },
 
   postBeer(beer) {  
-    return axios.post('/brewery',beer);
+    return axios.post('/brewery', beer);
   },
 
   deleteBeer(beerId) {  
@@ -17,6 +17,7 @@ export default {
   getBeerReviews(beerId) {
     return axios.get(`/beerReview/${beerId}`)
   },
+
   postBeerReview(review) {
     return axios.post(`/beerReview`, review)
   }

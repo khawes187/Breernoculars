@@ -21,16 +21,7 @@
                 <input id="title" type="text" v-model="newReview.title">
             </div>
             <div class="form-element">
-                <label for="rating" >Rating:</label>
-                <select id="rating" v-model.number="newReview.rating">
-                    <option value="1">1 Bottles</option>
-                    <option value="2">2 Bottles</option>
-                    <option value="3">3 Bottles</option>
-                    <option value="4">4 Bottles</option>
-                    <option value="5">5 Bottles</option>
-                </select>
-            </div>
-            <div class="form-element">
+
                 <label for="review">Review:</label>
                 <textarea id="review" type="text" v-model="newReview.review">                    </textarea>
             </div>
@@ -56,6 +47,7 @@ export default {
                 rating: 0,
                 review: ""
             }
+
         };
     },
     created() {
@@ -63,6 +55,12 @@ export default {
         this.retrieveReviews();
     },
     methods: {    
+        // submitForm(){
+        //     const newReview = {
+        //         rating: this.beerReview.rating,
+        //         reviewBody: this.beerReview.reviewBody,
+        //     };
+        // },
         retrieveBeer() {
             BeerAndReviewService.getBeer(this.$route.params.beerId).then(response=> {
                 console.log(response); 

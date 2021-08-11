@@ -1,6 +1,6 @@
 <template>
     <div id="create-beer-form">
-        <form v-on:sumbit.prevent="submitForm">
+        <form v-on:submit.prevent="submitForm">
             <label for="beerName">Beer Name:</label><br>
             <input type="text" id="beerName" name="beerName" v-model="beer.beerName"><br>
             <br>
@@ -31,18 +31,19 @@
 import AddBeerService from '../services/AddBeerService';
 
 export default {
-    name:'Add-a-beer',
-    components: {},
+    name:'Add-a-beer', 
+    props:['newBeer'],
+
     data() {
         return {
             beer: {
-                beerName:'',
-                beerImg: '',
-                beerType: '',
-                abv: '',
-                beerDescription:'',
-                beerBreweryId: '',
-                Seasonal:''
+                beerName:"",
+                beerImg: "",
+                beerType: "",
+                abv: "",
+                beerDescription:"",
+                beerBreweryId: "",
+                Seasonal:""
             }
         }
     },
@@ -57,15 +58,18 @@ export default {
                 beerName:this.beer.beerName,
                 beerImg: this.beer.beerImg,
                 beerType: this.beer.beerType,
-                abv: this.beer.abv,
+                abv: parseInt(this.beer.abv),
                 beerDescription: this.beer.beerDescription,
-                beerBreweryId: this.beer.beerBreweryId,
+                beerBreweryId: parseInt(this.$route.params.breweryId),
                 Seasonal:this.beer.Seasonal
                 };
                 AddBeerService.addBeer(newBeer).then(response=> {
-                console.log(response);})
+                console.log(response); 
+                window.location.reload(); })
+                
+               
             
-        }
+        },
 
     }//closes methods
     
