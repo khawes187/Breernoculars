@@ -17,10 +17,6 @@
         <a href="#" v-on:click.prevent="showForm = true" v-if="!showForm">Show Form</a>
         <form v-on:submit.prevent="addNewReview" v-if="showForm === true">
             <div class="form-element">
-                <label for="title">Title:</label>
-                <input id="title" type="text" v-model="newReview.title">
-            </div>
-            <div class="form-element">
                 <label for="rating" >Rating:</label>
                 <select id="rating" v-model.number="newReview.rating">
                     <option value="1">1 Bottles</option>
@@ -35,7 +31,7 @@
                 <textarea id="review" type="text" v-model="newReview.review">                    </textarea>
             </div>
             <input type="submit" v-on:click="addNewReview()" value="Save"/>
-            <input type="button" value="Cancel" v-on:click.prevent="resetForm"/>
+            <input type="button" value="Cancel" v-on:click="resetForm"/>
         </form> 
     </div>
 </template>
@@ -48,14 +44,7 @@ export default {
     components: {},
     data() {
         return {
-            showForm: false,
-            newReview: {
-                productID: 0,
-                reviewer: "",
-                title: "",
-                rating: 0,
-                review: ""
-            }
+            //PLACEHOLDER!
         };
     },
     created() {
@@ -63,6 +52,12 @@ export default {
         this.retrieveReviews();
     },
     methods: {    
+        // submitForm(){
+        //     const newReview = {
+        //         rating: this.beerReview.rating,
+        //         reviewBody: this.beerReview.reviewBody,
+        //     };
+        // },
         retrieveBeer() {
             BeerAndReviewService.getBeer(this.$route.params.beerId).then(response=> {
                 console.log(response); 
@@ -76,9 +71,8 @@ export default {
             });
         },
         addNewReview() {
-            const productID = this.$route.params.id;
-            this.newReview.productID = productID;
-            this.$store.commit("ADD_REVIEW", this.newReview);
+            this.reviews.unshift(this.newReview);
+            this.resetForm();
         },
         resetForm(){
             this.newReview = {};
