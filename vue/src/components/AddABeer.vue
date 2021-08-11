@@ -31,18 +31,19 @@
 import AddBeerService from '../services/AddBeerService';
 
 export default {
-    name:'Add-a-beer',
-    components: {},
+    name:'Add-a-beer', 
+    props:['newBeer'],
+
     data() {
         return {
             beer: {
-                beerName:'',
-                beerImg: '',
-                beerType: '',
-                abv: '',
-                beerDescription:'',
-                beerBreweryId: '',
-                Seasonal:''
+                beerName:"",
+                beerImg: "",
+                beerType: "",
+                abv: "",
+                beerDescription:"",
+                beerBreweryId: "",
+                Seasonal:""
             }
         }
     },
