@@ -5,7 +5,7 @@
             <input type="text" id="beerName" name="beerName" v-model="beer.beerName"><br>
             <br>
             <label for="beerImg">URL For Beer Image:</label><br>
-            <input type="text" id="beerImg" name="beerImg" v-model="beer.beerImg"><br>
+            <input type="text" id="beerImg" name="beerImg" v-model="beer.beerUrl"><br> <!-- CHANGED THIS TO BEERURL -->
             <br>
             <label for="beerType">Beer Type:</label><br>
             <input type="text" id="beerType" name="beerType" v-model="beer.beerType"><br>
@@ -43,7 +43,8 @@ export default {
                 abv: "",
                 beerDescription:"",
                 beerBreweryId: "",
-                Seasonal:""
+                Seasonal:"",
+                beerUrl:""
             }
         }
     },
