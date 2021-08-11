@@ -52,7 +52,8 @@ Create Table Beer
 	abv decimal not null,
 	beerDescription varchar(1000),
 	beerBreweryId int not null,
-	seasonal varchar(50)
+	seasonal varchar(50),
+	BeerUrl nvarchar (4000)
 
 	constraint pk_beerId primary key (beerId),
 	constraint fk_beerBreweryId foreign key (beerBreweryId) references Brewery(breweryId)
@@ -95,12 +96,12 @@ VALUES
 ('Platform Beer Company', '4125 Lorain Ave Cleveland, OH 44113', '(216) 202-1386', 'https://platformbeer.co', '2014', 'Platform was founded in 2014 on the premise that collaboration should be at the cornerstone of everything that we do. Whether it be with pro brewers, the home brewing world or a variety of other industries, beer is special and should be shared. From humble beginnings, brewing on a 3 bbl brewhouse in Cleveland, Platform has expanded to a second tasting room in Columbus, a production facility in Cleveland, a Cincinnati tasting room named LOCOBA and a sour beer facility in Cleveland named Phunkenship. We brew high-quality craft beers for sale in our tasting rooms and distribute throughout Ohio, Indiana, Kentucky, Pennsylvania, New York City, Connecticut, and New Jersey. Platform Beer Co. products can be found at grocery stores and craft bottle shops. Expect a mix of ever-changing styles inspired by beer trends.', 1)
 
 INSERT INTO dbo.Beer
-(beerName, beerType, abv, beerDescription, beerBreweryId, seasonal)
+(beerName, beerType, abv, beerDescription, beerBreweryId, seasonal, beerUrl)
 VALUES
-('Habituale', 'Kolsch Style Golden Ale', 5.0, 'Light, clean, crisp with a slight citrusy spicy character.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Saucy Brew Works' AND brewery.phoneNumber = '(216) 666-2568'), 'no'),
-('Juicy ASAP', 'American IPA', 6.5, 'Tropical, citrusy, and most certainly juicy.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Saucy Brew Works' AND brewery.phoneNumber = '(216) 666-2568'), 'no'),
-('Space Chimp Wit OG', 'Wheat Beer - Witbier', 5.0, 'Our original gangster, Space Chimp Wit, brewed with bitter orange and coriander.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Terrestrial Brewing Company' AND brewery.phoneNumber = '(216) 465-9999'), 'no'),
-('Evenstar', 'American IPA', 7.4, 'A West Coast Style IPA brewed with Simcoe, Nugget, Centennial and Citra hops. Dry and resinous with a fruity and bitter finish.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Terrestrial Brewing Company' AND brewery.phoneNumber = '(216) 465-9999'), 'no')
+('Habituale', 'Kolsch Style Golden Ale', 5.0, 'Light, clean, crisp with a slight citrusy spicy character.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Saucy Brew Works' AND brewery.phoneNumber = '(216) 666-2568'), 'no', 'https://cdn.shopify.com/s/files/1/0278/6495/7016/products/habituale1.png?v=1615488341'),
+('Juicy ASAP', 'American IPA', 6.5, 'Tropical, citrusy, and most certainly juicy.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Saucy Brew Works' AND brewery.phoneNumber = '(216) 666-2568'), 'no', 'https://cdn.shopify.com/s/files/1/0278/6495/7016/products/juicyasap22.png?v=1615488038'),
+('Space Chimp Wit OG', 'Wheat Beer - Witbier', 5.0, 'Our original gangster, Space Chimp Wit, brewed with bitter orange and coriander.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Terrestrial Brewing Company' AND brewery.phoneNumber = '(216) 465-9999'), 'no', 'https://untappd.akamaized.net/photos/2021_08_10/fbd160171635e4ed8d513c5630ed4f7a_raw.jpg'),
+('Evenstar', 'American IPA', 7.4, 'A West Coast Style IPA brewed with Simcoe, Nugget, Centennial and Citra hops. Dry and resinous with a fruity and bitter finish.', (SELECT breweryId FROM dbo.Brewery WHERE brewery.breweryName = 'Terrestrial Brewing Company' AND brewery.phoneNumber = '(216) 465-9999'), 'no', 'https://untappd.akamaized.netphotos/2021_08_07/0b63faa79737b43c86bd298578c3234b_raw.jpg')
 
 INSERT INTO dbo.UserReviews
 (userId, beerId, rating, reviewBody)
@@ -128,5 +129,15 @@ DROP TABLE dbo.Beer
 DROP TABLE dbo.UserBrewery
 
 */
-ALTER TABLE dbo.Beer
-ADD beerUrl varchar 8000;
+--ALTER TABLE dbo.Beer
+--ADD beerUrl nvarchar (4000);
+
+--ALTER TABLE dbo.beer DROP COLUMN beerUrl
+
+--INSERT INTO dbo.Beer (beerUrl)
+--VALUES ('https://cdn.shopify.com/s/files/1/0278/6495/7016/products/habituale1.png?v=1615488341')
+--WHERE beerID=='1000';
+
+--SELECT * FROM dbo.beer
+
+SELECT beerId, beerName, beerType, abv, beerDescription, beerBreweryId, seasonal, beerUrl FROM dbo.Beer WHERE beer.beerId = 1000
