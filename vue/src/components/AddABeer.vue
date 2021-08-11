@@ -70,6 +70,7 @@ export default {
                 }
             AddBeerService.addBeer(newBeer).then(response=> {
                 console.log(response);})
+                this.$store.commit('ADD-BEER', newBeer)
         }
 
     }//closes methods
