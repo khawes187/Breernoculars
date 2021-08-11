@@ -13,10 +13,10 @@ namespace Capstone_Server.Controllers
 
 
         
-        public List<Beer> GetBeers(string breweryName)
+        public JSONResponse GetBeers(string breweryName)
         {
             RestRequest request = new RestRequest(API_BASE_URL + breweryName + "&offset=0&limit=50");
-            IRestResponse <ListofBeers> response = client.Get <ListOfBeers> (request);
+            IRestResponse<JSONResponse> response = client.Get<JSONResponse>(request);
 
             if (response.ResponseStatus != ResponseStatus.Completed)
             {

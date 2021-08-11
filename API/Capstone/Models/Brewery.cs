@@ -6,7 +6,7 @@ namespace Capstone.Models
     {
         public int BreweryId { get; set; }
         public string BreweryName { get; set; }
-        public int BreweryAddressId { get; set; }
+        public string BreweryAddress { get; set; }
         public string PhoneNumber { get; set; }
         public string Website { get; set; }
         public string History { get; set; }
