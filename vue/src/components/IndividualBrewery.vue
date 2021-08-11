@@ -5,7 +5,7 @@
     <h1 id="i-b-h1">{{brewery.breweryName}}</h1>
     <div>
       <div id="i-b-brewery-photo">
-        <img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" alt="brewery photo">   
+        <img v-bind:src="brewery.breweryImg" alt="brewery photo">   
       </div>
       <div>
         <h1 id="i-b-generalInfo">General Information</h1>
@@ -38,7 +38,7 @@
         v-for="beer in beers"
         v-bind:key="beer.beerBreweryId">  
           <h2 id="i-b-beer-name">{{beer.beerName}}</h2>
-          <p id="i-b-beer-photo"><img src="../images/9dc2a9af62e5d06ac0b9dce59e5b1d64.gif" alt="beer list photo"></p>
+          <p ><img v-bind:src="beer.beerUrl" id="i-b-beer-photo" alt="beer list photo"></p>
           <p id="i-b-beer-type">Type:&ensp;{{beer.beerType}}</p>
           <p id="i-b-beer-abv">ABV:&ensp;{{beer.abv}}</p>
           <p id="i-b-beer-description">Description:&ensp;{{beer.beerDescription}}</p>
@@ -242,8 +242,11 @@ export default {
   text-align: center;
 }
 #i-b-beer-photo{
+  /* display:inline;
   margin-left: 10%;
-  margin-right: 10%;
+  margin-right: 10%; */
+  object-fit: scale-down;
+  width:100%;
   display: grid;
   grid-area: photo;
 }

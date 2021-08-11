@@ -128,3 +128,5 @@ DROP TABLE dbo.Beer
 DROP TABLE dbo.UserBrewery
 
 */
+ALTER TABLE dbo.Beer
+ADD beerUrl varchar 8000;

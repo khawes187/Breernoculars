@@ -28,7 +28,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT beerId, beerName, beerType, abv, beerDescription, beerBreweryId, seasonal " +
+                    SqlCommand cmd = new SqlCommand("SELECT beerId, beerName, beerType, abv, beerDescription, beerBreweryId, seasonal, beerUrl " +
                         "FROM dbo.Beer WHERE beerBreweryId = @beerBreweryId", conn);
                     cmd.Parameters.AddWithValue("@beerBreweryId", breweryId);
 
@@ -58,7 +58,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT beerId, beerName, beerType, abv, beerDescription, beerBreweryId, seasonal " +
+                    SqlCommand cmd = new SqlCommand("SELECT beerId, beerName, beerType, abv, beerDescription, beerBreweryId, seasonal, beerUrl " +
                         "FROM dbo.Beer WHERE beer.beerId = @beerId", conn);
                     cmd.Parameters.AddWithValue("@beerId", beerId);
 
@@ -85,14 +85,16 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Beer (beerName, beerType, abv, beerDescription, beerBreweryId, seasonal)"
-                        + "VALUES(@beerName, @beerType, @abv, @beerDescription, @beerBreweryId, @seasonal)", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Beer (beerName, beerType, abv, beerDescription, beerBreweryId, seasonal, beerUrl)"
+                        + "VALUES(@beerName, @beerType, @abv, @beerDescription, @beerBreweryId, @seasonal, @beerUrl)", conn);
                     cmd.Parameters.AddWithValue("@beerName", beer.BeerName);
                     cmd.Parameters.AddWithValue("@beerType", beer.BeerType);
                     cmd.Parameters.AddWithValue("@abv", beer.ABV);
                     cmd.Parameters.AddWithValue("@beerDescription", beer.BeerDescription);
                     cmd.Parameters.AddWithValue("@beerBreweryId", beer.BeerBreweryId);
                     cmd.Parameters.AddWithValue("@seasonal", beer.Seasonal);
+                    cmd.Parameters.AddWithValue("@beerUrl", beer.BeerUrl);
+
 
                     cmd.ExecuteNonQuery();
                 }
@@ -128,6 +130,8 @@ namespace Capstone.DAO
             beer.BeerDescription = Convert.ToString(reader["beerDescription"]);
             beer.BeerBreweryId = Convert.ToInt32(reader["beerBreweryId"]);
             beer.Seasonal = Convert.ToString(reader["seasonal"]);
+            beer.BeerUrl= Convert.ToString(reader["beerUrl"]);
+
 
             return beer;
         }

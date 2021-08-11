@@ -39,7 +39,8 @@ export default new Vuex.Store({
       abv:'',
       beerDescription:'',
       beerBreweryId:'',
-      seasonal:''
+      seasonal:'',
+      beerUrl:''
     },
     reviews: [],
     review: {

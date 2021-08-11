@@ -10,18 +10,19 @@
       </router-link>
     </div>
 
-    <div class="addBeerButton">
+   <!--  <div class="addBeerButton">
       <button class="add" style="border: 0; background: transparent">
           <img src="@/images/editedbutton.gif" width="55" height="65" alt="Add a beer" />
           <div class="addBeerText">Add a Beer</div>
       </button>
+    
     </div>
     <div class="deleteBeerButton">
       <button class="delete" style="border: 0; background: transparent">
         <img src="@/images/editedbutton.gif" width="55" height="65" alt="Delete a beer" />
         <div class="deleteBeerText">Delete a Beer</div>
       </button>
-    </div>
+    </div> -->
 
    <!--  <div class="fillerSpace">
     </div> -->
@@ -94,7 +95,7 @@
   padding: 4px;
 } */
  .menuButtons {
-  justify-content:space-around;
+  justify-content:initial;
   /* border-radius: 25px;  */
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -113,18 +114,28 @@
 }
 .add{
   grid-area: addButton;
+  cursor: pointer;
 
 }
 .delete{
   grid-area: deleteButton;
+  cursor: pointer;
 }
 #loginOrOut {
   grid-area: loginOrOut;
+  cursor: pointer;
 
 }
-#home{
+.homeButton{
   grid-area: home;
+  cursor: pointer;
 
+}
+.loginButton{
+  cursor: pointer;
+}
+.logoutButton{
+  cursor: pointer;
 }
 /* .divider{
     width:50px;
