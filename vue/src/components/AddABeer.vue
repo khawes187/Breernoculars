@@ -1,6 +1,6 @@
 <template>
     <div id="create-beer-form">
-        <form v-on:submit.prevent="submitForm">
+        <form input type="text" v-on:submit.prevent="submitForm">
             <label for="beerName">Beer Name:</label><br>
             <input type="text" id="beerName" name="beerName" v-model="beer.beerName"><br>
             <br>
@@ -17,7 +17,7 @@
             <input type="text" id="beerDescription" name="beerDescription" v-model="beer.beerDescription"><br>
             <br>
             <label for="beerSeasonal">Is It Seasonal? (yes/no):</label><br>
-            <input type="text" id="beerSeasonal" name="beerSeasonal" v-model="beer.Seasonal"><br>
+            <input type="text" id="beerSeasonal" name="beerSeasonal" v-model="beer.beerSeasonal"><br>
             <br>
             <button type="submit" id="beer-submit-button" style="border: 0; background: transparent">
                 <img src="@/images/editedbutton.gif" width="55" height="65" alt="add beer" />
@@ -31,9 +31,8 @@
 import AddBeerService from '../services/AddBeerService';
 
 export default {
-    name:'Add-a-beer', 
-    props:['newBeer'],
-
+    name:'Add-a-beer',
+    components: {},
     data() {
         return {
             beer: {
@@ -43,12 +42,22 @@ export default {
                 abv: '',
                 beerDescription:'',
                 beerBreweryId: '',
+<<<<<<< HEAD
                 Seasonal:'',
                 beerUrl:''
+=======
+                Seasonal:''
+>>>>>>> 83d3a49a84a042ffb1fdf6d668b32852abdc6511
             }
         }
     },
     methods: {
+        /*addNewBeer() {
+            AddBeerService.addBeer(this.$route.params.newBeer).then(response=> {
+                console.log(response); 
+                
+            });
+        }, */
         resetForm(){
             this.newBeer = {};
             this.showForm = false;
@@ -56,21 +65,20 @@ export default {
         
         submitForm(){
             const newBeer = {
-                beerName:this.beer.beerName,
+                beerName: this.beer.beerName,
                 beerImg: this.beer.beerImg,
-                beerType: this.beer.beerType,
+                beerType: this.beer.beertype,
                 abv: parseInt(this.beer.abv),
                 beerDescription: this.beer.beerDescription,
                 beerBreweryId: parseInt(this.$route.params.breweryId),
-                Seasonal:this.beer.Seasonal
-                };
-                AddBeerService.addBeer(newBeer).then(response=> {
-                console.log(response); 
-                window.location.reload(); })
-                
-               
+                Seasonal: this.beer.Seasonal
+                }
+            AddBeerService.addBeer(newBeer).then(response=> {
+                console.log(response);
+                window.location.reload();
+            })
             
-        },
+        }
 
     }//closes methods
     

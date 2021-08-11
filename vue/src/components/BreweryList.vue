@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div content="width=device-width, initial-scale=1.0">
     <h1>List of Breweries</h1>
     <div class="breweries">
       <!-- <div class="loading" v-if="isLoading">

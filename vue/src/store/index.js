@@ -44,7 +44,7 @@ export default new Vuex.Store({
       beerUrl:''
     },
     reviews: [],
-    beerReview: {
+    review: {
       beerReviewId:'',
       userId:'',
       beerId:'',
@@ -80,9 +80,7 @@ export default new Vuex.Store({
     },
     SET_BEER(state, data) {
       state.beer = data;
-    },
-    SET_REVIEWS(state, data){
-      state.beerReviews = data;
+
     },
     ADD_REVIEW(state, data) {
       state.beerReview = data;

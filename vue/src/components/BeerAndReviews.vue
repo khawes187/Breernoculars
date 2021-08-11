@@ -1,5 +1,5 @@
 <template>
-    <div id="b-r-body">
+    <div id="b-r-body" content="width=device-width, initial-scale=1.0">
         <h2 id="b-r-h2">{{this.$store.state.beer.beerName}}</h2>
         <div>
             <ul class="b-r-beer">
@@ -18,20 +18,23 @@
         <form v-on:submit.prevent="addNewReview" v-if="showForm === true">
             <div class="form-element">
                 <label for="rating" >Rating:</label>
-                <select id="rating" v-model.number="newReview.rating">
-                    <option value="1">1 Bottles</option>
-                    <option value="2">2 Bottles</option>
-                    <option value="3">3 Bottles</option>
-                    <option value="4">4 Bottles</option>
-                    <option value="5">5 Bottles</option>
-                </select>
+-                <select id="rating" v-model.number="newReview.rating">
+-                    <option value="1">1 Bottles</option>
+-                    <option value="2">2 Bottles</option>
+-                    <option value="3">3 Bottles</option>
+-                    <option value="4">4 Bottles</option>
+-                    <option value="5">5 Bottles</option>
+-                </select>
+                <label for="title">Title:</label>
+                <input id="title" type="text" v-model="newReview.title">
             </div>
             <div class="form-element">
+
                 <label for="review">Review:</label>
-                <textarea id="review" type="text" v-model="newReview.review">                    </textarea>
+                <textarea id="review" type="text" v-model="newReview.reviewBody">                    </textarea>
             </div>
-            <input type="submit" v-on:click="addNewReview()" value="Save"/>
-            <input type="button" value="Cancel" v-on:click="resetForm"/>
+            <input type="submit" value="Save"/>
+            <input type="button" value="Cancel" v-on:click.prevent="resetForm"/>
         </form> 
     </div>
 </template>
@@ -46,11 +49,10 @@ export default {
         return {
             showForm: false,
             newReview: {
-                productID: 0,
-                reviewer: "",
-                title: "",
-                rating: 0,
-                review: ""
+                userId:'',
+                beerId:'',
+                rating:'',
+                reviewBody:'',
             }
 
         };
@@ -60,12 +62,19 @@ export default {
         this.retrieveReviews();
     },
     methods: {    
-        // submitForm(){
-        //     const newReview = {
-        //         rating: this.beerReview.rating,
-        //         reviewBody: this.beerReview.reviewBody,
-        //     };
-        // },
+        submitForm(){
+            const newNewReview = {
+                userId: parseInt(this.newReview.userId),
+                beerId: parseInt(this.beer.beerId),
+                beerBreweryId: parseInt(this.$route.params.breweryId),
+                Seasonal: this.beer.Seasonal
+                }
+            AddBeerService.addBeer(newBeer).then(response=> {
+                console.log(response);
+                window.location.reload();
+            })
+            
+        },
         retrieveBeer() {
             BeerAndReviewService.getBeer(this.$route.params.beerId).then(response=> {
                 console.log(response); 
@@ -79,8 +88,9 @@ export default {
             });
         },
         addNewReview() {
-            this.reviews.unshift(this.newReview);
-            this.resetForm();
+            const productID = this.$route.params.id;
+            this.newReview.productID = productID;
+            this.$store.commit("ADD_REVIEW", this.newReview);
         },
         resetForm(){
             this.newReview = {};
@@ -91,12 +101,9 @@ export default {
         beer() {
             return this.$store.state.beer;
         },
-        beerReview(){ 
-            return this.$store.state.beerReviews;
-        },
-        reviews(){
-            return this.$store.state.reviews.filter(reviews => reviews.beerId == this.$store.state.beer.beerId);
-        },
+        beerReviews(){ 
+            return this.$store.state.reviews;
+        }
     }
 }    
 </script>
