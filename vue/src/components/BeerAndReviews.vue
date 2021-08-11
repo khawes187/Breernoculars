@@ -44,7 +44,15 @@ export default {
     components: {},
     data() {
         return {
-            //PLACEHOLDER!
+            showForm: false,
+            newReview: {
+                productID: 0,
+                reviewer: "",
+                title: "",
+                rating: 0,
+                review: ""
+            }
+
         };
     },
     created() {
