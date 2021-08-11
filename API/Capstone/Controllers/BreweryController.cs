@@ -41,12 +41,13 @@ namespace Capstone.Controllers
         {
             BreweryDAO.UpdateBrewery(brewery, breweryId);
         }
-
+        
+        /*
         [HttpPost]
         public void CreateBrewery(Brewery brewery)
         {         
             BreweryDAO.AddBrewery(brewery);
             
-        }
+        }*/
     }
 }
