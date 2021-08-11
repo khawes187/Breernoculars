@@ -74,7 +74,7 @@ export default {
             
         },
         retrieveBeer() {
-            BeerAndReviewService.getBeer(this.$route.params.beerId).then(response=> {
+            BeerAndReviewService.getBeer(this.$route.params.breweryId, this.$route.params.beerId).then(response=> {
                 console.log(response); 
                 this.$store.commit("SET_BEER", response.data); 
             });

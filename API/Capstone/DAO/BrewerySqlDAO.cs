@@ -96,7 +96,7 @@ namespace Capstone.DAO
                     cmd.Parameters.AddWithValue("@dateEstablished", brewery.DateEstablished);
                     cmd.Parameters.AddWithValue("@history", brewery.History);
                     cmd.Parameters.AddWithValue("@approved", brewery.Approved);
-                    cmd.Parameters.AddWithValue("@breweryUrl", brewery.BreweryUrl);
+                    //cmd.Parameters.AddWithValue("@breweryUrl", brewery.BreweryUrl);
 
 
 
@@ -149,7 +149,7 @@ namespace Capstone.DAO
             brewery.DateEstablished = Convert.ToString(reader["dateEstablished"]);
             brewery.History = Convert.ToString(reader["history"]);
             brewery.Approved = Convert.ToBoolean(reader["approved"]);
-            brewery.BreweryUrl= Convert.ToString(reader["breweryUrl"]);
+            //brewery.BreweryUrl= Convert.ToString(reader["breweryUrl"]);
 
 
             return brewery;
