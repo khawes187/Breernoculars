@@ -10,14 +10,16 @@
       </router-link>
     </div>
 
-   <!--  <div class="addBeerButton">
+    <div class="addBeerButton">
+      <router-link v-bind:to="{ name: 'newBreweryForm' }">
       <button class="add" style="border: 0; background: transparent">
           <img src="@/images/editedbutton.gif" width="55" height="65" alt="Add a beer" />
-          <div class="addBeerText">Add a Beer</div>
+          <div class="addBeerText">Add a Brewery</div>
       </button>
+      </router-link>
     
     </div>
-    <div class="deleteBeerButton">
+    <!--<div class="deleteBeerButton">
       <button class="delete" style="border: 0; background: transparent">
         <img src="@/images/editedbutton.gif" width="55" height="65" alt="Delete a beer" />
         <div class="deleteBeerText">Delete a Beer</div>
