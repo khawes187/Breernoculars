@@ -48,7 +48,8 @@
       </div>
       <button id="add-beer-button" v-on:click="showImage = !showImage">Brewer Options</button>
       <div v-if="showImage===true">
-        <add-a-beer />
+        <add-a-beer /> 
+        <update-a-brewery />
       </div>
     </div> 
       </div>
@@ -59,11 +60,12 @@
 <script>
 import BreweryService from '../services/BreweryService';
 import AddABeer from './AddABeer.vue';
+import UpdateABrewery from './UpdateABrewery.vue';
 
 
 export default {
   name:'individual-brewery',
-  components: {AddABeer},
+  components: {AddABeer, UpdateABrewery},
   data() {
     return {
       //breweries: [],
