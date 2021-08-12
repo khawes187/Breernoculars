@@ -77,7 +77,7 @@ export default {
 </script>     
 
 <style>
-#create-beer-form{
+#create-brewery-form{
     background-color: goldenrod;
     width: fit-content;
     padding: 10px;
@@ -86,7 +86,7 @@ export default {
     margin-left: 10px;
     font-weight: bold;
 }
-.add-beer-text{
+.beer-submit-button{
     color: black;
 }
 </style>
