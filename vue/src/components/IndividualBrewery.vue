@@ -4,9 +4,10 @@
     <div>
     <h1 id="i-b-h1">{{brewery.breweryName}}</h1>
     <div>
-      <div id="i-b-brewery-photo">
-        <img v-bind:src="brewery.breweryImg" alt="brewery photo">   
+      <div id="i-b-photo-holder">
+        <img v-bind:src="brewery.breweryUrl" id="i-b-brewery-photo" alt="brewery photo">   
       </div>
+      <br>
       <div>
         <h1 id="i-b-generalInfo">General Information</h1>
       </div>
@@ -38,7 +39,7 @@
         v-for="beer in beers"
         v-bind:key="beer.beerBreweryId">  
           <h2 id="i-b-beer-name">{{beer.beerName}}</h2>
-          <p ><img v-bind:src="beer.beerUrl" id="i-b-beer-photo" alt="beer list photo"></p>
+          <img v-bind:src="beer.beerUrl" id="i-b-beer-photo" alt="beer list photo"><!--  moved out of a p -->
           <p id="i-b-beer-type">Type:&ensp;{{beer.beerType}}</p>
           <p id="i-b-beer-abv">ABV:&ensp;{{beer.abv}}</p>
           <p id="i-b-beer-description">Description:&ensp;{{beer.beerDescription}}</p>
@@ -217,10 +218,8 @@ export default {
   background-color: goldenrod;
   color: black;
   width: 40%;
-  /* display: inline-block; 
-  border-radius: 25px;
   
-  margin: 0;
+  /* display: inline-block; 
   text-align: center;
  grid-template-columns: auto auto;
    grid-template-areas: 
@@ -242,13 +241,15 @@ export default {
   text-align: center;
 }
 #i-b-beer-photo{
-  /* display:inline;
-  margin-left: 10%;
-  margin-right: 10%; */
-  object-fit: scale-down;
-  width:100%;
-  display: grid;
-  grid-area: photo;
+  text-align: center;
+  object-fit:contain;
+  width: 400px;
+  height: 200px;
+  display: block;
+    margin-left: auto;
+    margin-right: auto
+  /* display: grid;
+  grid-area: photo; */
 }
 #i-b-beer-type{
   text-align: center;
@@ -262,7 +263,6 @@ export default {
 }
 #i-b-beer-description{
   text-align: center;
-  
   display: grid;
   grid-area: description;
 }
@@ -280,12 +280,37 @@ export default {
   border-radius: 25px;
   grid-area:breweryInfo;
 }
-
-#i-b-brewery-photo {
-  display: grid;
-  grid-area: breweryPhoto;
-  justify-content: center;
+.i-b-photo-holder{
+  text-align: center;
 }
+#i-b-photo-holder div{
+  position: relative;
+  display: inline-block;
+  background-color: goldenrod;
+  padding: 15px;
+  border-radius: 25px;
+  margin:100px;
+  background-color: goldenrod;
+  padding: 10px;
+}
+/* #i-b-photo-holder span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: goldenrod;
+} */
+#i-b-brewery-photo {
+  border-radius: 25px;
+  object-fit:inherit;
+  width:75%;
+  justify-content: center;
+  display: inline-block;
+  border-style: solid;
+  border-width:thick;
+  border-color: goldenrod;
+  margin-left: 10px;  
+  }
 #i-b-body{
   margin: 0;
   background-image: url(../images/BreweryInfoPage.jpg);
@@ -295,7 +320,7 @@ export default {
   grid-template-columns: auto auto;
   grid-template-areas: 
     "breweryName breweryName"
-    "breweryPhoto breweryPhoto"
+    /* "breweryPhoto breweryPhoto" */
     "generalInfo generalInfo"
     "address website"
     "address phone"
