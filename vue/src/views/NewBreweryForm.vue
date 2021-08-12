@@ -19,6 +19,9 @@
             <label for="breweryHistory">Brewery History:</label><br>
             <input type="text" id="breweryHistory" name="breweryHistory" v-model="brewery.breweryHistory"><br>
             <br>
+            <label for="breweryUrl">Brewery Image URL:</label><br>
+            <input type="text" id="breweryUrl" name="breweryUrl" v-model="brewery.breweryUrl"><br>
+            <br>
             <button type="submit" id="beer-submit-button" style="border: 0; background: transparent">
                 <img src="@/images/editedbutton.gif" width="55" height="65" alt="add brewery" />
                <div class="add-brewery-text">Add A Brewery</div>
@@ -43,7 +46,8 @@ export default {
                 breweryWebsite: "",
                 breweryDateEstablished:"",
                 breweryHistory: "",
-                breweryApproved:false
+                breweryApproved:false,
+                breweryUrl:""
             }
         }
     },
@@ -61,7 +65,8 @@ export default {
                 Website: this.brewery.breweryWebsite,
                 DateEstablished: this.brewery.breweryDateEstablished,
                 History: this.brewery.breweryHistory,
-                Approved:this.breweryApproved
+                Approved:this.breweryApproved,
+                BreweryUrl:this.breweryUrl
                 };
                 BreweryService.addBrewery(newBrewery).then(response=> {
                 console.log(response); 

@@ -87,8 +87,8 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Brewery (breweryName, breweryAddress, phoneNumber, website, breweryUrl " +
-                        "dateEstablished, history, approved, breweryUrl) VALUES(@breweryName, @breweryAddress, @phoneNumber, @website, @dateEstablished, @history, @approved, @BreweryUrl)", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Brewery (breweryName, breweryAddress, phoneNumber, website, "+
+                        "dateEstablished, history, approved, breweryUrl) VALUES(@breweryName, @breweryAddress, @phoneNumber, @website, @dateEstablished, @history, @approved, @breweryUrl)", conn);
                     cmd.Parameters.AddWithValue("@breweryName", brewery.BreweryName);
                     cmd.Parameters.AddWithValue("@breweryAddress", brewery.BreweryAddress);
                     cmd.Parameters.AddWithValue("@phoneNumber", brewery.PhoneNumber);
