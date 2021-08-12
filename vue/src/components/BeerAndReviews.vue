@@ -43,21 +43,24 @@
                <div class="Cancel">Cancel</div>
                </button>  
         </form> 
-        <!-- <button>
-          KEVIN PUT THE BUTTON HERE
-        </button> -->
+        <button id="delete-beer-button" v-on:click="showImage = !showImage">Brewer Options</button>
+        <div v-if="showImage===true">
+        <delete-a-beer />
+        </div>
     </div>
 </template>
 
 <script>
 import BeerAndReviewService from '../services/BeerAndReviewService';
+import DeleteABeer from '../components/DeleteABeer.vue';
 
 export default { 
     name:'beer-and-reviews',
-    components: {},
+    components: {DeleteABeer},
     data() {
         return {
             showForm: false,
+            showImage:false,
             newReview: {
                 userId:'',
                 beerId:'',
@@ -115,6 +118,7 @@ export default {
     }
 }    
 </script>
+
 
 <style>
 #b-r-body{
@@ -263,6 +267,16 @@ export default {
 #beer-cancel-button{
   display: grid;
   grid-area: cancel;
+}
+#delete-beer-button{
+  width:max-content;
+  margin: 10px;
+  background-color: goldenrod;
+  color: black;
+  display: inline;
+  padding:5px;
+  border-radius: 35px;
+  display: grid;
 }
 
 @media screen and (max-width: 800px) {
