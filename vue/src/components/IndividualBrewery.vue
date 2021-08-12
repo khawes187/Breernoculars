@@ -216,6 +216,7 @@ export default {
   text-align: center;
 }
 #i-b-beers{
+  cursor: pointer;
   margin: 10px;
   padding: 10px;
   border-radius: 25px;
@@ -295,6 +296,7 @@ export default {
   border-width:thick;
   border-color: goldenrod;
   margin-left: 10px;  
+  width:400px;
   }
 #i-b-body{
   margin: 0;

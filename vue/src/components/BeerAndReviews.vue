@@ -2,6 +2,9 @@
     <div id="b-r-body" content="width=device-width, initial-scale=1.0">
         <h2 id="b-r-h2">{{beer.beerName}}</h2>
         <div>
+          <div>
+            <img v-bind:src="beer.beerUrl" id="bar-beer-photo" alt="beer list photo">
+          </div>
             <ul class="b-r-beer">
                 <li id ="b-r-style">Style:&nbsp;{{beer.beerType}}</li><br><br>
                 <li id ="b-r-abv">ABV:&nbsp;{{beer.abv}}</li><br><br>
@@ -10,11 +13,12 @@
             </ul>
             <ul class="b-r-userReviews" id="b-r-reviewList" v-for="review in this.$store.state.reviews" v-bind:key="review.beerReviewId">
                 <p>User: {{currentUser.username}}</p>
+                <p>Rating: {{review.rating}}</p>
                 <p>{{review.reviewBody}}</p>
             </ul>
         </div>
-        <h3 id="b-r-submit">Submit a review for {{beer.beerName}}:</h3>
-        <a href="#" id="b-r-show-form" v-on:click.prevent="showForm = true" v-if="!showForm">Show Form</a>
+        <!-- <h3 id="b-r-submit">Submit a review for {{beer.beerName}}:</h3> -->
+        <a href="#" id="b-r-show-form" v-on:click.prevent="showForm = true" v-if="!showForm">Submit a review for {{beer.beerName}}</a>
         <form v-on:submit.prevent="submitForm" v-if="showForm === true" id="b-r-form-shown">
             <div id="form-element-rating">
                 <label for="rating" >Rating:</label>
@@ -30,10 +34,10 @@
             <div id="form-element-review">
               
                 <label for="review">Review:</label>
-                <textarea id="review" type="text" v-model="newReview.reviewBody">                    </textarea>
+                <textarea id="review" type="text" v-model="newReview.reviewBody"></textarea>
             </div>
             
-            <button type="submit" id="beer-submit-button" style="border: 0; background: transparent"  v-on:click.prevent="resetForm" value="Save">
+            <button type="submit" id="beer-submit-button" style="border: 0; background: transparent" value="Save">
                 <img src="@/images/editedbutton.gif" width="55" height="65" alt="Submit review" />
                <div class="submit-review-text">Submit Review</div>
                </button>     
@@ -44,7 +48,7 @@
                </button>  
         </form> 
         <button id="delete-beer-button" v-on:click="showImage = !showImage">Brewer Options</button>
-        <div v-if="showImage===true">
+        <div id="delete-button" v-if="showImage===true">
         <delete-a-beer />
         </div>
     </div>
@@ -135,6 +139,8 @@ export default {
     "reviewHeader reviewHeader"
     "form from"
     "form2 form2"
+    "deleteBeerButton deleteBeerButton"
+    "deleteBeer deleteBeer"
     
 }
 #b-r-h2{
@@ -153,6 +159,21 @@ export default {
     goldenrod,
     goldenrod,
     transparent);
+}
+#bar-beer-photo{
+  border-style: solid;
+  border-width:thick;
+  border-color: goldenrod;
+  border-radius: 25px;
+  background-color: goldenrod;
+  text-align: center;
+  object-fit:contain;
+  width:max-content;
+  width:400px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 .b-r-beer{
   margin: 10px;
@@ -188,7 +209,8 @@ export default {
   display: grid;
   background-color: goldenrod;
   color: black;
-  display: inline;
+  display: inline-block;
+  word-wrap: break-word;
   width: 100%;
   padding:5px;
   border-radius: 35px;
@@ -245,6 +267,7 @@ export default {
   padding: 25px;
   display: grid;
   grid-area: form2;
+  grid-template-columns: auto auto;
   grid-template-areas: 
     "rating rating"
     "review review"
@@ -277,6 +300,12 @@ export default {
   padding:5px;
   border-radius: 35px;
   display: grid;
+  grid-area: deleteBeerButton;
+}
+#delete-button{
+  display: grid;
+  grid-area: deleteBeer;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 800px) {
@@ -293,11 +322,6 @@ export default {
     margin-right: 10%;
     width: 60%;
   }
-  #b-r-body{
-  margin: 0;
-  background-image: url(../images/BreweryInfoPage.jpg);
-  height:100%;
-  width:100%;
-  }
+ 
 }
 </style>
