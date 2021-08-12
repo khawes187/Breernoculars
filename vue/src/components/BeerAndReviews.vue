@@ -164,6 +164,7 @@ export default {
   border-width:thick;
   border-color: goldenrod;
   border-radius: 25px;
+  background-color: goldenrod;
   text-align: center;
   object-fit:contain;
   width:max-content;
@@ -207,7 +208,8 @@ export default {
   display: grid;
   background-color: goldenrod;
   color: black;
-  display: inline;
+  display: inline-block;
+  word-wrap: break-word;
   width: 100%;
   padding:5px;
   border-radius: 35px;
