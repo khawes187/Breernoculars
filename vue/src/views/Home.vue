@@ -76,9 +76,6 @@ export default {
     transparent);
     grid-area: h1;
 }
-/* .background {
-  grid-area: backgroundPic;
-} */
 .backgroundimage {
   min-height: 100%;
   min-width: 1024px;
