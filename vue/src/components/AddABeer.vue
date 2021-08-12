@@ -73,7 +73,7 @@ export default {
                 window.location.reload();
             })
             
-        }
+        },
 
     }//closes methods
     
@@ -89,7 +89,7 @@ export default {
     text-align: center;
     margin-left: 10px;
     font-weight: bold;
-}
+ }
 .add-beer-text{
     color: black;
 }
