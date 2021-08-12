@@ -294,6 +294,7 @@ export default {
   border-width:thick;
   border-color: goldenrod;
   margin-left: 10px;  
+  width:400px;
   }
 #i-b-body{
   margin: 0;
