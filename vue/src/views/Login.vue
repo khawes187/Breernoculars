@@ -33,10 +33,9 @@
         v-model="user.password"
         required
       />
-      
-      <router-link :to="{ name: 'register' }" tag="button">Need an account?</router-link>
-      
-      <button type="submit">Sign in</button>
+      <br>
+      <button type="submit" class="button">Sign in</button>
+      <router-link :to="{ name: 'register' }" tag="button" class="button">Need an account?</router-link>
       </form>
   </div>
 </body>
@@ -110,7 +109,7 @@ export default {
   width:max-content;
   border-style: solid;
   border-width:thick;
-  border-color: goldenrod;
+  border-color: black;
   border-radius: 25px;
   background-color: goldenrod;
   padding: 5px;
@@ -152,7 +151,8 @@ input {
   grid-area: returnButton;
 }
 
-button {
+.button {
+  left: 50%;
   padding: 8px 32px;
   font-family: 'Open Sans', sans-serif;
   justify-content: center;
