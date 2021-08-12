@@ -65,8 +65,8 @@ export default {
                 Website: this.brewery.breweryWebsite,
                 DateEstablished: this.brewery.breweryDateEstablished,
                 History: this.brewery.breweryHistory,
-                Approved:this.breweryApproved,
-                BreweryUrl:this.breweryUrl
+                Approved:this.brewery.breweryApproved,
+                BreweryUrl:this.brewery.breweryUrl
                 };
                 BreweryService.addBrewery(newBrewery).then(response=> {
                 console.log(response); 
