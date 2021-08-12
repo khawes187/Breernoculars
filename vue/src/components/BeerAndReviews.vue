@@ -3,13 +3,13 @@
         <h2 id="b-r-h2">{{beer.beerName}}</h2>
         <div>
             <ul class="b-r-beer">
-                <li id ="b-r-style">Style:{{beer.beerType}}</li><br>
-                <li id ="b-r-abv">ABV:{{beer.abv}}</li><br>
-                <li id ="b-r-description">{{beer.beerDescription}}</li><br>
-                <li id ="b-r-seasonal">Seasonal? - {{beer.seasonal}}</li><br>
+                <li id ="b-r-style">Style:{{beer.beerType}}</li><br><br>
+                <li id ="b-r-abv">ABV:{{beer.abv}}</li><br><br>
+                <li id ="b-r-description">{{beer.beerDescription}}</li><br><br>
+                <li id ="b-r-seasonal">Seasonal? - {{beer.seasonal}}</li><br><br>
             </ul>
-            <ul class="b-r-userReviews" v-for="review in this.$store.state.reviews" v-bind:key="review.beerReviewId">
-                <p>User: {{review.userId}}</p>
+            <ul class="b-r-userReviews" id="b-r-reviewList" v-for="review in this.$store.state.reviews" v-bind:key="review.beerReviewId">
+                <p>User: {{currentUser.username}}</p>
                 <p>{{review.reviewBody}}</p>
             </ul>
         </div>
@@ -62,7 +62,7 @@ export default {
     methods: {    
         submitForm(){
             const newNewReview = {
-                userId: this.$store.state.user.userId,
+                userId: this.currentUser.userId,
                 beerId: parseInt(this.$route.params.beerId),
                 rating: parseInt(this.newReview.rating),
                 reviewBody: this.newReview.reviewBody
@@ -96,7 +96,10 @@ export default {
         },
         reviews(){ 
             return this.$store.state.reviews;
-        }
+        },
+        currentUser() {
+            return this.$store.state.user;
+        },
     }
 }    
 </script>
@@ -125,7 +128,7 @@ export default {
     transparent);
 }
 #b-r-generalInfo{
-  /* display: grid;  */
+  display: grid; 
   margin-left: 10px;
   width: 40%;
   padding-left: 50px;
