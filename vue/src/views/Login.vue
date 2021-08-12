@@ -104,9 +104,16 @@ export default {
 #login {
   display:flex;
   justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width:max-content;
+  border-style: solid;
+  border-width:thick;
+  border-color: goldenrod;
+  border-radius: 25px;
+  background-color: goldenrod;
+  padding: 5px;
   /* transform: translate(-50%, -50%); */
   
 }
@@ -115,6 +122,8 @@ h1 {
   font-family: 'Lobster', cursive;
   font-size: 84px;
   grid-area: h1;
+  text-align: center;
+  background-color: goldenrod;
 }
 
 .sr-only { /* Labels for username and password input boxes */
