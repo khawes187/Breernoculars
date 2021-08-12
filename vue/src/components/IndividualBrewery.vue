@@ -37,7 +37,8 @@
         <div
         id="i-b-beers"
         v-for="beer in beers"
-        v-bind:key="beer.beerBreweryId">  
+        v-bind:key="beer.beerBreweryId"
+        v-on:click="pushBeer(beer.beerId)">  
           <h2 id="i-b-beer-name">{{beer.beerName}}</h2>
           <img v-bind:src="beer.beerUrl" id="i-b-beer-photo" alt="beer list photo"><!--  moved out of a p -->
           <p id="i-b-beer-type">Type:&ensp;{{beer.beerType}}</p>
@@ -89,6 +90,9 @@ export default {
         this.$store.commit("SET_BEERS", response.data);
        this.isLoading = false;
     });
+    },
+     pushBeer(beerId) {
+      this.$router.push(`/brewery/${this.$route.params.breweryId}/${beerId}`);
     },
   },
   computed: {
