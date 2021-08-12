@@ -2,6 +2,9 @@
     <div id="b-r-body" content="width=device-width, initial-scale=1.0">
         <h2 id="b-r-h2">{{beer.beerName}}</h2>
         <div>
+          <div>
+            <img v-bind:src="beer.beerUrl" id="bar-beer-photo" alt="beer list photo">
+          </div>
             <ul class="b-r-beer">
                 <li id ="b-r-style">Style:&nbsp;{{beer.beerType}}</li><br><br>
                 <li id ="b-r-abv">ABV:&nbsp;{{beer.abv}}</li><br><br>
@@ -13,8 +16,8 @@
                 <p>{{review.reviewBody}}</p>
             </ul>
         </div>
-        <h3 id="b-r-submit">Submit a review for {{beer.beerName}}:</h3>
-        <a href="#" id="b-r-show-form" v-on:click.prevent="showForm = true" v-if="!showForm">Show Form</a>
+        <!-- <h3 id="b-r-submit">Submit a review for {{beer.beerName}}:</h3> -->
+        <a href="#" id="b-r-show-form" v-on:click.prevent="showForm = true" v-if="!showForm">Submit a review for {{beer.beerName}}</a>
         <form v-on:submit.prevent="submitForm" v-if="showForm === true" id="b-r-form-shown">
             <div id="form-element-rating">
                 <label for="rating" >Rating:</label>
@@ -155,6 +158,20 @@ export default {
     goldenrod,
     goldenrod,
     transparent);
+}
+#bar-beer-photo{
+  border-style: solid;
+  border-width:thick;
+  border-color: goldenrod;
+  border-radius: 25px;
+  text-align: center;
+  object-fit:contain;
+  width:max-content;
+  width:400px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 .b-r-beer{
   margin: 10px;

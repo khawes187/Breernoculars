@@ -10,7 +10,7 @@
       </router-link>
     </div>
 
-    <div class="addBeerButton">
+    <div class="addBreweryButton">
       <router-link v-bind:to="{ name: 'newBreweryForm' }">
       <button class="add" style="border: 0; background: transparent">
           <img src="@/images/editedbutton.gif" width="55" height="65" alt="Add a beer" />
@@ -83,27 +83,15 @@
 </template>
 
 <style scoped>
-/* .searchBar{
-  grid-area: searchBar;
-  border-color: black;
-  font-size: 17px;
-  align-items:left;
-  margin-top: 30px;
-}
-#searchSubmit{
-  cursor: pointer;
-  margin-top: 30px;
-  margin: 0;
-  padding: 4px;
-} */
+
  .menuButtons {
   justify-content:initial;
   /* border-radius: 25px;  */
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
   grid-template-rows: auto;
   grid-template-areas: 
-    "home addButton deleteButton loginOrOut";
+    "home addButton loginOrOut";
   text-align: center;
   
   background: repeating-conic-gradient(lightblue 0% 25%, white 0% 50%) 50% / 20px 20px;
@@ -117,7 +105,6 @@
 .add{
   grid-area: addButton;
   cursor: pointer;
-
 }
 .delete{
   grid-area: deleteButton;
@@ -126,12 +113,10 @@
 #loginOrOut {
   grid-area: loginOrOut;
   cursor: pointer;
-
 }
 .homeButton{
   grid-area: home;
   cursor: pointer;
-
 }
 .loginButton{
   cursor: pointer;
@@ -139,6 +124,19 @@
 .logoutButton{
   cursor: pointer;
 }
+/* .searchBar{
+  grid-area: searchBar;
+  border-color: black;
+  font-size: 17px;
+  align-items:left;
+  margin-top: 30px;
+}
+#searchSubmit{
+  cursor: pointer;
+  margin-top: 30px;
+  margin: 0;
+  padding: 4px;
+} */
 /* .divider{
     width:50px;
     height:auto;

@@ -64,7 +64,7 @@ const router = new Router({
       name: "IndividualBrewery",
       component: IndividualBrewery,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
