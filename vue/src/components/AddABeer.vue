@@ -1,6 +1,7 @@
 <template>
     <div id="create-beer-form">
         <form input type="text" v-on:submit.prevent="submitForm">
+            <h3 id="Add-Beer-name">Add A Beer</h3>
             <label for="beerName">Beer Name:</label><br>
             <input type="text" id="beerName" name="beerName" v-model="beer.beerName"><br>
             <br>
@@ -81,6 +82,12 @@ export default {
 </script>     
 
 <style>
+#Add-Beer-name{
+  border-style: solid;
+  border-width:thick;
+  border-color: black;
+  border-radius: 25px;
+}
 #create-beer-form{
     background-color: goldenrod;
     width: fit-content;
@@ -89,8 +96,12 @@ export default {
     text-align: center;
     margin-left: 10px;
     font-weight: bold;
+    display: table-cell;
+    height: auto;
  }
 .add-beer-text{
     color: black;
+    font-size: larger;
+    font-weight: bold;
 }
 </style>

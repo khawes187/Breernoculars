@@ -48,8 +48,9 @@
       </div>
       <button id="add-beer-button" v-on:click="showImage = !showImage">Brewer Options</button>
       <div v-if="showImage===true">
-        <add-a-beer /> 
-        <update-a-brewery />
+        <div id="brewer-options">
+        <add-a-beer /> <update-a-brewery />
+        </div>
       </div>
     </div> 
       </div>
@@ -115,6 +116,9 @@ export default {
   border-radius: 25px;
   font-weight: bold;
   margin-left: 10px;
+}
+.brewer-options {
+  display:table;
 }
 #i-b-h1{
   display: grid;
