@@ -3,10 +3,10 @@
         <h2 id="b-r-h2">{{beer.beerName}}</h2>
         <div>
             <ul class="b-r-beer">
-                <li id ="b-r-style">Style:{{beer.beerType}}</li><br><br>
-                <li id ="b-r-abv">ABV:{{beer.abv}}</li><br><br>
-                <li id ="b-r-description">{{beer.beerDescription}}</li><br><br>
-                <li id ="b-r-seasonal">Seasonal? - {{beer.seasonal}}</li><br><br>
+                <li id ="b-r-style">Style:&nbsp;{{beer.beerType}}</li><br><br>
+                <li id ="b-r-abv">ABV:&nbsp;{{beer.abv}}</li><br><br>
+                <li id ="b-r-description">Description:&nbsp;{{beer.beerDescription}}</li><br><br>
+                <li id ="b-r-seasonal">Seasonal? &nbsp; {{beer.seasonal}}</li><br><br>
             </ul>
             <ul class="b-r-userReviews" id="b-r-reviewList" v-for="review in this.$store.state.reviews" v-bind:key="review.beerReviewId">
                 <p>User: {{currentUser.username}}</p>
@@ -14,9 +14,9 @@
             </ul>
         </div>
         <h3 id="b-r-submit">Submit a review for {{beer.beerName}}:</h3>
-        <a href="#" v-on:click.prevent="showForm = true" v-if="!showForm">Show Form</a>
-        <form v-on:submit.prevent="submitForm" v-if="showForm === true">
-            <div class="form-element">
+        <a href="#" id="b-r-show-form" v-on:click.prevent="showForm = true" v-if="!showForm">Show Form</a>
+        <form v-on:submit.prevent="submitForm" v-if="showForm === true" id="b-r-form-shown">
+            <div id="form-element-rating">
                 <label for="rating" >Rating:</label>
                 <select id="rating" v-model="newReview.rating">
                     <option value="1">1 Bottles</option>
@@ -26,14 +26,26 @@
                     <option value="5">5 Bottles</option>
                 </select>
             </div>
-            <div class="form-element">
-
+            <br>
+            <div id="form-element-review">
+              
                 <label for="review">Review:</label>
                 <textarea id="review" type="text" v-model="newReview.reviewBody">                    </textarea>
             </div>
-            <input type="submit" value="Save"/>
-            <input type="button" value="Cancel" v-on:click.prevent="resetForm"/>
+            
+            <button type="submit" id="beer-submit-button" style="border: 0; background: transparent"  v-on:click.prevent="resetForm" value="Save">
+                <img src="@/images/editedbutton.gif" width="55" height="65" alt="Submit review" />
+               <div class="submit-review-text">Submit Review</div>
+               </button>     
+            <br>
+            <button type="submit" id="beer-cancel-button" style="border: 0; background: transparent"  v-on:click.prevent="resetForm" value="Cancel">
+                <img src="@/images/editedbutton.gif" width="55" height="65" alt="Submit review" />
+               <div class="Cancel">Cancel</div>
+               </button>  
         </form> 
+        <!-- <button>
+          KEVIN PUT THE BUTTON HERE
+        </button> -->
     </div>
 </template>
 
@@ -105,15 +117,26 @@ export default {
 </script>
 
 <style>
-#add-review-button{
-  background-color: goldenrod;
-  padding: 10px;
-  border-radius: 25px;
+#b-r-body{
+  margin: 0;
+  background-image: url(../images/BreweryInfoPage.jpg);
+  height:100%;
+  width:100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-areas: 
+    "beerName beerName"
+    "beerInfo beerInfo"
+    "reviewlist reviewlist"
+    "reviewHeader reviewHeader"
+    "form from"
+    "form2 form2"
+    
 }
 #b-r-h2{
   display: grid;
+  grid-area: beerName;
   text-align: center;
-  grid-area: breweryName;
   background-color: goldenrod;
   font-family: 'Lobster', cursive;
   font-size: 84px;
@@ -127,18 +150,17 @@ export default {
     goldenrod,
     transparent);
 }
-#b-r-generalInfo{
-  display: grid; 
-  margin-left: 10px;
-  width: 40%;
-  padding-left: 50px;
-  grid-area: generalInfo;
-  padding: 5px;
+.b-r-beer{
+  margin: 10px;
+  padding: 10px;
   border-radius: 25px;
   background-color: goldenrod;
   color: black;
-  display: inline;
+  width: 40%;
+  display: inline-block;
+  grid-area: beerInfo;
   text-align: center;
+
 }
 #b-r-style{
   display: grid;
@@ -147,8 +169,7 @@ export default {
   display: inline;
   width: 100%;
   padding:5px;
-  border-radius: 35px;;
-  grid-area: about;
+  border-radius: 35px;
 }
 #b-r-abv{
   display: grid;
@@ -157,8 +178,7 @@ export default {
   display: inline;
   width: 100%;
   padding:5px;
-  border-radius: 35px;;
-  grid-area: about;
+  border-radius: 35px;
 }
 #b-r-description{
   display: grid;
@@ -167,8 +187,7 @@ export default {
   display: inline;
   width: 100%;
   padding:5px;
-  border-radius: 35px;;
-  grid-area: about;
+  border-radius: 35px;
 }
 #b-r-seasonal{
   display: grid;
@@ -177,118 +196,75 @@ export default {
   display: inline;
   width: 100%;
   padding:5px;
-  border-radius: 35px;;
-  grid-area: about;
+  border-radius: 35px;
+}
+#b-r-reviewList{
+  margin: 10px;
+  background-color: goldenrod;
+  color: black;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 25px;
+  text-align: center;
+  width: 40%;
+  display: grid;
+  grid-area: reviewlist;
 }
 #b-r-submit{
-  display: grid;
+  width:max-content;
+  margin: 10px;
   background-color: goldenrod;
   color: black;
   display: inline;
-  width: 100%;
   padding:5px;
-  border-radius: 35px;;
-  grid-area: about;
-}
-#b-r-reviewList{
+  border-radius: 35px;
   display: grid;
-  background-color: goldenrod;
-  color: black;
-  display: inline-block;
-  padding: 10px;
-  border-radius: 25px;
-  text-align: center;
+  grid-area: reviewHeader;
 }
-#b-r-beers{
+#b-r-show-form{
   margin: 10px;
-  padding: 10px;
-  border-radius: 25px;
+  margin-top: -4px;
   background-color: goldenrod;
+  width:max-content;
+  padding:5px;
+  border-radius: 35px;
   color: black;
-  width: 40%;
-  /* display: inline-block; 
-  border-radius: 25px;
-  
-  margin: 0;
-  text-align: center;
- grid-template-columns: auto auto;
-   grid-template-areas: 
-    "name name"
-    "photo photo"
-    "type type"
-    "abv abv"
-    "description description"
-    "seasonal seasonal"; */
-} 
-#b-r-beer-name{ 
-  background-color: goldenrod;
-  color: black;
-  display: inline-block;
-  padding: 5px;
-  border-radius: 25px;
   display: grid;
-  grid-area: name;
-  text-align: center;
+  grid-area: form;
 }
-#b-r-beer-photo{
-  margin-left: 10%;
-  margin-right: 10%;
-  display: grid;
-  grid-area: photo;
-}
-#b-r-beer-type{
-  text-align: center;
-  display: grid;
-  grid-area: type;
-}
-#b-r-beer-abv{
-  text-align: center;
-  display: grid;
-  grid-area: abv;
-}
-#b-r-beer-description{
-  text-align: center;
-  
-  display: grid;
-  grid-area: description;
-}
-#b-r-beer-seasonal{
-  text-align: center;
-  display: grid;
-  grid-area: seasonal;
-}
-#b-r-breweryInfo{
+#b-r-form-shown{
   margin: 10px;
-  width:30%;
-  padding-left: 50px;
-  padding-top: 20px;
   background-color: goldenrod;
-  border-radius: 25px;
-  grid-area:breweryInfo;
+  width:max-content;
+  padding:5px;
+  border-radius: 35px;
+  padding: 25px;
+  display: grid;
+  grid-area: form2;
+  grid-template-areas: 
+    "rating rating"
+    "review review"
+    "submit cancel";
+}
+#form-element-rating{
+  text-align: center;
+  display: grid;
+  grid-area: rating;
+}
+#form-element-review{
+  text-align: center;
+  display: grid;
+  grid-area: review;
+}
+#beer-submit-button{
+  display: grid;
+  grid-area: submit;
+}
+#beer-cancel-button{
+  display: grid;
+  grid-area: cancel;
 }
 
-#b-r-brewery-photo {
-  display: grid;
-  grid-area: breweryPhoto;
-  justify-content: center;
-}
-#b-r-body{
-  margin: 0;
-  background-image: url(../images/BreweryInfoPage.jpg);
-  height:100%;
-  width:100%;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-areas: 
-    "b-r-h2" "b-r-h2"
-    "b-r-beerName" "b-r-beerName"
-    "b-r-style" "b-r-style"
-    "b-r-abv" "b-r-abv"
-    "b-r-description" "b-r-description"
-    "b-r-seasonal" "b-r-seasonal"
-    "b-r-review" "b-r-review"
-    "b-r-submit" "b-r-form-element"
-}
 @media screen and (max-width: 800px) {
   #b-r-breweryInfo, #b-r-beers{
     width: 90%;
