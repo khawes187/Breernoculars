@@ -13,6 +13,7 @@
             </ul>
             <ul class="b-r-userReviews" id="b-r-reviewList" v-for="review in this.$store.state.reviews" v-bind:key="review.beerReviewId">
                 <p>User: {{currentUser.username}}</p>
+                <p>Rating: {{review.rating}}</p>
                 <p>{{review.reviewBody}}</p>
             </ul>
         </div>
@@ -33,10 +34,10 @@
             <div id="form-element-review">
               
                 <label for="review">Review:</label>
-                <textarea id="review" type="text" v-model="newReview.reviewBody">                    </textarea>
+                <textarea id="review" type="text" v-model="newReview.reviewBody"></textarea>
             </div>
             
-            <button type="submit" id="beer-submit-button" style="border: 0; background: transparent"  v-on:click.prevent="resetForm" value="Save">
+            <button type="submit" id="beer-submit-button" style="border: 0; background: transparent" value="Save">
                 <img src="@/images/editedbutton.gif" width="55" height="65" alt="Submit review" />
                <div class="submit-review-text">Submit Review</div>
                </button>     
