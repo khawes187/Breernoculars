@@ -10,7 +10,7 @@
       </router-link>
     </div>
 
-    <div class="addBreweryButton">
+    <!--<div class="addBreweryButton">
       <router-link v-bind:to="{ name: 'newBreweryForm' }">
       <button class="add" style="border: 0; background: transparent">
           <img src="@/images/editedbutton.gif" width="55" height="65" alt="Add a beer" />
@@ -18,7 +18,7 @@
       </button>
       </router-link>
     
-    </div>
+    </div>-->
     <!--<div class="deleteBeerButton">
       <button class="delete" style="border: 0; background: transparent">
         <img src="@/images/editedbutton.gif" width="55" height="65" alt="Delete a beer" />
@@ -88,10 +88,10 @@
   justify-content:initial;
   /* border-radius: 25px;  */
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
   grid-template-rows: auto;
   grid-template-areas: 
-    "home addButton loginOrOut";
+    "home loginOrOut";
   text-align: center;
   
   background: repeating-conic-gradient(lightblue 0% 25%, white 0% 50%) 50% / 20px 20px;
