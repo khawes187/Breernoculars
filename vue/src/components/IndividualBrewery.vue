@@ -214,6 +214,7 @@ export default {
   text-align: center;
 }
 #i-b-beers{
+  cursor: pointer;
   margin: 10px;
   padding: 10px;
   border-radius: 25px;
