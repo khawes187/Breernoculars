@@ -132,7 +132,6 @@ export default {
     transparent);
 }
 #i-b-generalInfo{
-  /* display: grid;  */
   margin-left: 10px;
   width: 40%;
   padding-left: 50px;
@@ -164,7 +163,6 @@ export default {
   grid-area: webside;
 }
 #i-b-address{
-  /* display: grid; */
   background-color: goldenrod;
   color: black;
   display: inline-block;
@@ -222,17 +220,6 @@ export default {
   background-color: goldenrod;
   color: black;
   width: 40%;
-  
-  /* display: inline-block; 
-  text-align: center;
- grid-template-columns: auto auto;
-   grid-template-areas: 
-    "name name"
-    "photo photo"
-    "type type"
-    "abv abv"
-    "description description"
-    "seasonal seasonal"; */
 } 
 #i-b-beer-name{ 
   background-color: goldenrod;
@@ -250,10 +237,8 @@ export default {
   width: 400px;
   height: 200px;
   display: block;
-    margin-left: auto;
-    margin-right: auto
-  /* display: grid;
-  grid-area: photo; */
+  margin-left: auto;
+  margin-right: auto
 }
 #i-b-beer-type{
   text-align: center;
@@ -297,13 +282,7 @@ export default {
   background-color: goldenrod;
   padding: 10px;
 }
-/* #i-b-photo-holder span {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: goldenrod;
-} */
+
 #i-b-brewery-photo {
   border-radius: 25px;
   object-fit:inherit;
