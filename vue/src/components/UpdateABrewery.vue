@@ -1,6 +1,7 @@
 <template>
     <div id="update-brewery-form">
         <form v-on:submit.prevent="submitForm">
+            <h3 id="update-brewery-name">Update Brewery</h3>
             <label for="breweryName">Brewery Name:</label><br>
             <input type="text" id="breweryName" name="breweryName" v-model="brewery.breweryName" size="40"><br>
             <br>
@@ -81,16 +82,23 @@ export default {
 </script>     
 
 <style>
+#update-brewery-name{
+  border-style: solid;
+  border-width:thick;
+  border-color: black;
+  border-radius: 25px;
+}
 #update-brewery-form{
     background-color: goldenrod;
-    width: 100;
+    width: fit-content;
     padding: 10px;
     border-radius: 25px;
     text-align: center;
     margin-left: 10px;
     font-weight: bold;
-    font-size: larger;
-}
+    display: table-cell;
+    height: auto;
+ }
 .brewery-update-button{
     color: black;
 }
