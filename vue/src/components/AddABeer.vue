@@ -18,7 +18,7 @@
             <input type="text" id="beerDescription" name="beerDescription" v-model="beer.beerDescription"><br>
             <br>
             <label for="beerSeasonal">Is It Seasonal? (yes/no):</label><br>
-            <input type="text" id="beerSeasonal" name="beerSeasonal" v-model="beer.beerSeasonal"><br>
+            <input type="text" id="beerSeasonal" name="beerSeasonal" v-model="beer.Seasonal"><br>
             <br>
             <button type="submit" id="beer-submit-button" style="border: 0; background: transparent">
                 <img src="@/images/editedbutton.gif" width="55" height="65" alt="add beer" />
