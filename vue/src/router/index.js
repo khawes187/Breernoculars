@@ -11,6 +11,7 @@ import NewBreweryForm from '../views/NewBreweryForm'
 import BeerAndReviews from '../components/BeerAndReviews'
 import AddABeer from "../components/AddABeer"
 import DeleteABeer from "../components/DeleteABeer"
+import UpdateABrewery from "../components/UpdateABrewery"
 
 Vue.use(Router)
 
@@ -64,7 +65,7 @@ const router = new Router({
       name: "IndividualBrewery",
       component: IndividualBrewery,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -103,6 +104,14 @@ const router = new Router({
       path: "/beer/:beerId",
       name: "DeleteABeer",
       component: DeleteABeer,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/updateABrewery",
+      name: "UpdateABrewery",
+      component: UpdateABrewery,
       meta: {
         requiresAuth: false
       }

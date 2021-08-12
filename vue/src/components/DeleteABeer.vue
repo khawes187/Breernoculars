@@ -24,7 +24,7 @@ export default {
 
             AddBeerService.deleteBeer(parseInt(this.$route.params.beerId)).then(response=> {
                 console.log(response);
-                this.$router.push('/');
+                this.$router.push(`/brewery/${this.$route.params.breweryId}`);
                 window.location.reload();             
             })
             
