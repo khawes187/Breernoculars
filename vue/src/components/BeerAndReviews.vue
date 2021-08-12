@@ -44,7 +44,7 @@
                </button>  
         </form> 
         <button id="delete-beer-button" v-on:click="showImage = !showImage">Brewer Options</button>
-        <div v-if="showImage===true">
+        <div id="delete-button" v-if="showImage===true">
         <delete-a-beer />
         </div>
     </div>
@@ -135,6 +135,8 @@ export default {
     "reviewHeader reviewHeader"
     "form from"
     "form2 form2"
+    "deleteBeerButton deleteBeerButton"
+    "deleteBeer deleteBeer"
     
 }
 #b-r-h2{
@@ -245,6 +247,7 @@ export default {
   padding: 25px;
   display: grid;
   grid-area: form2;
+  grid-template-columns: auto auto;
   grid-template-areas: 
     "rating rating"
     "review review"
@@ -277,6 +280,12 @@ export default {
   padding:5px;
   border-radius: 35px;
   display: grid;
+  grid-area: deleteBeerButton;
+}
+#delete-button{
+  display: grid;
+  grid-area: deleteBeer;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 800px) {
@@ -293,11 +302,6 @@ export default {
     margin-right: 10%;
     width: 60%;
   }
-  #b-r-body{
-  margin: 0;
-  background-image: url(../images/BreweryInfoPage.jpg);
-  height:100%;
-  width:100%;
-  }
+ 
 }
 </style>
