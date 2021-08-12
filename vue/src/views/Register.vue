@@ -1,7 +1,7 @@
 <template>
 <body class="body" content="width=device-width, initial-scale=1.0">
   <div id="imageAndText">
-  <!-- <img class="backgroundimage" src="../images/registerpage.jpg" width="100%" height="100%" alt="Beer pouring from a tap"> -->
+  <img class="backgroundimage" src="../images/registerpage.jpg" width="100%" height="100%" alt="Beer pouring from a tap">
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -133,54 +133,39 @@ export default {
 </script>
 
 <style scoped>
-#imageAndText{
-  align-content: center;
-  /* position:relative; */
-}
-.backgroundimage {
+
+.backgroundimage{
+  margin: 0;
   min-height: 100%;
   min-width: 1024px;
   width:100%;
   height: auto;
-  position:relative;
+  position: fixed;
   top: 0;
   left: 0;
-  opacity: 0.9;
+  opacity: 0.8;
   z-index: -1;
-  border-style: groove;
-  border-radius: 25px;
-  border-color: black;
-  margin: 0;
-  padding: 0;
 }
 
 #register.text-center {
-  margin-left: 500px;
-  /* margin-right: 40px;
-   */display: grid;
-  position: relative;
-  /* top: 50%;
-  left: 60%; */
-  padding: 15px;
-  background: burlywood;
-  border-radius: 25px;
+  display:flex;
+  justify-content: center;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width:max-content;
+  border-style: solid;
+  border-width:thick;
   border-color: black;
-  border-style: groove;
- /*  transform: translate(-50%, -50%); */
-  grid-template-columns: auto auto;
-  grid-template-areas: 
-    "createAccount createAccount"
-    "loginName loginName"
-    "passwordInput passwordInput"
-    "brewLover brewer"
-    "button button";
+  border-radius: 25px;
+  background-color: goldenrod;
+  padding: 5px;
 }
  
 h1 {
   font-family: 'Lobster', cursive;
   font-size: 84px;
   grid-area: createAccount;
-  /* display: inline; taking this our makes the text centered*/
 }
 
 label.sr-only-un {
@@ -258,41 +243,17 @@ label.brewer{
   grid-area: brewer;
 }
  button {
-  border-radius: 25px;
+  border-style: solid;
+  border-width:thick;
   border-color: black;
-  border-style: groove;
-  text-align:center; 
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content:center;
-  vertical-align: top;
-  width: 100%;
+  border-radius: 25px;
+  background-color: goldenrod;
   padding: 10px;
-  font-family: 'Open Sans', sans-serif;  
-  grid-area: button;
-  position: absolute;
-  /* margin: 0;
-  
-  top: -325%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); */
-} 
+  border-radius: 25px;
+  font-weight: bold;
+  width: 100%;
+ } 
 
-/* input:active {
-  width: auto;
-}
-
-input:focus {
-  min-width: 200px
-} */
-.body {
-    margin: 0;
-    background-image: url(../images/registerpage.jpg);
-    height:100%;
-    width:100%;
-}
 @media screen and (max-width: 450px) {
   .template {
     grid-template-areas: 
