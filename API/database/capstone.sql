@@ -130,8 +130,7 @@ Look is a nice bright yellow.
 Smell is floral with the hops also present.
 Taste is a bit bitter, but not too bad.
 Feel is nice, a bit biting but refreshing.
-Overall it’s not too shabby.'),
-(1, 1010, 3.6, 'Nice dark amber color...not much nose .... There''s something I don''t quite like in the feel ... Too thin? Not sour enough for a sour? Not a bad brew but not my fave')
+Overall it’s not too shabby.')
 
 SELECT * FROM dbo.Brewery
 
