@@ -112,7 +112,7 @@ export default {
   border-color: black;
   border-radius: 25px;
   background-color: goldenrod;
-  padding: 5px;
+  padding: 15px;
   /* transform: translate(-50%, -50%); */
   
 }
@@ -161,9 +161,7 @@ input {
   display: block; 
   grid-area: button; 
 }
-.body {
-    margin: 0;
-}
+
 
 @media screen and (max-width: 450px) {
   .template {
