@@ -280,13 +280,14 @@ export default {
   display: grid;
   grid-template-columns: auto auto;
   grid-template-areas: 
-    "breweryName breweryName"
-    "breweryPhoto breweryPhoto"
-    "generalInfo generalInfo"
-    "address website"
-    "address phone"
-    "about about"
-    "date date"
+    "b-r-h2" "b-r-h2"
+    "b-r-beerName" "b-r-beerName"
+    "b-r-style" "b-r-style"
+    "b-r-abv" "b-r-abv"
+    "b-r-description" "b-r-description"
+    "b-r-seasonal" "b-r-seasonal"
+    "b-r-review" "b-r-review"
+    "b-r-submit" "b-r-form-element"
 }
 @media screen and (max-width: 800px) {
   #b-r-breweryInfo, #b-r-beers{
