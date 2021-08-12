@@ -20,7 +20,7 @@
             <textarea id="breweryHistory" name="breweryHistory" v-model="brewery.breweryHistory" rows="4" cols="40"></textarea><br>
             <br>
             <label for="breweryUrl">Brewery Image URL:</label><br>
-            <input type="text" id="breweryUrl" name="breweryUrl" v-model="brewery.breweryUrl"><br>
+            <input type="text" id="breweryUrl" name="breweryUrl" v-model="brewery.breweryUrl" size="40"><br>
             <br>
             <button type="submit" id="beer-submit-button" style="border: 0; background: transparent">
                 <img src="@/images/editedbutton.gif" width="55" height="65" alt="add brewery" />
