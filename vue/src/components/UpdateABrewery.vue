@@ -51,11 +51,11 @@ export default {
                 BreweryId:parseInt(this.$route.params.breweryId),
                 BreweryName:this.brewery.breweryName,
                 BreweryAddress: this.brewery.breweryAddress,
-                PhoneNumber: this.brewery.breweryPhoneNumber,
-                Website: this.brewery.breweryWebsite,
-                DateEstablished: this.brewery.breweryDateEstablished,
-                History: this.brewery.breweryHistory,
-                Approved:this.brewery.breweryApproved,
+                PhoneNumber: this.brewery.phoneNumber,
+                Website: this.brewery.website,
+                DateEstablished: this.brewery.dateEstablished,
+                History: this.brewery.history,
+                Approved:this.brewery.approved,
                 BreweryUrl:this.brewery.breweryUrl
                 };
                 BreweryService.updateBrewery(updatedBrewery,this.$route.params.breweryId).then(response=> {
